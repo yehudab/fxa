@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Duration","A duration type represented in milliseconds, for compatibility with the rest of the FxA ecosystem."]]});

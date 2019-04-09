@@ -1,0 +1,2491 @@
+{
+    "project": {
+        "name": "fxa-js-client",
+        "description": "Web client that talks to the Firefox Accounts API server",
+        "version": "1.0.8"
+    },
+    "files": {
+        "client/lib/credentials.js": {
+            "name": "client/lib/credentials.js",
+            "modules": {},
+            "classes": {
+                "credentials": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "client/lib/hawkCredentials.js": {
+            "name": "client/lib/hawkCredentials.js",
+            "modules": {},
+            "classes": {
+                "hawkCredentials": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "client/lib/hkdf.js": {
+            "name": "client/lib/hkdf.js",
+            "modules": {},
+            "classes": {
+                "hkdf": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "client/lib/pbkdf2.js": {
+            "name": "client/lib/pbkdf2.js",
+            "modules": {},
+            "classes": {
+                "pbkdf2": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "client/lib/request.js": {
+            "name": "client/lib/request.js",
+            "modules": {},
+            "classes": {
+                "Request": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "client/FxAccountClient.js": {
+            "name": "client/FxAccountClient.js",
+            "modules": {},
+            "classes": {
+                "FxAccountClient": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "credentials": {
+            "name": "credentials",
+            "shortname": "credentials",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "client/lib/credentials.js",
+            "line": 40,
+            "is_constructor": 1
+        },
+        "hawkCredentials": {
+            "name": "hawkCredentials",
+            "shortname": "hawkCredentials",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "client/lib/hawkCredentials.js",
+            "line": 11,
+            "itemtype": "method",
+            "params": [
+                {
+                    "name": "tokenHex",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "context",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "size",
+                    "description": "",
+                    "type": "Int"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            }
+        },
+        "hkdf": {
+            "name": "hkdf",
+            "shortname": "hkdf",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "client/lib/hkdf.js",
+            "line": 7,
+            "description": "hkdf - The HMAC-based Key Derivation Function\nbased on https://github.com/mozilla/node-hkdf",
+            "params": [
+                {
+                    "name": "ikm",
+                    "description": "Initial keying material",
+                    "type": "BitArray"
+                },
+                {
+                    "name": "info",
+                    "description": "Key derivation data",
+                    "type": "BitArray"
+                },
+                {
+                    "name": "salt",
+                    "description": "Salt",
+                    "type": "BitArray"
+                },
+                {
+                    "name": "length",
+                    "description": "Length of the derived key in bytes",
+                    "type": "Integer"
+                }
+            ],
+            "return": {
+                "description": "promise object- It will resolve with `output` data"
+            }
+        },
+        "pbkdf2": {
+            "name": "pbkdf2",
+            "shortname": "pbkdf2",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "client/lib/pbkdf2.js",
+            "line": 7,
+            "is_constructor": 1
+        },
+        "Request": {
+            "name": "Request",
+            "shortname": "Request",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "client/lib/request.js",
+            "line": 8,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "baseUri",
+                    "description": "Base URI",
+                    "type": "String"
+                },
+                {
+                    "name": "xhr",
+                    "description": "XMLHttpRequest constructor",
+                    "type": "Object"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "localtimeOffsetMsec",
+                            "description": "\n  Local time offset with the remote auth server's clock",
+                            "type": "Number",
+                            "optional": true
+                        }
+                    ]
+                }
+            ]
+        },
+        "FxAccountClient": {
+            "name": "FxAccountClient",
+            "shortname": "FxAccountClient",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "client/FxAccountClient.js",
+            "line": 47,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "uri",
+                    "description": "Auth Server URI",
+                    "type": "String"
+                },
+                {
+                    "name": "config",
+                    "description": "Configuration",
+                    "type": "Object"
+                }
+            ]
+        }
+    },
+    "classitems": [
+        {
+            "file": "client/lib/credentials.js",
+            "line": 15,
+            "description": "Key Wrapping with a name",
+            "itemtype": "method",
+            "name": "kw",
+            "static": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The name of the salt",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "the salt combination with the namespace",
+                "type": "BitArray"
+            },
+            "class": "credentials"
+        },
+        {
+            "file": "client/lib/credentials.js",
+            "line": 27,
+            "description": "Key Wrapping with a name and an email",
+            "itemtype": "method",
+            "name": "kwe",
+            "static": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The name of the salt",
+                    "type": "String"
+                },
+                {
+                    "name": "email",
+                    "description": "The email of the user.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "the salt combination with the namespace",
+                "type": "BitArray"
+            },
+            "class": "credentials"
+        },
+        {
+            "file": "client/lib/credentials.js",
+            "line": 45,
+            "description": "Setup credentials",
+            "itemtype": "method",
+            "name": "setup",
+            "params": [
+                {
+                    "name": "emailInput",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "passwordInput",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with `result` of generated credentials",
+                "type": "Promise"
+            },
+            "class": "credentials"
+        },
+        {
+            "file": "client/lib/credentials.js",
+            "line": 83,
+            "description": "Wrap",
+            "itemtype": "method",
+            "name": "wrap",
+            "params": [
+                {
+                    "name": "bitArray1",
+                    "description": "",
+                    "type": "BitArray"
+                },
+                {
+                    "name": "bitArray2",
+                    "description": "",
+                    "type": "BitArray"
+                }
+            ],
+            "return": {
+                "description": "wrap result of the two bitArrays",
+                "type": "BitArray"
+            },
+            "class": "credentials"
+        },
+        {
+            "file": "client/lib/credentials.js",
+            "line": 100,
+            "description": "Unbundle the WrapKB",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "Bundle Key in hex",
+                    "type": "String"
+                },
+                {
+                    "name": "bundle",
+                    "description": "Key bundle in hex",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "*"
+            },
+            "class": "credentials"
+        },
+        {
+            "file": "client/lib/credentials.js",
+            "line": 131,
+            "description": "Derive the HMAC and XOR keys required to encrypt a given size of payload.",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "Hex Bundle Key",
+                    "type": "String"
+                },
+                {
+                    "name": "keyInfo",
+                    "description": "Bundle Key Info",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "hmacKey, xorKey",
+                "type": "Object"
+            },
+            "class": "credentials"
+        },
+        {
+            "file": "client/lib/pbkdf2.js",
+            "line": 12,
+            "itemtype": "method",
+            "name": "derive",
+            "params": [
+                {
+                    "name": "input",
+                    "description": "The password hex buffer.",
+                    "type": "BitArray"
+                },
+                {
+                    "name": "salt",
+                    "description": "The salt string buffer.",
+                    "type": "BitArray"
+                }
+            ],
+            "return": {
+                "description": "iterations the derived key bit array.",
+                "type": "Int"
+            },
+            "class": "pbkdf2"
+        },
+        {
+            "file": "client/lib/request.js",
+            "line": 27,
+            "itemtype": "method",
+            "name": "send",
+            "params": [
+                {
+                    "name": "path",
+                    "description": "Request path",
+                    "type": "String"
+                },
+                {
+                    "name": "method",
+                    "description": "HTTP Method",
+                    "type": "String"
+                },
+                {
+                    "name": "credentials",
+                    "description": "HAWK Headers",
+                    "type": "Object"
+                },
+                {
+                    "name": "jsonPayload",
+                    "description": "JSON Payload",
+                    "type": "Object"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "retrying",
+                            "description": "\n  Flag indicating if the request is a retry",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "headers",
+                            "description": "\n  A set of extra headers to add to the request",
+                            "type": "Array",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "Request"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 80,
+            "itemtype": "method",
+            "name": "signUp",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "Email input",
+                    "type": "String"
+                },
+                {
+                    "name": "password",
+                    "description": "Password input",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "keys",
+                            "description": "\n  If `true`, calls the API with `?keys=true` to get the keyFetchToken",
+                            "type": "Boolean",
+                            "optional": true
+                        },
+                        {
+                            "name": "service",
+                            "description": "\n  Opaque alphanumeric token to be included in verification links",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "redirectTo",
+                            "description": "\n  a URL that the client should be redirected to after handling the request",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "preVerified",
+                            "description": "\n  set email to be verified if possible",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "resume",
+                            "description": "\n  Opaque url-encoded string that will be included in the verification link\n  as a querystring parameter, useful for continuing an OAuth flow for\n  example.",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "lang",
+                            "description": "\n  set the language for the 'Accept-Language' header",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "metricsContext",
+                            "description": "Metrics context metadata",
+                            "type": "Object",
+                            "optional": true,
+                            "optdefault": "{}",
+                            "props": [
+                                {
+                                    "name": "deviceId",
+                                    "description": "identifier for the current device",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "flowId",
+                                    "description": "identifier for the current event flow",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "flowBeginTime",
+                                    "description": "flow.begin event time",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmCampaign",
+                                    "description": "marketing campaign identifier",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmContent",
+                                    "description": "content identifier",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmMedium",
+                                    "description": "acquisition medium",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmSource",
+                                    "description": "traffic source",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmTerm",
+                                    "description": "search terms",
+                                    "type": "Number"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 176,
+            "itemtype": "method",
+            "name": "signIn",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "Email input",
+                    "type": "String"
+                },
+                {
+                    "name": "password",
+                    "description": "Password input",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "keys",
+                            "description": "\n  If `true`, calls the API with `?keys=true` to get the keyFetchToken",
+                            "type": "Boolean",
+                            "optional": true
+                        },
+                        {
+                            "name": "skipCaseError",
+                            "description": "\n  If `true`, the request will skip the incorrect case error",
+                            "type": "Boolean",
+                            "optional": true
+                        },
+                        {
+                            "name": "service",
+                            "description": "\n  Service being signed into",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "reason",
+                            "description": "\n  Reason for sign in. Can be one of: `signin`, `password_check`,\n  `password_change`, `password_reset`",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "redirectTo",
+                            "description": "\n  a URL that the client should be redirected to after handling the request",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "resume",
+                            "description": "\n  Opaque url-encoded string that will be included in the verification link\n  as a querystring parameter, useful for continuing an OAuth flow for\n  example.",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "originalLoginEmail",
+                            "description": "\n  If retrying after an \"incorrect email case\" error, this specifies\n  the email address as originally entered by the user.",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "verificationMethod",
+                            "description": "\n  Request a specific verification method be used for verifying the session,\n  e.g. 'email-2fa' or 'totp-2fa'.",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "metricsContext",
+                            "description": "Metrics context metadata",
+                            "type": "Object",
+                            "optional": true,
+                            "optdefault": "{}",
+                            "props": [
+                                {
+                                    "name": "deviceId",
+                                    "description": "identifier for the current device",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "flowId",
+                                    "description": "identifier for the current event flow",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "flowBeginTime",
+                                    "description": "flow.begin event time",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmCampaign",
+                                    "description": "marketing campaign identifier",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmContent",
+                                    "description": "content identifier",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmMedium",
+                                    "description": "acquisition medium",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmSource",
+                                    "description": "traffic source",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmTerm",
+                                    "description": "search terms",
+                                    "type": "Number"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "unblockCode",
+                            "description": "\n  Login unblock code.",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 294,
+            "itemtype": "method",
+            "name": "verifyCode",
+            "params": [
+                {
+                    "name": "uid",
+                    "description": "Account ID",
+                    "type": "String"
+                },
+                {
+                    "name": "code",
+                    "description": "Verification code",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "service",
+                            "description": "\n  Service being signed into",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "reminder",
+                            "description": "\n  Reminder that was used to verify the account",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "type",
+                            "description": "\n  Type of code being verified, only supports `secondary` otherwise will verify account/sign-in",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "marketingOptIn",
+                            "description": "\n  If `true`, notifies marketing of opt-in intent.",
+                            "type": "Boolean",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 365,
+            "itemtype": "method",
+            "name": "recoveryEmailStatus",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "sessionToken obtained from signIn",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 384,
+            "description": "Re-sends a verification code to the account's recovery email address.",
+            "itemtype": "method",
+            "name": "recoveryEmailResendCode",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "sessionToken obtained from signIn",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "email",
+                            "description": "\n  Code will be resent to this email, only used for secondary email codes",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "service",
+                            "description": "\n  Opaque alphanumeric token to be included in verification links",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "redirectTo",
+                            "description": "\n  a URL that the client should be redirected to after handling the request",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "resume",
+                            "description": "\n  Opaque url-encoded string that will be included in the verification link\n  as a querystring parameter, useful for continuing an OAuth flow for\n  example.",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "type",
+                            "description": "\n  Specifies the type of code to send, currently only supported type is\n  `upgradeSession`.",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "lang",
+                            "description": "\n  set the language for the 'Accept-Language' header",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 451,
+            "description": "Used to ask the server to send a recovery code.\nThe API returns passwordForgotToken to the client.",
+            "itemtype": "method",
+            "name": "passwordForgotSendCode",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "service",
+                            "description": "\n  Opaque alphanumeric token to be included in verification links",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "redirectTo",
+                            "description": "\n  a URL that the client should be redirected to after handling the request",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "resume",
+                            "description": "\n  Opaque url-encoded string that will be included in the verification link\n  as a querystring parameter, useful for continuing an OAuth flow for\n  example.",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "lang",
+                            "description": "\n  set the language for the 'Accept-Language' header",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "metricsContext",
+                            "description": "Metrics context metadata",
+                            "type": "Object",
+                            "optional": true,
+                            "optdefault": "{}",
+                            "props": [
+                                {
+                                    "name": "deviceId",
+                                    "description": "identifier for the current device",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "flowId",
+                                    "description": "identifier for the current event flow",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "flowBeginTime",
+                                    "description": "flow.begin event time",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmCampaign",
+                                    "description": "marketing campaign identifier",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmContent",
+                                    "description": "content identifier",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmMedium",
+                                    "description": "acquisition medium",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmSource",
+                                    "description": "traffic source",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmTerm",
+                                    "description": "search terms",
+                                    "type": "Number"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 518,
+            "description": "Re-sends a verification code to the account's recovery email address.\nHAWK-authenticated with the passwordForgotToken.",
+            "itemtype": "method",
+            "name": "passwordForgotResendCode",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "passwordForgotToken",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "service",
+                            "description": "\n  Opaque alphanumeric token to be included in verification links",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "redirectTo",
+                            "description": "\n  a URL that the client should be redirected to after handling the request",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "resume",
+                            "description": "\n  Opaque url-encoded string that will be included in the verification link\n  as a querystring parameter, useful for continuing an OAuth flow for\n  example.",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "lang",
+                            "description": "\n  set the language for the 'Accept-Language' header",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 577,
+            "description": "Submits the verification token to the server.\nThe API returns accountResetToken to the client.\nHAWK-authenticated with the passwordForgotToken.",
+            "itemtype": "method",
+            "name": "passwordForgotVerifyCode",
+            "params": [
+                {
+                    "name": "code",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "passwordForgotToken",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "accountResetWithRecoveryKey",
+                            "description": "verifying code to be use in account recovery",
+                            "type": "Boolean",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 612,
+            "description": "Returns the status for the passwordForgotToken.\nIf the request returns a success response, the token has not yet been consumed.",
+            "itemtype": "method",
+            "name": "passwordForgotStatus",
+            "params": [
+                {
+                    "name": "passwordForgotToken",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 634,
+            "description": "The API returns reset result to the client.\nHAWK-authenticated with accountResetToken",
+            "itemtype": "method",
+            "name": "accountReset",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "newPassword",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "accountResetToken",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "keys",
+                            "description": "\n  If `true`, a new `keyFetchToken` is provisioned. `options.sessionToken`\n  is required if `options.keys` is true.",
+                            "type": "Boolean",
+                            "optional": true
+                        },
+                        {
+                            "name": "sessionToken",
+                            "description": "\n  If `true`, a new `sessionToken` is provisioned.",
+                            "type": "Boolean",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 705,
+            "description": "Get the base16 bundle of encrypted kA|wrapKb.",
+            "itemtype": "method",
+            "name": "accountKeys",
+            "params": [
+                {
+                    "name": "keyFetchToken",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "oldUnwrapBKey",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON of {kA, kB}  of the key bundle",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 746,
+            "description": "This deletes the account completely. All stored data is erased.",
+            "itemtype": "method",
+            "name": "accountDestroy",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "Email input",
+                    "type": "String"
+                },
+                {
+                    "name": "password",
+                    "description": "Password input",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "skipCaseError",
+                            "description": "\n  If `true`, the request will skip the incorrect case error",
+                            "type": "Boolean",
+                            "optional": true
+                        }
+                    ]
+                },
+                {
+                    "name": "sessionToken",
+                    "description": "User session token",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 803,
+            "description": "Gets the status of an account by uid.",
+            "itemtype": "method",
+            "name": "accountStatus",
+            "params": [
+                {
+                    "name": "uid",
+                    "description": "User account id",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 821,
+            "description": "Gets the status of an account by email.",
+            "itemtype": "method",
+            "name": "accountStatusByEmail",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "User account email",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 839,
+            "description": "Destroys this session, by invalidating the sessionToken.",
+            "itemtype": "method",
+            "name": "sessionDestroy",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "User session token",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "customSessionToken",
+                            "description": "Override which session token to destroy for this same user",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 868,
+            "description": "Responds successfully if the session status is valid, requires the sessionToken.",
+            "itemtype": "method",
+            "name": "sessionStatus",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "User session token",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 889,
+            "itemtype": "method",
+            "name": "sessionReauth",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "sessionToken obtained from signIn",
+                    "type": "String"
+                },
+                {
+                    "name": "email",
+                    "description": "Email input",
+                    "type": "String"
+                },
+                {
+                    "name": "password",
+                    "description": "Password input",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "keys",
+                            "description": "\n  If `true`, calls the API with `?keys=true` to get the keyFetchToken",
+                            "type": "Boolean",
+                            "optional": true
+                        },
+                        {
+                            "name": "skipCaseError",
+                            "description": "\n  If `true`, the request will skip the incorrect case error",
+                            "type": "Boolean",
+                            "optional": true
+                        },
+                        {
+                            "name": "service",
+                            "description": "\n  Service being accessed that needs reauthentication",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "reason",
+                            "description": "\n  Reason for reauthentication. Can be one of: `signin`, `password_check`,\n  `password_change`, `password_reset`",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "redirectTo",
+                            "description": "\n  a URL that the client should be redirected to after handling the request",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "resume",
+                            "description": "\n  Opaque url-encoded string that will be included in the verification link\n  as a querystring parameter, useful for continuing an OAuth flow for\n  example.",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "originalLoginEmail",
+                            "description": "\n  If retrying after an \"incorrect email case\" error, this specifies\n  the email address as originally entered by the user.",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "verificationMethod",
+                            "description": "\n  Request a specific verification method be used for verifying the session,\n  e.g. 'email-2fa' or 'totp-2fa'.",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "metricsContext",
+                            "description": "Metrics context metadata",
+                            "type": "Object",
+                            "optional": true,
+                            "optdefault": "{}",
+                            "props": [
+                                {
+                                    "name": "deviceId",
+                                    "description": "identifier for the current device",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "flowId",
+                                    "description": "identifier for the current event flow",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "flowBeginTime",
+                                    "description": "flow.begin event time",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmCampaign",
+                                    "description": "marketing campaign identifier",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmContent",
+                                    "description": "content identifier",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmMedium",
+                                    "description": "acquisition medium",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmSource",
+                                    "description": "traffic source",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmTerm",
+                                    "description": "search terms",
+                                    "type": "Number"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "unblockCode",
+                            "description": "\n  Login unblock code.",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1012,
+            "description": "Sign a BrowserID public key",
+            "itemtype": "method",
+            "name": "certificateSign",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "User session token",
+                    "type": "String"
+                },
+                {
+                    "name": "publicKey",
+                    "description": "The key to sign",
+                    "type": "Object"
+                },
+                {
+                    "name": "duration",
+                    "description": "Time interval from now when the certificate will expire in milliseconds",
+                    "type": "Int"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}"
+                },
+                {
+                    "name": "service",
+                    "description": "The requesting service, sent via the query string",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "''"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1050,
+            "description": "Change the password from one known value to another.",
+            "itemtype": "method",
+            "name": "passwordChange",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "oldPassword",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "newPassword",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "keys",
+                            "description": "\n  If `true`, calls the API with `?keys=true` to get a new keyFetchToken",
+                            "type": "Boolean",
+                            "optional": true
+                        },
+                        {
+                            "name": "sessionToken",
+                            "description": "\n  If a `sessionToken` is passed, a new sessionToken will be returned\n  with the same `verified` status as the existing sessionToken.",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1091,
+            "description": "First step to change the password.",
+            "itemtype": "method",
+            "name": "passwordChangeStart",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "oldPassword",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "skipCaseError",
+                            "description": "\n  If `true`, the request will skip the incorrect case error",
+                            "type": "Boolean",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON of `xhr.responseText` and `oldUnwrapBKey`",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1151,
+            "description": "Second step to change the password.",
+            "itemtype": "method",
+            "name": "_passwordChangeKeys",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "oldCreds",
+                    "description": "This object should consists of `oldUnwrapBKey`, `keyFetchToken` and `passwordChangeToken`.",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON of `xhr.responseText`",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1171,
+            "description": "Third step to change the password.",
+            "itemtype": "method",
+            "name": "_passwordChangeFinish",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "newPassword",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "oldCreds",
+                    "description": "This object should consists of `oldUnwrapBKey`, `keyFetchToken` and `passwordChangeToken`.",
+                    "type": "Object"
+                },
+                {
+                    "name": "keys",
+                    "description": "This object should contain the unbundled keys",
+                    "type": "Object"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "keys",
+                            "description": "\n  If `true`, calls the API with `?keys=true` to get the keyFetchToken",
+                            "type": "Boolean",
+                            "optional": true
+                        },
+                        {
+                            "name": "sessionToken",
+                            "description": "\n  If a `sessionToken` is passed, a new sessionToken will be returned\n  with the same `verified` status as the existing sessionToken.",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON of `xhr.responseText`",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1246,
+            "description": "Get 32 bytes of random data. This should be combined with locally-sourced entropy when creating salts, etc.",
+            "itemtype": "method",
+            "name": "getRandomBytes",
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1257,
+            "description": "Add a new device",
+            "itemtype": "method",
+            "name": "deviceRegister",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "User session token",
+                    "type": "String"
+                },
+                {
+                    "name": "deviceName",
+                    "description": "Name of device",
+                    "type": "String"
+                },
+                {
+                    "name": "deviceType",
+                    "description": "Type of device (mobile|desktop)",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "deviceCallback",
+                            "description": "Device's push endpoint.",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "devicePublicKey",
+                            "description": "Public key used to encrypt push messages.",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "deviceAuthKey",
+                            "description": "Authentication secret used to encrypt push messages.",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1301,
+            "description": "Update the name of an existing device",
+            "itemtype": "method",
+            "name": "deviceUpdate",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "User session token",
+                    "type": "String"
+                },
+                {
+                    "name": "deviceId",
+                    "description": "User-unique identifier of device",
+                    "type": "String"
+                },
+                {
+                    "name": "deviceName",
+                    "description": "Name of device",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "deviceCallback",
+                            "description": "Device's push endpoint.",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "devicePublicKey",
+                            "description": "Public key used to encrypt push messages.",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "deviceAuthKey",
+                            "description": "Authentication secret used to encrypt push messages.",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1345,
+            "description": "Unregister an existing device",
+            "itemtype": "method",
+            "name": "deviceDestroy",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "Session token obtained from signIn",
+                    "type": "String"
+                },
+                {
+                    "name": "deviceId",
+                    "description": "User-unique identifier of device",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1372,
+            "description": "Get a list of all devices for a user",
+            "itemtype": "method",
+            "name": "deviceList",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "sessionToken obtained from signIn",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1393,
+            "description": "Get a list of user's sessions",
+            "itemtype": "method",
+            "name": "sessions",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "sessionToken obtained from signIn",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1414,
+            "description": "Send an unblock code",
+            "itemtype": "method",
+            "name": "sendUnblockCode",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "email where to send the login authorization code",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "metricsContext",
+                            "description": "Metrics context metadata",
+                            "type": "Object",
+                            "optional": true,
+                            "optdefault": "{}",
+                            "props": [
+                                {
+                                    "name": "deviceId",
+                                    "description": "identifier for the current device",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "flowId",
+                                    "description": "identifier for the current event flow",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "flowBeginTime",
+                                    "description": "flow.begin event time",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmCampaign",
+                                    "description": "marketing campaign identifier",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmContent",
+                                    "description": "content identifier",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmMedium",
+                                    "description": "acquisition medium",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmSource",
+                                    "description": "traffic source",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmTerm",
+                                    "description": "search terms",
+                                    "type": "Number"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1450,
+            "description": "Reject a login unblock code. Code will be deleted from the server\nand will not be able to be used again.",
+            "itemtype": "method",
+            "name": "rejectLoginAuthorizationCode",
+            "params": [
+                {
+                    "name": "uid",
+                    "description": "Account ID",
+                    "type": "String"
+                },
+                {
+                    "name": "unblockCode",
+                    "description": "unblock code",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1476,
+            "description": "Send an sms.",
+            "itemtype": "method",
+            "name": "sendSms",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "SessionToken obtained from signIn",
+                    "type": "String"
+                },
+                {
+                    "name": "phoneNumber",
+                    "description": "Phone number sms will be sent to",
+                    "type": "String"
+                },
+                {
+                    "name": "messageId",
+                    "description": "Corresponding message id that will be sent",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "lang",
+                            "description": "Language that sms will be sent in",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "features",
+                            "description": "Array of features to be enabled for the request",
+                            "type": "Array",
+                            "optional": true
+                        },
+                        {
+                            "name": "metricsContext",
+                            "description": "Metrics context metadata",
+                            "type": "Object",
+                            "optional": true,
+                            "optdefault": "{}",
+                            "props": [
+                                {
+                                    "name": "deviceId",
+                                    "description": "identifier for the current device",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "flowId",
+                                    "description": "identifier for the current event flow",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "flowBeginTime",
+                                    "description": "flow.begin event time",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmCampaign",
+                                    "description": "marketing campaign identifier",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmContent",
+                                    "description": "content identifier",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmMedium",
+                                    "description": "acquisition medium",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmSource",
+                                    "description": "traffic source",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "utmTerm",
+                                    "description": "search terms",
+                                    "type": "Number"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1534,
+            "description": "Get SMS status for the current user.",
+            "itemtype": "method",
+            "name": "smsStatus",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "SessionToken obtained from signIn",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "country",
+                            "description": "country Country to force for testing.",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1561,
+            "description": "Consume a signinCode.",
+            "itemtype": "method",
+            "name": "consumeSigninCode",
+            "params": [
+                {
+                    "name": "code",
+                    "description": "The signinCode entered by the user",
+                    "type": "String"
+                },
+                {
+                    "name": "flowId",
+                    "description": "Identifier for the current event flow",
+                    "type": "String"
+                },
+                {
+                    "name": "flowBeginTime",
+                    "description": "Timestamp for the flow.begin event",
+                    "type": "Number"
+                },
+                {
+                    "name": "deviceId",
+                    "description": "Identifier for the current device",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1590,
+            "description": "Get the recovery emails associated with the signed in account.",
+            "itemtype": "method",
+            "name": "recoveryEmails",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "SessionToken obtained from signIn",
+                    "type": "String"
+                }
+            ],
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1610,
+            "description": "Create a new recovery email for the signed in account.",
+            "itemtype": "method",
+            "name": "recoveryEmailCreate",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "SessionToken obtained from signIn",
+                    "type": "String"
+                },
+                {
+                    "name": "email",
+                    "description": "new email to be added",
+                    "type": "String"
+                }
+            ],
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1636,
+            "description": "Remove the recovery email for the signed in account.",
+            "itemtype": "method",
+            "name": "recoveryEmailDestroy",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "SessionToken obtained from signIn",
+                    "type": "String"
+                },
+                {
+                    "name": "email",
+                    "description": "email to be removed",
+                    "type": "String"
+                }
+            ],
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1662,
+            "description": "Changes user's primary email address.",
+            "itemtype": "method",
+            "name": "recoveryEmailSetPrimaryEmail",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "SessionToken obtained from signIn",
+                    "type": "String"
+                },
+                {
+                    "name": "email",
+                    "description": "Email that will be the new primary email for user",
+                    "type": "String"
+                }
+            ],
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1685,
+            "description": "Creates a new TOTP token for the user associated with this session.",
+            "itemtype": "method",
+            "name": "createTotpToken",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "SessionToken obtained from signIn",
+                    "type": "String"
+                },
+                {
+                    "name": "options.metricsContext",
+                    "description": "Metrics context metadata",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}"
+                },
+                {
+                    "name": "options.metricsContext.deviceId",
+                    "description": "identifier for the current device",
+                    "type": "String"
+                },
+                {
+                    "name": "options.metricsContext.flowId",
+                    "description": "identifier for the current event flow",
+                    "type": "String"
+                },
+                {
+                    "name": "options.metricsContext.flowBeginTime",
+                    "description": "flow.begin event time",
+                    "type": "Number"
+                },
+                {
+                    "name": "options.metricsContext.utmCampaign",
+                    "description": "marketing campaign identifier",
+                    "type": "Number"
+                },
+                {
+                    "name": "options.metricsContext.utmContent",
+                    "description": "content identifier",
+                    "type": "Number"
+                },
+                {
+                    "name": "options.metricsContext.utmMedium",
+                    "description": "acquisition medium",
+                    "type": "Number"
+                },
+                {
+                    "name": "options.metricsContext.utmSource",
+                    "description": "traffic source",
+                    "type": "Number"
+                },
+                {
+                    "name": "options.metricsContext.utmTerm",
+                    "description": "search terms",
+                    "type": "Number"
+                }
+            ],
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1719,
+            "description": "Deletes this user's TOTP token.",
+            "itemtype": "method",
+            "name": "deleteTotpToken",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "SessionToken obtained from signIn",
+                    "type": "String"
+                }
+            ],
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1738,
+            "description": "Check to see if the current user has a TOTP token associated with\ntheir account.",
+            "itemtype": "method",
+            "name": "checkTotpTokenExists",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "SessionToken obtained from signIn",
+                    "type": "String"
+                }
+            ],
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1758,
+            "description": "Verify tokens if using a valid TOTP code.",
+            "itemtype": "method",
+            "name": "verifyTotpCode",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "SessionToken obtained from signIn",
+                    "type": "String"
+                },
+                {
+                    "name": "code",
+                    "description": "TOTP code to verif",
+                    "type": "String"
+                },
+                {
+                    "name": "options.service",
+                    "description": "Service being used",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1788,
+            "description": "Replace user's recovery codes.",
+            "itemtype": "method",
+            "name": "replaceRecoveryCodes",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "SessionToken obtained from signIn",
+                    "type": "String"
+                }
+            ],
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1808,
+            "description": "Consume recovery code.",
+            "itemtype": "method",
+            "name": "consumeRecoveryCode",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "SessionToken obtained from signIn",
+                    "type": "String"
+                },
+                {
+                    "name": "code",
+                    "description": "recovery code",
+                    "type": "String"
+                }
+            ],
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1833,
+            "description": "Creates a new recovery key for the account. The recovery key contains encrypted\ndata the corresponds the the accounts current `kB`. This data can be used during\nthe password reset process to avoid regenerating the `kB`.",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": ""
+                },
+                {
+                    "name": "recoveryKeyId",
+                    "description": "The recoveryKeyId that can be used to retrieve saved bundle"
+                },
+                {
+                    "name": "bundle",
+                    "description": "The encrypted recovery bundle to store"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with decoded recovery data (`kB`)",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1863,
+            "description": "Retrieves the encrypted recovery data that corresponds to the recovery key which\nthen gets decoded into the stored `kB`.",
+            "params": [
+                {
+                    "name": "accountResetToken",
+                    "description": ""
+                },
+                {
+                    "name": "recoveryKeyId",
+                    "description": "The recovery key id to retrieve encrypted bundle"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with decoded recovery data (`kB`)",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1885,
+            "description": "Reset a user's account using keys (kB) derived from a recovery key. This\nprocess can be used to maintain the account's original kB.",
+            "params": [
+                {
+                    "name": "accountResetToken",
+                    "description": "The account reset token"
+                },
+                {
+                    "name": "email",
+                    "description": "The current email of the account"
+                },
+                {
+                    "name": "newPassword",
+                    "description": "The new password of the account"
+                },
+                {
+                    "name": "recoveryKeyId",
+                    "description": "The recovery key id used for account recovery"
+                },
+                {
+                    "name": "keys",
+                    "description": "Keys used to create the new wrapKb"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "keys",
+                            "description": "\n  If `true`, a new `keyFetchToken` is provisioned. `options.sessionToken`\n  is required if `options.keys` is true.",
+                            "type": "Boolean",
+                            "optional": true
+                        },
+                        {
+                            "name": "sessionToken",
+                            "description": "\n  If `true`, a new `sessionToken` is provisioned.",
+                            "type": "Boolean",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with updated account data",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1959,
+            "description": "Deletes the recovery key associated with this user.",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": ""
+                }
+            ],
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 1977,
+            "description": "This checks to see if a recovery key exists for a user. This check\ncan be performed with either a sessionToken or an email.\n\nTypically, sessionToken is used when checking from within the `/settings`\nview. If it exists, we can give the user an option to revoke the key.\n\nChecking with an email is typically performed during the password reset\nflow. It is used to decide whether or not we can redirect a user to\nthe `Reset password with recovery key` page or regular password reset page.",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": ""
+                },
+                {
+                    "name": "email",
+                    "description": "User's email",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with whether or not account has recovery ket",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 2008,
+            "description": "Check for a required argument. Exposed for unit testing.",
+            "params": [
+                {
+                    "name": "val",
+                    "description": "- value to check",
+                    "type": "Value"
+                },
+                {
+                    "name": "name",
+                    "description": "- name of value",
+                    "type": "String"
+                }
+            ],
+            "throws": {
+                "description": "if argument is falsey, or an empty object",
+                "type": "Error"
+            },
+            "class": "FxAccountClient"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " client/lib/credentials.js:100"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " client/lib/credentials.js:131"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " client/lib/hawkCredentials.js:11"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " client/FxAccountClient.js:1833"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " client/FxAccountClient.js:1863"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " client/FxAccountClient.js:1885"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " client/FxAccountClient.js:1977"
+        },
+        {
+            "message": "Missing item type\nUnbundle the WrapKB",
+            "line": " client/lib/credentials.js:100"
+        },
+        {
+            "message": "Missing item type\nDerive the HMAC and XOR keys required to encrypt a given size of payload.",
+            "line": " client/lib/credentials.js:131"
+        },
+        {
+            "message": "Missing item type\nCreates a new recovery key for the account. The recovery key contains encrypted\ndata the corresponds the the accounts current `kB`. This data can be used during\nthe password reset process to avoid regenerating the `kB`.",
+            "line": " client/FxAccountClient.js:1833"
+        },
+        {
+            "message": "Missing item type\nRetrieves the encrypted recovery data that corresponds to the recovery key which\nthen gets decoded into the stored `kB`.",
+            "line": " client/FxAccountClient.js:1863"
+        },
+        {
+            "message": "Missing item type\nReset a user's account using keys (kB) derived from a recovery key. This\nprocess can be used to maintain the account's original kB.",
+            "line": " client/FxAccountClient.js:1885"
+        },
+        {
+            "message": "Missing item type\nDeletes the recovery key associated with this user.",
+            "line": " client/FxAccountClient.js:1959"
+        },
+        {
+            "message": "Missing item type\nThis checks to see if a recovery key exists for a user. This check\ncan be performed with either a sessionToken or an email.\n\nTypically, sessionToken is used when checking from within the `/settings`\nview. If it exists, we can give the user an option to revoke the key.\n\nChecking with an email is typically performed during the password reset\nflow. It is used to decide whether or not we can redirect a user to\nthe `Reset password with recovery key` page or regular password reset page.",
+            "line": " client/FxAccountClient.js:1977"
+        },
+        {
+            "message": "Missing item type\nCheck for a required argument. Exposed for unit testing.",
+            "line": " client/FxAccountClient.js:2008"
+        }
+    ]
+}
