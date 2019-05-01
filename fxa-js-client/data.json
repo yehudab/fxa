@@ -2,7 +2,7 @@
     "project": {
         "name": "fxa-js-client",
         "description": "Web client that talks to the Firefox Accounts API server",
-        "version": "1.0.8"
+        "version": "1.0.9"
     },
     "files": {
         "client/lib/credentials.js": {
