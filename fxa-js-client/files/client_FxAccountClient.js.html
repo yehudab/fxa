@@ -923,6 +923,27 @@ define([
   };
 
   /**
+   * Gets the account profile
+   *
+   * @method accountProfile
+   * @param {String} sessionToken User session token
+   * @return {Promise} A promise that will be fulfilled with JSON &#x60;xhr.responseText&#x60; of the request
+   */
+  FxAccountClient.prototype.accountProfile = function(sessionToken) {
+    var self = this;
+
+    return Promise.resolve()
+      .then(function () {
+        required(sessionToken, &#x27;sessionToken&#x27;);
+
+        return hawkCredentials(sessionToken, &#x27;sessionToken&#x27;,  HKDF_SIZE);
+      })
+      .then(function(creds) {
+        return self.request.send(&#x27;/account/profile&#x27;, &#x27;GET&#x27;, creds);
+      });
+  };
+
+  /**
    * Destroys this session, by invalidating the sessionToken.
    *
    * @method sessionDestroy

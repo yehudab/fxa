@@ -1200,6 +1200,25 @@
         {
             "file": "client/FxAccountClient.js",
             "line": 839,
+            "description": "Gets the account profile",
+            "itemtype": "method",
+            "name": "accountProfile",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "User session token",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with JSON `xhr.responseText` of the request",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 860,
             "description": "Destroys this session, by invalidating the sessionToken.",
             "itemtype": "method",
             "name": "sessionDestroy",
@@ -1233,7 +1252,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 868,
+            "line": 889,
             "description": "Responds successfully if the session status is valid, requires the sessionToken.",
             "itemtype": "method",
             "name": "sessionStatus",
@@ -1252,7 +1271,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 889,
+            "line": 910,
             "itemtype": "method",
             "name": "sessionReauth",
             "params": [
@@ -1392,7 +1411,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1012,
+            "line": 1033,
             "description": "Sign a BrowserID public key",
             "itemtype": "method",
             "name": "certificateSign",
@@ -1435,7 +1454,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1050,
+            "line": 1071,
             "description": "Change the password from one known value to another.",
             "itemtype": "method",
             "name": "passwordChange",
@@ -1485,7 +1504,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1091,
+            "line": 1112,
             "description": "First step to change the password.",
             "itemtype": "method",
             "name": "passwordChangeStart",
@@ -1526,7 +1545,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1151,
+            "line": 1172,
             "description": "Second step to change the password.",
             "itemtype": "method",
             "name": "_passwordChangeKeys",
@@ -1547,7 +1566,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1171,
+            "line": 1192,
             "description": "Third step to change the password.",
             "itemtype": "method",
             "name": "_passwordChangeFinish",
@@ -1604,7 +1623,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1246,
+            "line": 1267,
             "description": "Get 32 bytes of random data. This should be combined with locally-sourced entropy when creating salts, etc.",
             "itemtype": "method",
             "name": "getRandomBytes",
@@ -1616,7 +1635,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1257,
+            "line": 1278,
             "description": "Add a new device",
             "itemtype": "method",
             "name": "deviceRegister",
@@ -1672,7 +1691,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1301,
+            "line": 1322,
             "description": "Update the name of an existing device",
             "itemtype": "method",
             "name": "deviceUpdate",
@@ -1728,7 +1747,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1345,
+            "line": 1366,
             "description": "Unregister an existing device",
             "itemtype": "method",
             "name": "deviceDestroy",
@@ -1752,7 +1771,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1372,
+            "line": 1393,
             "description": "Get a list of all devices for a user",
             "itemtype": "method",
             "name": "deviceList",
@@ -1771,7 +1790,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1393,
+            "line": 1414,
             "description": "Get a list of user's sessions",
             "itemtype": "method",
             "name": "sessions",
@@ -1790,7 +1809,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1414,
+            "line": 1435,
             "description": "Send an unblock code",
             "itemtype": "method",
             "name": "sendUnblockCode",
@@ -1867,7 +1886,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1450,
+            "line": 1471,
             "description": "Reject a login unblock code. Code will be deleted from the server\nand will not be able to be used again.",
             "itemtype": "method",
             "name": "rejectLoginAuthorizationCode",
@@ -1891,7 +1910,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1476,
+            "line": 1497,
             "description": "Send an sms.",
             "itemtype": "method",
             "name": "sendSms",
@@ -1986,7 +2005,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1534,
+            "line": 1555,
             "description": "Get SMS status for the current user.",
             "itemtype": "method",
             "name": "smsStatus",
@@ -2016,7 +2035,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1561,
+            "line": 1582,
             "description": "Consume a signinCode.",
             "itemtype": "method",
             "name": "consumeSigninCode",
@@ -2047,7 +2066,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1590,
+            "line": 1611,
             "description": "Get the recovery emails associated with the signed in account.",
             "itemtype": "method",
             "name": "recoveryEmails",
@@ -2062,7 +2081,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1610,
+            "line": 1631,
             "description": "Create a new recovery email for the signed in account.",
             "itemtype": "method",
             "name": "recoveryEmailCreate",
@@ -2082,7 +2101,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1636,
+            "line": 1657,
             "description": "Remove the recovery email for the signed in account.",
             "itemtype": "method",
             "name": "recoveryEmailDestroy",
@@ -2102,7 +2121,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1662,
+            "line": 1683,
             "description": "Changes user's primary email address.",
             "itemtype": "method",
             "name": "recoveryEmailSetPrimaryEmail",
@@ -2122,7 +2141,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1685,
+            "line": 1706,
             "description": "Creates a new TOTP token for the user associated with this session.",
             "itemtype": "method",
             "name": "createTotpToken",
@@ -2184,7 +2203,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1719,
+            "line": 1740,
             "description": "Deletes this user's TOTP token.",
             "itemtype": "method",
             "name": "deleteTotpToken",
@@ -2199,7 +2218,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1738,
+            "line": 1759,
             "description": "Check to see if the current user has a TOTP token associated with\ntheir account.",
             "itemtype": "method",
             "name": "checkTotpTokenExists",
@@ -2214,7 +2233,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1758,
+            "line": 1779,
             "description": "Verify tokens if using a valid TOTP code.",
             "itemtype": "method",
             "name": "verifyTotpCode",
@@ -2240,7 +2259,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1788,
+            "line": 1809,
             "description": "Replace user's recovery codes.",
             "itemtype": "method",
             "name": "replaceRecoveryCodes",
@@ -2255,7 +2274,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1808,
+            "line": 1829,
             "description": "Consume recovery code.",
             "itemtype": "method",
             "name": "consumeRecoveryCode",
@@ -2275,7 +2294,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1833,
+            "line": 1854,
             "description": "Creates a new recovery key for the account. The recovery key contains encrypted\ndata the corresponds the the accounts current `kB`. This data can be used during\nthe password reset process to avoid regenerating the `kB`.",
             "params": [
                 {
@@ -2299,7 +2318,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1863,
+            "line": 1884,
             "description": "Retrieves the encrypted recovery data that corresponds to the recovery key which\nthen gets decoded into the stored `kB`.",
             "params": [
                 {
@@ -2319,7 +2338,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1885,
+            "line": 1906,
             "description": "Reset a user's account using keys (kB) derived from a recovery key. This\nprocess can be used to maintain the account's original kB.",
             "params": [
                 {
@@ -2372,7 +2391,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1959,
+            "line": 1980,
             "description": "Deletes the recovery key associated with this user.",
             "params": [
                 {
@@ -2384,7 +2403,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 1977,
+            "line": 1998,
             "description": "This checks to see if a recovery key exists for a user. This check\ncan be performed with either a sessionToken or an email.\n\nTypically, sessionToken is used when checking from within the `/settings`\nview. If it exists, we can give the user an option to revoke the key.\n\nChecking with an email is typically performed during the password reset\nflow. It is used to decide whether or not we can redirect a user to\nthe `Reset password with recovery key` page or regular password reset page.",
             "params": [
                 {
@@ -2405,7 +2424,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 2008,
+            "line": 2029,
             "description": "Check for a required argument. Exposed for unit testing.",
             "params": [
                 {
@@ -2441,19 +2460,19 @@
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " client/FxAccountClient.js:1833"
+            "line": " client/FxAccountClient.js:1854"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " client/FxAccountClient.js:1863"
+            "line": " client/FxAccountClient.js:1884"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " client/FxAccountClient.js:1885"
+            "line": " client/FxAccountClient.js:1906"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " client/FxAccountClient.js:1977"
+            "line": " client/FxAccountClient.js:1998"
         },
         {
             "message": "Missing item type\nUnbundle the WrapKB",
@@ -2465,27 +2484,27 @@
         },
         {
             "message": "Missing item type\nCreates a new recovery key for the account. The recovery key contains encrypted\ndata the corresponds the the accounts current `kB`. This data can be used during\nthe password reset process to avoid regenerating the `kB`.",
-            "line": " client/FxAccountClient.js:1833"
+            "line": " client/FxAccountClient.js:1854"
         },
         {
             "message": "Missing item type\nRetrieves the encrypted recovery data that corresponds to the recovery key which\nthen gets decoded into the stored `kB`.",
-            "line": " client/FxAccountClient.js:1863"
+            "line": " client/FxAccountClient.js:1884"
         },
         {
             "message": "Missing item type\nReset a user's account using keys (kB) derived from a recovery key. This\nprocess can be used to maintain the account's original kB.",
-            "line": " client/FxAccountClient.js:1885"
+            "line": " client/FxAccountClient.js:1906"
         },
         {
             "message": "Missing item type\nDeletes the recovery key associated with this user.",
-            "line": " client/FxAccountClient.js:1959"
+            "line": " client/FxAccountClient.js:1980"
         },
         {
             "message": "Missing item type\nThis checks to see if a recovery key exists for a user. This check\ncan be performed with either a sessionToken or an email.\n\nTypically, sessionToken is used when checking from within the `/settings`\nview. If it exists, we can give the user an option to revoke the key.\n\nChecking with an email is typically performed during the password reset\nflow. It is used to decide whether or not we can redirect a user to\nthe `Reset password with recovery key` page or regular password reset page.",
-            "line": " client/FxAccountClient.js:1977"
+            "line": " client/FxAccountClient.js:1998"
         },
         {
             "message": "Missing item type\nCheck for a required argument. Exposed for unit testing.",
-            "line": " client/FxAccountClient.js:2008"
+            "line": " client/FxAccountClient.js:2029"
         }
     ]
 }
