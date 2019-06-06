@@ -2443,6 +2443,169 @@
         {
             "file": "client/FxAccountClient.js",
             "line": 2051,
+            "description": "Create an OAuth code using `sessionToken`",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "clientId",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "state",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "access_type",
+                            "description": "if `accessType=offline`, a refresh token\n    will be issued when trading the code for an access token.",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "online"
+                        },
+                        {
+                            "name": "acr_values",
+                            "description": "allowed ACR values",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "keys_jwe",
+                            "description": "Keys used to encrypt",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "redirect_uri",
+                            "description": "registered redirect URI to return to",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "response_type",
+                            "description": "response type",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "code"
+                        },
+                        {
+                            "name": "scope",
+                            "description": "requested scopes",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "code_challenge_method",
+                            "description": "PKCE code challenge method",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "code_challenge",
+                            "description": "PKCE code challenge",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with:\n  - `redirect` - redirect URI\n  - `code` - authorization code\n  - `state` - state token",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 2102,
+            "description": "Create an OAuth token using `sessionToken`",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "clientId",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Options",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "access_type",
+                            "description": "if `accessType=offline`, a refresh token\n    will be issued when trading the code for an access token.",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "online"
+                        },
+                        {
+                            "name": "scope",
+                            "description": "requested scopes",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "ttl",
+                            "description": "time to live, in seconds",
+                            "type": "Number",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with:\n  - `access_token` - The access token\n  - `refresh_token` - A refresh token, if `options.accessType=offline`\n  - `id_token` - an OIDC ID token, returned if `scope` includes `openid`\n  - `scope` - Requested scopes\n  - `auth_at` - Time the user authenticated\n  - `token_type` - The string `bearer`\n  - `expires_in` - Time at which the token expires",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 2144,
+            "description": "Use `sessionToken` to get scoped key data for the RP associated with `client_id`",
+            "params": [
+                {
+                    "name": "sessionToken",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "clientId",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "scope",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with:\n  - `identifier`\n  - `keyRotationSecret`\n  - `keyRotationTimestamp`",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 2175,
             "description": "Check for a required argument. Exposed for unit testing.",
             "params": [
                 {
@@ -2493,6 +2656,18 @@
             "line": " client/FxAccountClient.js:2020"
         },
         {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " client/FxAccountClient.js:2051"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " client/FxAccountClient.js:2102"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " client/FxAccountClient.js:2144"
+        },
+        {
             "message": "Missing item type\nUnbundle the WrapKB",
             "line": " client/lib/credentials.js:100"
         },
@@ -2521,8 +2696,20 @@
             "line": " client/FxAccountClient.js:2020"
         },
         {
-            "message": "Missing item type\nCheck for a required argument. Exposed for unit testing.",
+            "message": "Missing item type\nCreate an OAuth code using `sessionToken`",
             "line": " client/FxAccountClient.js:2051"
+        },
+        {
+            "message": "Missing item type\nCreate an OAuth token using `sessionToken`",
+            "line": " client/FxAccountClient.js:2102"
+        },
+        {
+            "message": "Missing item type\nUse `sessionToken` to get scoped key data for the RP associated with `client_id`",
+            "line": " client/FxAccountClient.js:2144"
+        },
+        {
+            "message": "Missing item type\nCheck for a required argument. Exposed for unit testing.",
+            "line": " client/FxAccountClient.js:2175"
         }
     ]
 }
