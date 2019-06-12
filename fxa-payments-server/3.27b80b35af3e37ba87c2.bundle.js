@@ -1,2 +1,2 @@
 (window.webpackJsonp=window.webpackJsonp||[]).push([[3],{595:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__);var react__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(0),react__WEBPACK_IMPORTED_MODULE_0___default=__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);__webpack_exports__.default=function Details123donePro(_ref){_ref.plan;return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p",null,"Amazing 123done Pro features")}}}]);
-//# sourceMappingURL=3.91af501dbdeeb8857cec.bundle.js.map
+//# sourceMappingURL=3.27b80b35af3e37ba87c2.bundle.js.map
