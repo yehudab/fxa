@@ -1726,15 +1726,16 @@ input[type='checkbox'] {
 
 .two-col-items {
   display: grid;
-  margin: 20px 0 10px 0; }
-  @media (min-width: 521px) and (min-height: 641px) {
-    .two-col-items {
-      grid-template-columns: repeat(2, 1fr); } }
+  margin: 20px 0 10px 0;
+  grid-template-columns: repeat(2, 1fr); }
   .trailhead .two-col-items {
     margin-bottom: 0;
     padding: 0 15px; }
   .two-col-items .choose-what-to-sync-row {
-    margin-bottom: 10px; }
+    line-break: anywhere;
+    margin-bottom: 10px;
+    padding-right: 4px;
+    word-break: break-all; }
     .trailhead .two-col-items .choose-what-to-sync-row {
       margin-bottom: 20px; }
   .two-col-items .fxa-checkbox__label {
