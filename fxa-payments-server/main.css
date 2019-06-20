@@ -3537,15 +3537,33 @@ div + .error {
 #root {
   display: contents; }
 
+h3.billing-title {
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 13px 0;
+  text-align: left; }
+  h3.billing-title span::after {
+    background-image: url(static/media/lock.0cb1bdb2.svg);
+    background-position: 0 2px;
+    background-repeat: no-repeat;
+    content: '\00a0';
+    display: inline-block;
+    height: 18px;
+    margin: 0 8px;
+    width: 14px; }
+
 #main-content hr {
   border: 0;
   border-top: 1px solid #e0e0e6;
   height: 0;
   margin: 0 -40px; }
 
+#fxa-settings-content .subscription-management,
 #main-content.payments-card {
   min-height: 200px;
   width: 640px; }
+  #fxa-settings-content .subscription-management .input-row .StripeElement,
   #main-content.payments-card .input-row .StripeElement {
     -webkit-appearance: none;
     -moz-appearance: textfield;
@@ -3564,36 +3582,49 @@ div + .error {
     transition-property: border-color;
     width: 100%;
     z-index: 2; }
+    #fxa-settings-content .subscription-management .input-row .StripeElement:hover,
     #main-content.payments-card .input-row .StripeElement:hover {
       border-color: rgba(12, 12, 13, 0.5); }
+    #fxa-settings-content .subscription-management .input-row .StripeElement:focus,
     #main-content.payments-card .input-row .StripeElement:focus {
       border-color: #0a84ff;
       box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.3); }
+    #fxa-settings-content .subscription-management .input-row .StripeElement.invalid,
     #main-content.payments-card .input-row .StripeElement.invalid {
       border-color: #d70022; }
+      #fxa-settings-content .subscription-management .input-row .StripeElement.invalid:focus,
       #main-content.payments-card .input-row .StripeElement.invalid:focus {
         box-shadow: 0 0 0 3px rgba(215, 0, 34, 0.3); }
+    #fxa-settings-content .subscription-management .input-row .StripeElement:disabled,
     #main-content.payments-card .input-row .StripeElement:disabled {
       color: #737373;
       cursor: not-allowed; }
     @media (max-width: 520px), (max-height: 640px), (orientation: landscape) and (min-width: 641px) and (max-height: 640px) {
+      #fxa-settings-content .subscription-management .input-row .StripeElement,
       #main-content.payments-card .input-row .StripeElement {
         height: 40px; } }
-    html[dir='ltr'] #main-content.payments-card .input-row .StripeElement {
+    html[dir='ltr'] #fxa-settings-content .subscription-management .input-row .StripeElement, html[dir='ltr']
+    #main-content.payments-card .input-row .StripeElement {
       padding: 0 0 0 16px; }
-    html[dir='rtl'] #main-content.payments-card .input-row .StripeElement {
+    html[dir='rtl'] #fxa-settings-content .subscription-management .input-row .StripeElement, html[dir='rtl']
+    #main-content.payments-card .input-row .StripeElement {
       direction: ltr;
       padding: 0 16px 0 0;
       text-align: right; }
+    #fxa-settings-content .subscription-management .input-row .StripeElement:last-child,
     #main-content.payments-card .input-row .StripeElement:last-child {
       margin-bottom: 0; }
+  #fxa-settings-content .subscription-management .input-row .StripeElement--focus,
   #main-content.payments-card .input-row .StripeElement--focus {
     border-color: #0a84ff;
     box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.3); }
+  #fxa-settings-content .subscription-management .input-row .StripeElement--invalid,
   #main-content.payments-card .input-row .StripeElement--invalid {
     border-color: #d70022; }
+    #fxa-settings-content .subscription-management .input-row .StripeElement--invalid.StripeElement--focus,
     #main-content.payments-card .input-row .StripeElement--invalid.StripeElement--focus {
       box-shadow: 0 0 0 3px rgba(215, 0, 34, 0.3); }
+  #fxa-settings-content .subscription-management .input-row .label-text,
   #main-content.payments-card .input-row .label-text {
     color: #686869;
     display: block;
@@ -3601,34 +3632,45 @@ div + .error {
     font-weight: 500;
     margin-bottom: 7px;
     text-align: left; }
+  #fxa-settings-content .subscription-management .input-row .label-text.checkbox,
   #main-content.payments-card .input-row .label-text.checkbox {
     color: #0c0c0d;
     font-size: 14px;
     font-weight: 500;
     letter-spacing: normal;
     line-height: 1.5; }
+  #fxa-settings-content .subscription-management .input-row input[type='checkbox']:focus,
+  #fxa-settings-content .subscription-management .input-row input[type='checkbox']:not(:checked):focus,
+  #fxa-settings-content .subscription-management .input-row input[type='checkbox']:checked:focus,
   #main-content.payments-card .input-row input[type='checkbox']:focus,
   #main-content.payments-card .input-row input[type='checkbox']:not(:checked):focus,
   #main-content.payments-card .input-row input[type='checkbox']:checked:focus {
     border: 1px solid transparent; }
+  #fxa-settings-content .subscription-management .input-row--checkbox label,
   #main-content.payments-card .input-row--checkbox label {
     display: flex;
     flex-direction: row; }
+    #fxa-settings-content .subscription-management .input-row--checkbox label input[type='checkbox'],
     #main-content.payments-card .input-row--checkbox label input[type='checkbox'] {
       width: 32px; }
+    #fxa-settings-content .subscription-management .input-row--checkbox label .label-text,
     #main-content.payments-card .input-row--checkbox label .label-text {
       display: block;
       margin-left: 2px; }
+  #fxa-settings-content .subscription-management .input-row-group,
   #main-content.payments-card .input-row-group {
     align-items: flex-end;
     display: flex;
     flex-direction: row; }
+    #fxa-settings-content .subscription-management .input-row-group .input-row,
     #main-content.payments-card .input-row-group .input-row {
       flex: 1 0;
       padding-right: 18px;
       width: inherit; }
+      #fxa-settings-content .subscription-management .input-row-group .input-row.input-row--xl,
       #main-content.payments-card .input-row-group .input-row.input-row--xl {
         flex: 2 0; }
+    #fxa-settings-content .subscription-management .input-row-group .input-row:last-of-type,
     #main-content.payments-card .input-row-group .input-row:last-of-type {
       padding-right: 0; }
 
@@ -3671,29 +3713,28 @@ body > #root {
 #about-mozilla {
   background-image: url(static/media/mozilla.c86df1d3.svg); }
 
-#dialogs .dialog {
-  background: rgba(21, 21, 21, 0.8);
-  border-radius: 4px;
-  color: #fff;
-  display: block;
-  font-size: 13px;
-  font-weight: 400;
-  padding: 25px;
-  position: relative;
-  width: 66%; }
+.spinner {
+  background-image: url(static/media/spinnerlight.1889e097.svg); }
+  .button-row .spinner,
+  .input-row .spinner {
+    background-image: url(static/media/spinnerwhite.87b02829.svg); }
+  .spinner.spinner-settings-fetch {
+    background-image: url(static/media/spinnergrey.a9d4e679.png); }
 
-#dialogs .dialog.error {
-  background: rgba(155, 21, 21, 0.8); }
+#dialogs .modal {
+  padding: 64px 27px;
+  text-align: center; }
 
-#dialogs .dialog.warn {
-  background: rgba(236, 236, 8, 0.8); }
-
-#dialogs .dialog .dismiss {
-  height: 25px;
+#dialogs .modal .dismiss {
+  background: transparent;
+  border: 0;
+  height: 11px;
+  margin: 0;
+  padding: 0;
   position: absolute;
-  right: 0;
-  top: 0;
-  width: 25px; }
+  right: 19px;
+  top: 18px;
+  width: 11px; }
 
 #loading-overlay {
   align-items: center;
@@ -3716,28 +3757,12 @@ body > #root {
   white-space: nowrap;
   width: 36px; }
 
-form.payment {
-  padding-top: 23px; }
-  form.payment .legal-blurb {
-    color: #686869;
-    font-size: 12px;
-    font-weight: 500;
-    text-align: center; }
-  form.payment h3 {
-    color: #000;
-    font-size: 16px;
-    font-weight: 500;
-    margin: 13px 0;
-    text-align: left; }
-    form.payment h3 span::after {
-      background-image: url(static/media/lock.0cb1bdb2.svg);
-      background-position: 0 2px;
-      background-repeat: no-repeat;
-      content: '\00a0';
-      display: inline-block;
-      height: 18px;
-      margin: 0 8px;
-      width: 14px; }
+form.payment .legal-blurb {
+  clear: both;
+  color: #686869;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center; }
 
 .product-payment .account-activated {
   margin-bottom: 25px; }
@@ -3746,6 +3771,9 @@ form.payment {
     font-size: 24px;
     font-weight: 500;
     margin: 10px 0; }
+
+.product-payment h3.billing-title {
+  padding-top: 23px; }
 
 .product-payment .profile-banner {
   align-items: center;
@@ -3763,6 +3791,7 @@ form.payment {
     margin-top: -92px;
     z-index: 999; }
   .product-payment .profile-banner h2.displayName {
+    font-weight: 500;
     margin: 0; }
   .product-payment .profile-banner h3.email {
     font-weight: normal;
@@ -3806,6 +3835,82 @@ form.payment {
 
 .product-payment .subscription-ready a {
   font-size: 16px; }
+
+.subscription-management h2.settings-unit-title {
+  font-size: 20px;
+  font-weight: bold; }
+
+.subscription-management button.settings-button {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0 16px; }
+
+.subscription-management > section {
+  border-bottom: 1px solid #e0e0e6;
+  padding: 0 32px; }
+
+.subscription-management > section:last-child {
+  border-bottom: 0; }
+
+.subscription-management hr {
+  border: 0;
+  border-top: 1px solid #e0e0e6;
+  height: 0;
+  margin: 0 -16px; }
+
+.subscription-management .subscription {
+  margin: 25px 32px; }
+  .subscription-management .subscription header {
+    margin: 0 0 23px 0;
+    padding: 0; }
+    .subscription-management .subscription header h2 {
+      font-size: 16px;
+      font-weight: bold; }
+
+.subscription-management .cancel-subscription {
+  border-top: 1px solid #e0e0e6;
+  padding-top: 16px; }
+  .subscription-management .cancel-subscription h3 {
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 13px 0;
+    text-align: left; }
+
+.subscription-management .card-details {
+  display: flex; }
+  .subscription-management .card-details > div {
+    padding-right: 32px; }
+
+.subscription-management .with-settings-button {
+  display: flex;
+  flex-direction: row; }
+  .subscription-management .with-settings-button p {
+    margin: 0 0 1em 0; }
+    .subscription-management .with-settings-button p:last-child {
+      margin: 0; }
+  .subscription-management .with-settings-button .action {
+    align-self: flex-end;
+    display: flex;
+    flex: 1 1;
+    flex-direction: row;
+    justify-content: flex-end; }
+    .subscription-management .with-settings-button .action button {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 0 16px;
+      width: 128px; }
+
+.subscription-management .payment-update {
+  padding-bottom: 18px; }
+  .subscription-management .payment-update .billing-description {
+    color: #000;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5; }
+  .subscription-management .payment-update .payment {
+    padding: 10px 33px; }
 
 
 /*# sourceMappingURL=main.css.map*/
