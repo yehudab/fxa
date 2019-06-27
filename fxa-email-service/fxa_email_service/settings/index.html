@@ -1,210 +1,35 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `settings` mod in crate `fxa_email_service`."><meta name="keywords" content="rust, rustlang, rust-lang, settings"><title>fxa_email_service::settings - Rust</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><p class='location'>Module settings</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li></ul></div><p class='location'><a href='../index.html'>fxa_email_service</a></p><script>window.sidebarCurrent = {name: 'settings', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/fxa_email_service/settings/mod.rs.html#5-434' title='goto source code'>[src]</a></span><span class='in-band'>Module <a href='../index.html'>fxa_email_service</a>::<wbr><a class="mod" href=''>settings</a></span></h1><div class='docblock'><p>Application settings.</p>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `settings` mod in crate `fxa_email_service`."><meta name="keywords" content="rust, rustlang, rust-lang, settings"><title>fxa_email_service::settings - Rust</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="shortcut icon" href="../../favicon.ico"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../fxa_email_service/index.html'><div class='logo-container'><img src='../../rust-logo.png' alt='logo'></div></a><p class='location'>Module settings</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li></ul></div><p class='location'><a href='../index.html'>fxa_email_service</a></p><script>window.sidebarCurrent = {name: 'settings', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/fxa_email_service/settings/mod.rs.html#5-435' title='goto source code'>[src]</a></span><span class='in-band'>Module <a href='../index.html'>fxa_email_service</a>::<wbr><a class="mod" href=''>settings</a></span></h1><div class='docblock'><p>Application settings.</p>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.AuthDb.html"
-                                  title='struct fxa_email_service::settings::AuthDb'>AuthDb</a></td>
-                           <td class='docblock-short'>
-                                <p>Settings related to <code>fxa-auth-db-mysql</code>,
+<table><tr class='module-item'><td><a class="struct" href="struct.AuthDb.html" title='fxa_email_service::settings::AuthDb struct'>AuthDb</a></td><td class='docblock-short'><p>Settings related to <code>fxa-auth-db-mysql</code>,
 which is used to store
 bounce, complaint and delivery notifications.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.Aws.html"
-                                  title='struct fxa_email_service::settings::Aws'>Aws</a></td>
-                           <td class='docblock-short'>
-                                <p>Settings for AWS.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.AwsAccess.html"
-                                  title='struct fxa_email_service::settings::AwsAccess'>AwsAccess</a></td>
-                           <td class='docblock-short'>
-                                <p>AWS access key type.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.AwsKeys.html"
-                                  title='struct fxa_email_service::settings::AwsKeys'>AwsKeys</a></td>
-                           <td class='docblock-short'>
-                                <p>AWS keys.
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.Aws.html" title='fxa_email_service::settings::Aws struct'>Aws</a></td><td class='docblock-short'><p>Settings for AWS.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.AwsAccess.html" title='fxa_email_service::settings::AwsAccess struct'>AwsAccess</a></td><td class='docblock-short'><p>AWS access key type.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.AwsKeys.html" title='fxa_email_service::settings::AwsKeys struct'>AwsKeys</a></td><td class='docblock-short'><p>AWS keys.
 These are sensitive data
 and will not be logged.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.AwsRegion.html"
-                                  title='struct fxa_email_service::settings::AwsRegion'>AwsRegion</a></td>
-                           <td class='docblock-short'>
-                                <p>AWS region type.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.AwsSecret.html"
-                                  title='struct fxa_email_service::settings::AwsSecret'>AwsSecret</a></td>
-                           <td class='docblock-short'>
-                                <p>AWS secret key type.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.BaseUri.html"
-                                  title='struct fxa_email_service::settings::BaseUri'>BaseUri</a></td>
-                           <td class='docblock-short'>
-                                <p>Base URI type.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.DeliveryProblemLimit.html"
-                                  title='struct fxa_email_service::settings::DeliveryProblemLimit'>DeliveryProblemLimit</a></td>
-                           <td class='docblock-short'>
-                                <p>A definition object for a bounce/complaint limit.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.DeliveryProblemLimits.html"
-                                  title='struct fxa_email_service::settings::DeliveryProblemLimits'>DeliveryProblemLimits</a></td>
-                           <td class='docblock-short'>
-                                <p>Controls the thresholds and behaviour
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.AwsRegion.html" title='fxa_email_service::settings::AwsRegion struct'>AwsRegion</a></td><td class='docblock-short'><p>AWS region type.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.AwsSecret.html" title='fxa_email_service::settings::AwsSecret struct'>AwsSecret</a></td><td class='docblock-short'><p>AWS secret key type.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.BaseUri.html" title='fxa_email_service::settings::BaseUri struct'>BaseUri</a></td><td class='docblock-short'><p>Base URI type.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.DeliveryProblemLimit.html" title='fxa_email_service::settings::DeliveryProblemLimit struct'>DeliveryProblemLimit</a></td><td class='docblock-short'><p>A definition object for a bounce/complaint limit.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.DeliveryProblemLimits.html" title='fxa_email_service::settings::DeliveryProblemLimits struct'>DeliveryProblemLimits</a></td><td class='docblock-short'><p>Controls the thresholds and behaviour
 for bounce and complaint reports.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.Host.html"
-                                  title='struct fxa_email_service::settings::Host'>Host</a></td>
-                           <td class='docblock-short'>
-                                <p>Host name or IP address type.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.Log.html"
-                                  title='struct fxa_email_service::settings::Log'>Log</a></td>
-                           <td class='docblock-short'>
-                                <p>Settings for logging.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.Provider.html"
-                                  title='struct fxa_email_service::settings::Provider'>Provider</a></td>
-                           <td class='docblock-short'>
-                                <p>Email provider settings.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.Redis.html"
-                                  title='struct fxa_email_service::settings::Redis'>Redis</a></td>
-                           <td class='docblock-short'>
-                                <p>Settings for Redis.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.Sender.html"
-                                  title='struct fxa_email_service::settings::Sender'>Sender</a></td>
-                           <td class='docblock-short'>
-                                <p>Controls the name and email address
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.Host.html" title='fxa_email_service::settings::Host struct'>Host</a></td><td class='docblock-short'><p>Host name or IP address type.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.Log.html" title='fxa_email_service::settings::Log struct'>Log</a></td><td class='docblock-short'><p>Settings for logging.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.Provider.html" title='fxa_email_service::settings::Provider struct'>Provider</a></td><td class='docblock-short'><p>Email provider settings.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.Redis.html" title='fxa_email_service::settings::Redis struct'>Redis</a></td><td class='docblock-short'><p>Settings for Redis.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.Sender.html" title='fxa_email_service::settings::Sender struct'>Sender</a></td><td class='docblock-short'><p>Controls the name and email address
 that are used for the <code>From</code> and <code>Sender</code>
 email headers.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.SenderName.html"
-                                  title='struct fxa_email_service::settings::SenderName'>SenderName</a></td>
-                           <td class='docblock-short'>
-                                <p>Sender name type.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.Sendgrid.html"
-                                  title='struct fxa_email_service::settings::Sendgrid'>Sendgrid</a></td>
-                           <td class='docblock-short'>
-                                <p>Settings for Sendgrid.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.SendgridApiKey.html"
-                                  title='struct fxa_email_service::settings::SendgridApiKey'>SendgridApiKey</a></td>
-                           <td class='docblock-short'>
-                                <p>Sendgrid API key type.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.Sentry.html"
-                                  title='struct fxa_email_service::settings::Sentry'>Sentry</a></td>
-                           <td class='docblock-short'>
-                                <p>Settings for Sentry.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.SentryDsn.html"
-                                  title='struct fxa_email_service::settings::SentryDsn'>SentryDsn</a></td>
-                           <td class='docblock-short'>
-                                <p>Sentry DSN type.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.Settings.html"
-                                  title='struct fxa_email_service::settings::Settings'>Settings</a></td>
-                           <td class='docblock-short'>
-                                <p>The root settings object.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.Smtp.html"
-                                  title='struct fxa_email_service::settings::Smtp'>Smtp</a></td>
-                           <td class='docblock-short'>
-                                <p>Settings for SMTP custom provider.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.SmtpCredentials.html"
-                                  title='struct fxa_email_service::settings::SmtpCredentials'>SmtpCredentials</a></td>
-                           <td class='docblock-short'>
-                                <p>Settings for SMTP custom provider optional credentials.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.SocketLabs.html"
-                                  title='struct fxa_email_service::settings::SocketLabs'>SocketLabs</a></td>
-                           <td class='docblock-short'>
-                                <p>Settings for SocketLabs.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.SqsUrl.html"
-                                  title='struct fxa_email_service::settings::SqsUrl'>SqsUrl</a></td>
-                           <td class='docblock-short'>
-                                <p>AWS SQS queue URL type.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.SqsUrls.html"
-                                  title='struct fxa_email_service::settings::SqsUrls'>SqsUrls</a></td>
-                           <td class='docblock-short'>
-                                <p>URLs for SQS queues.</p>
-
-                           </td>
-                       </tr></table></section><section id="search" class="content hidden"></section><section class="footer"></section><aside id="help" class="hidden"><div><h1 class="hidden">Help</h1><div class="shortcuts"><h2>Keyboard Shortcuts</h2><dl><dt><kbd>?</kbd></dt><dd>Show this help dialog</dd><dt><kbd>S</kbd></dt><dd>Focus the search field</dd><dt><kbd>↑</kbd></dt><dd>Move up in search results</dd><dt><kbd>↓</kbd></dt><dd>Move down in search results</dd><dt><kbd>↹</kbd></dt><dd>Switch tab</dd><dt><kbd>&#9166;</kbd></dt><dd>Go to active search result</dd><dt><kbd>+</kbd></dt><dd>Expand all sections</dd><dt><kbd>-</kbd></dt><dd>Collapse all sections</dd></dl></div><div class="infos"><h2>Search Tricks</h2><p>Prefix searches with a type followed by a colon (e.g. <code>fn:</code>) to restrict the search to a given type.</p><p>Accepted types are: <code>fn</code>, <code>mod</code>, <code>struct</code>, <code>enum</code>, <code>trait</code>, <code>type</code>, <code>macro</code>, and <code>const</code>.</p><p>Search functions by type signature (e.g. <code>vec -> usize</code> or <code>* -> vec</code>)</p><p>Search multiple things at once by splitting your query with comma (e.g. <code>str,u8</code> or <code>String,struct:Vec,test</code>)</p></div></div></aside><script>window.rootPath = "../../";window.currentCrate = "fxa_email_service";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script defer src="../../search-index.js"></script></body></html>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.SenderName.html" title='fxa_email_service::settings::SenderName struct'>SenderName</a></td><td class='docblock-short'><p>Sender name type.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.Sendgrid.html" title='fxa_email_service::settings::Sendgrid struct'>Sendgrid</a></td><td class='docblock-short'><p>Settings for Sendgrid.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.SendgridApiKey.html" title='fxa_email_service::settings::SendgridApiKey struct'>SendgridApiKey</a></td><td class='docblock-short'><p>Sendgrid API key type.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.Sentry.html" title='fxa_email_service::settings::Sentry struct'>Sentry</a></td><td class='docblock-short'><p>Settings for Sentry.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.SentryDsn.html" title='fxa_email_service::settings::SentryDsn struct'>SentryDsn</a></td><td class='docblock-short'><p>Sentry DSN type.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.Settings.html" title='fxa_email_service::settings::Settings struct'>Settings</a></td><td class='docblock-short'><p>The root settings object.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.Smtp.html" title='fxa_email_service::settings::Smtp struct'>Smtp</a></td><td class='docblock-short'><p>Settings for SMTP custom provider.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.SmtpCredentials.html" title='fxa_email_service::settings::SmtpCredentials struct'>SmtpCredentials</a></td><td class='docblock-short'><p>Settings for SMTP custom provider optional credentials.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.SocketLabs.html" title='fxa_email_service::settings::SocketLabs struct'>SocketLabs</a></td><td class='docblock-short'><p>Settings for SocketLabs.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.SqsUrl.html" title='fxa_email_service::settings::SqsUrl struct'>SqsUrl</a></td><td class='docblock-short'><p>AWS SQS queue URL type.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.SqsUrls.html" title='fxa_email_service::settings::SqsUrls struct'>SqsUrls</a></td><td class='docblock-short'><p>URLs for SQS queues.</p>
+</td></tr></table></section><section id="search" class="content hidden"></section><section class="footer"></section><aside id="help" class="hidden"><div><h1 class="hidden">Help</h1><div class="shortcuts"><h2>Keyboard Shortcuts</h2><dl><dt><kbd>?</kbd></dt><dd>Show this help dialog</dd><dt><kbd>S</kbd></dt><dd>Focus the search field</dd><dt><kbd>↑</kbd></dt><dd>Move up in search results</dd><dt><kbd>↓</kbd></dt><dd>Move down in search results</dd><dt><kbd>↹</kbd></dt><dd>Switch tab</dd><dt><kbd>&#9166;</kbd></dt><dd>Go to active search result</dd><dt><kbd>+</kbd></dt><dd>Expand all sections</dd><dt><kbd>-</kbd></dt><dd>Collapse all sections</dd></dl></div><div class="infos"><h2>Search Tricks</h2><p>Prefix searches with a type followed by a colon (e.g., <code>fn:</code>) to restrict the search to a given type.</p><p>Accepted types are: <code>fn</code>, <code>mod</code>, <code>struct</code>, <code>enum</code>, <code>trait</code>, <code>type</code>, <code>macro</code>, and <code>const</code>.</p><p>Search functions by type signature (e.g., <code>vec -> usize</code> or <code>* -> vec</code>)</p><p>Search multiple things at once by splitting your query with comma (e.g., <code>str,u8</code> or <code>String,struct:Vec,test</code>)</p></div></div></aside><script>window.rootPath = "../../";window.currentCrate = "fxa_email_service";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script defer src="../../search-index.js"></script></body></html>
