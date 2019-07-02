@@ -3163,6 +3163,9 @@ button.button-link {
   .firefox-family-services > h2 {
     font-size: 18px;
     margin-top: 0; }
+    @media (min-width: 521px) and (min-height: 641px) {
+      html[dir='rtl'] .firefox-family-services > h2 {
+        padding-right: 10px; } }
     @media (max-width: 520px), (max-height: 640px), (orientation: landscape) and (min-width: 641px) and (max-height: 640px) {
       .firefox-family-services > h2 {
         font-size: 16px; }
