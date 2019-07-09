@@ -635,12 +635,19 @@ a[data-visible-url^='http']::after {
 
 .step-1 {
   background-image: url("/images/trailhead/step-1.svg"); }
+  html[dir='rtl'] .step-1 {
+    -webkit-transform: scaleX(-1);
+            transform: scaleX(-1); }
 
 .step-2 {
   background-image: url("/images/trailhead/step-2.svg"); }
+  html[dir='rtl'] .step-2 {
+    background-image: url("/images/trailhead/step-2-rtl.svg"); }
 
 .step-3 {
   background-image: url("/images/trailhead/step-3.svg"); }
+  html[dir='rtl'] .step-3 {
+    background-image: url("/images/trailhead/step-3-rtl.svg"); }
 
 .step-4 {
   background-image: url("/images/trailhead/step-4.svg"); }
