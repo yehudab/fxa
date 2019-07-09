@@ -2170,7 +2170,7 @@ section.modal-panel .button-row:not(.save-options) {
     background-image: url("/images/icon-service-screenshots.svg"); }
   .client-oAuthApp[data-name='Fenix'], .client-oAuthApp[data-name='Android Components Reference Browser'], .client-oAuthApp[data-name='Firefox Sync'] {
     background-image: url("/images/icon-device-phone-android.svg"); }
-  .client-oAuthApp[data-name='Firefox Send'] {
+  .client-oAuthApp[data-name^='Firefox Send'] {
     background-image: url("/images/icon-service-send.svg"); }
 
 .client-webSession {
