@@ -2,7 +2,7 @@
     "project": {
         "name": "fxa-js-client",
         "description": "Web client that talks to the Firefox Accounts API server",
-        "version": "1.0.14"
+        "version": "1.0.15"
     },
     "files": {
         "client/lib/credentials.js": {
@@ -2649,6 +2649,67 @@
         {
             "file": "client/FxAccountClient.js",
             "line": 2474,
+            "description": "Get a user's list of active subscriptions.",
+            "params": [
+                {
+                    "name": "token",
+                    "description": "A token from the OAuth server.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with a list of active\nsubscriptions.",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 2501,
+            "description": "Submit a support ticket.",
+            "params": [
+                {
+                    "name": "authorizationHeader",
+                    "description": "A token from the OAuth server.",
+                    "type": "String"
+                },
+                {
+                    "name": "supportTicket",
+                    "description": "",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "topic",
+                            "description": "",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "subject",
+                            "description": "Optional subject",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "message",
+                            "description": "",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with:\n  - `success`\n  - `ticket` OR `error`",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 2537,
             "description": "Check for a required argument. Exposed for unit testing.",
             "params": [
                 {
@@ -2711,6 +2772,14 @@
             "line": " client/FxAccountClient.js:2439"
         },
         {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " client/FxAccountClient.js:2474"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " client/FxAccountClient.js:2501"
+        },
+        {
             "message": "Missing item type\nUnbundle the WrapKB",
             "line": " client/lib/credentials.js:109"
         },
@@ -2751,8 +2820,16 @@
             "line": " client/FxAccountClient.js:2439"
         },
         {
-            "message": "Missing item type\nCheck for a required argument. Exposed for unit testing.",
+            "message": "Missing item type\nGet a user's list of active subscriptions.",
             "line": " client/FxAccountClient.js:2474"
+        },
+        {
+            "message": "Missing item type\nSubmit a support ticket.",
+            "line": " client/FxAccountClient.js:2501"
+        },
+        {
+            "message": "Missing item type\nCheck for a required argument. Exposed for unit testing.",
+            "line": " client/FxAccountClient.js:2537"
         }
     ]
 }
