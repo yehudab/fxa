@@ -3778,7 +3778,7 @@ body > #root {
     background-image: url(static/media/spinnergrey.a9d4e679.png); }
 
 #dialogs .modal {
-  padding: 64px 27px;
+  padding: 25px 27px;
   text-align: center; }
 
 #dialogs .modal .dismiss {
