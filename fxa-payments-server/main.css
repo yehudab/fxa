@@ -1197,11 +1197,11 @@ button {
   button.primary-button {
     background: #0060df;
     color: #fff; }
-    .button[type='submit']:not(.secondary-button):hover, .button.primary-button:hover,
-    .settings-button[type='submit']:not(.secondary-button):hover,
-    .settings-button.primary-button:hover,
-    button[type='submit']:not(.secondary-button):hover,
-    button.primary-button:hover {
+    .button[type='submit']:not(.secondary-button):hover:not:disabled, .button.primary-button:hover:not:disabled,
+    .settings-button[type='submit']:not(.secondary-button):hover:not:disabled,
+    .settings-button.primary-button:hover:not:disabled,
+    button[type='submit']:not(.secondary-button):hover:not:disabled,
+    button.primary-button:hover:not:disabled {
       background: #003eaa; }
     .button[type='submit']:not(.secondary-button):active, .button.primary-button:active,
     .settings-button[type='submit']:not(.secondary-button):active,
