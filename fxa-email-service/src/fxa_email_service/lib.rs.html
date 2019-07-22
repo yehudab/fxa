@@ -82,7 +82,6 @@
 <span id="82">82</span>
 <span id="83">83</span>
 <span id="84">84</span>
-<span id="85">85</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// This Source Code Form is subject to the terms of the Mozilla Public</span>
 <span class="comment">// License, v. 2.0. If a copy of the MPL was not distributed with this</span>
@@ -113,7 +112,6 @@
 <span class="attribute">#![<span class="ident">feature</span>(<span class="ident">decl_macro</span>)]</span>
 <span class="attribute">#![<span class="ident">feature</span>(<span class="ident">proc_macro_hygiene</span>)]</span>
 <span class="attribute">#![<span class="ident">feature</span>(<span class="ident">plugin</span>)]</span>
-<span class="attribute">#![<span class="ident">feature</span>(<span class="ident">type_alias_enum_variants</span>)]</span>
 <span class="attribute">#![<span class="ident">feature</span>(<span class="ident">type_ascription</span>)]</span>
 
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">base64</span>;
@@ -152,7 +150,7 @@
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">serde_json</span>;
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">serde_test</span>;
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">sha2</span>;
-<span class="attribute">#[<span class="ident">macro_use</span>(<span class="ident">slog_error</span>, <span class="ident">slog_info</span>, <span class="ident">slog_o</span>)]</span>
+<span class="attribute">#[<span class="ident">macro_use</span>(<span class="ident">slog_o</span>)]</span>
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">slog</span>;
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">slog_async</span>;
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">slog_mozlog_json</span>;
