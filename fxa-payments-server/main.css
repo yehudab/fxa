@@ -3737,6 +3737,35 @@ body > #root {
   padding: 0.5em;
   text-align: center; }
 
+#top-bar .alertSuccess {
+  background: #1d1133;
+  color: #fff; }
+
+.alert span.checked::before {
+  background-image: url(static/media/check.ec42bb18.svg);
+  background-position: 0 3px;
+  background-repeat: no-repeat;
+  content: '\00a0';
+  display: inline-block;
+  height: 16px;
+  margin: 0 4px;
+  width: 16px; }
+
+.alertCenter {
+  border-radius: 6px;
+  margin: 0 auto;
+  position: relative;
+  width: 80%; }
+
+.close {
+  background-image: url(static/media/close.4f2cd82a.svg);
+  cursor: pointer;
+  display: inline-block;
+  height: 16px;
+  position: absolute;
+  right: 20px;
+  width: 16px; }
+
 .portal#top-bar {
   left: 0;
   position: fixed;
