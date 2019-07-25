@@ -1852,6 +1852,18 @@ body.settings #stage .settings {
     #fxa-settings {
       padding: 0; } }
 
+.cc-expired-alert {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: #d70022;
+  color: white;
+  padding: 5px;
+  text-align: center; }
+  .cc-expired-alert a {
+    text-decoration: underline;
+    color: white; }
+
 #fxa-settings-header-wrapper {
   -webkit-align-items: center;
           align-items: center;
@@ -1906,10 +1918,12 @@ body.settings #stage .settings {
     top: 0;
     width: 100%;
     z-index: 2; }
+  #fxa-settings-header-wrapper .settings-error,
   #fxa-settings-header-wrapper .settings-success {
     margin: 0 auto;
     top: 0; }
     @media (max-width: 520px), (max-height: 640px), (orientation: landscape) and (min-width: 641px) and (max-height: 640px) {
+      #fxa-settings-header-wrapper .settings-error,
       #fxa-settings-header-wrapper .settings-success {
         width: 100%; } }
 
