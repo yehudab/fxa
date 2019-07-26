@@ -1218,14 +1218,14 @@ button {
     background: #d70022;
     border: 0;
     color: #fff; }
-    .button.warning-button:hover,
-    .settings-button.warning-button:hover,
-    button.warning-button:hover {
+    .button.warning-button:hover:enabled,
+    .settings-button.warning-button:hover:enabled,
+    button.warning-button:hover:enabled {
       background: #be001e; }
-    .button.warning-button:hover:active,
-    .settings-button.warning-button:hover:active,
-    button.warning-button:hover:active {
-      background: #a4001a; }
+      .button.warning-button:hover:enabled:active,
+      .settings-button.warning-button:hover:enabled:active,
+      button.warning-button:hover:enabled:active {
+        background: #a4001a; }
   .button:disabled, .button.disabled,
   .settings-button:disabled,
   .settings-button.disabled,
@@ -2072,7 +2072,8 @@ body.settings #stage .settings {
   .settings-unit-details p {
     clear: both;
     color: #737373;
-    margin: 6px 0 24px; }
+    margin: 6px 0 24px;
+    line-height: 1.5; }
 
 .open .settings-unit-details {
   display: block; }
@@ -2093,6 +2094,28 @@ section.modal-panel .button-row:not(.save-options) {
     text-align: right; }
   section.modal-panel .button-row:not(.save-options) .input-row {
     text-align: right; }
+
+.delete-account-product-container.hide {
+  display: none; }
+
+.delete-account-product-list {
+  padding-left: 14px;
+  margin: 0 0 24px;
+  line-height: 24px; }
+
+.delete-account-checkbox-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 32px; }
+  .delete-account-checkbox-list-item {
+    margin-bottom: 12px; }
+
+.delete-account ul {
+  color: #737373; }
+
+.delete-account .two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
 
 .client-list {
   padding: 0; }
