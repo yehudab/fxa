@@ -721,6 +721,9 @@ a[data-visible-url^='http']::after {
     #fxa-settings-header {
       padding: 0 16px; } }
 
+#fxa-404-home {
+  margin-top: 24px; }
+
 #static-footer {
   -webkit-align-items: center;
           align-items: center;
