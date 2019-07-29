@@ -1874,7 +1874,7 @@ body.settings #stage .settings {
           align-self: center;
   display: -webkit-flex;
   display: flex;
-  width: 100vw; }
+  width: 100%; }
   @media (min-width: 521px) and (min-height: 641px) {
     #fxa-settings-header-wrapper {
       height: 96px; } }
