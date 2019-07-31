@@ -1734,6 +1734,48 @@ define([
   };
 
   /**
+   * Get a list of user&#x27;s security events
+   *
+   * @method securityEvents
+   * @param {String} sessionToken sessionToken obtained from signIn
+   * @return {Promise} A promise that will be fulfilled with JSON &#x60;xhr.responseText&#x60; of the request
+   */
+  FxAccountClient.prototype.securityEvents = function(sessionToken) {
+    let request = this.request;
+
+    return Promise.resolve()
+      .then(() =&gt; {
+        required(sessionToken, &#x27;sessionToken&#x27;);
+
+        return hawkCredentials(sessionToken, &#x27;sessionToken&#x27;, HKDF_SIZE);
+      })
+      .then(creds =&gt; {
+        return request.send(&#x27;/securityEvents&#x27;, &#x27;GET&#x27;, creds);
+      });
+  };
+
+  /**
+   * Delete user&#x27;s security events
+   *
+   * @method deleteSecurityEvents
+   * @param {String} sessionToken sessionToken obtained from signIn
+   * @return {Promise} A promise that will be fulfilled with JSON &#x60;xhr.responseText&#x60; of the request
+   */
+  FxAccountClient.prototype.deleteSecurityEvents = function(sessionToken) {
+    let request = this.request;
+
+    return Promise.resolve()
+      .then(() =&gt; {
+        required(sessionToken, &#x27;sessionToken&#x27;);
+
+        return hawkCredentials(sessionToken, &#x27;sessionToken&#x27;, HKDF_SIZE);
+      })
+      .then(creds =&gt; {
+        return request.send(&#x27;/securityEvents&#x27;, &#x27;DELETE&#x27;, creds);
+      });
+  };
+
+  /**
    * Get a list of user&#x27;s attached clients
    *
    * @method attachedClients

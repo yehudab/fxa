@@ -255,6 +255,10 @@
 
                             </li>
                             <li class="index-item method">
+                                <a href="#method_deleteSecurityEvents">deleteSecurityEvents</a>
+
+                            </li>
+                            <li class="index-item method">
                                 <a href="#method_deleteTotpToken">deleteTotpToken</a>
 
                             </li>
@@ -332,6 +336,10 @@
                             </li>
                             <li class="index-item method">
                                 <a href="#method_replaceRecoveryCodes">replaceRecoveryCodes</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_securityEvents">securityEvents</a>
 
                             </li>
                             <li class="index-item method">
@@ -1226,7 +1234,7 @@ is required if <code>options.keys</code> is true.</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/client_FxAccountClient.js.html#l1671"><code>client&#x2F;FxAccountClient.js:1671</code></a>
+        <a href="../files/client_FxAccountClient.js.html#l1713"><code>client&#x2F;FxAccountClient.js:1713</code></a>
         </p>
 
 
@@ -1306,7 +1314,7 @@ is required if <code>options.keys</code> is true.</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/client_FxAccountClient.js.html#l1728"><code>client&#x2F;FxAccountClient.js:1728</code></a>
+        <a href="../files/client_FxAccountClient.js.html#l1770"><code>client&#x2F;FxAccountClient.js:1770</code></a>
         </p>
 
 
@@ -1383,7 +1391,7 @@ is required if <code>options.keys</code> is true.</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/client_FxAccountClient.js.html#l1707"><code>client&#x2F;FxAccountClient.js:1707</code></a>
+        <a href="../files/client_FxAccountClient.js.html#l1749"><code>client&#x2F;FxAccountClient.js:1749</code></a>
         </p>
 
 
@@ -1449,7 +1457,7 @@ is required if <code>options.keys</code> is true.</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/client_FxAccountClient.js.html#l1650"><code>client&#x2F;FxAccountClient.js:1650</code></a>
+        <a href="../files/client_FxAccountClient.js.html#l1692"><code>client&#x2F;FxAccountClient.js:1692</code></a>
         </p>
 
 
@@ -1636,7 +1644,7 @@ is required if <code>options.keys</code> is true.</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/client_FxAccountClient.js.html#l2116"><code>client&#x2F;FxAccountClient.js:2116</code></a>
+        <a href="../files/client_FxAccountClient.js.html#l2158"><code>client&#x2F;FxAccountClient.js:2158</code></a>
         </p>
 
 
@@ -1694,7 +1702,7 @@ their account.</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/client_FxAccountClient.js.html#l2189"><code>client&#x2F;FxAccountClient.js:2189</code></a>
+        <a href="../files/client_FxAccountClient.js.html#l2231"><code>client&#x2F;FxAccountClient.js:2231</code></a>
         </p>
 
 
@@ -1768,7 +1776,7 @@ their account.</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/client_FxAccountClient.js.html#l1926"><code>client&#x2F;FxAccountClient.js:1926</code></a>
+        <a href="../files/client_FxAccountClient.js.html#l1968"><code>client&#x2F;FxAccountClient.js:1968</code></a>
         </p>
 
 
@@ -1883,7 +1891,7 @@ their account.</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/client_FxAccountClient.js.html#l2063"><code>client&#x2F;FxAccountClient.js:2063</code></a>
+        <a href="../files/client_FxAccountClient.js.html#l2105"><code>client&#x2F;FxAccountClient.js:2105</code></a>
         </p>
 
 
@@ -2016,6 +2024,72 @@ their account.</p>
 
 
 </div>
+<div id="method_deleteSecurityEvents" class="method item">
+    <h3 class="name"><code>deleteSecurityEvents</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>sessionToken</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/client_FxAccountClient.js.html#l1671"><code>client&#x2F;FxAccountClient.js:1671</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Delete user's security events</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">sessionToken</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>sessionToken obtained from signIn</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>A promise that will be fulfilled with JSON <code>xhr.responseText</code> of the request</p>
+
+            </div>
+        </div>
+
+
+</div>
 <div id="method_deleteTotpToken" class="method item">
     <h3 class="name"><code>deleteTotpToken</code></h3>
 
@@ -2037,7 +2111,7 @@ their account.</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/client_FxAccountClient.js.html#l2097"><code>client&#x2F;FxAccountClient.js:2097</code></a>
+        <a href="../files/client_FxAccountClient.js.html#l2139"><code>client&#x2F;FxAccountClient.js:2139</code></a>
         </p>
 
 
@@ -3331,7 +3405,7 @@ HAWK-authenticated with the passwordForgotToken.</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/client_FxAccountClient.js.html#l1979"><code>client&#x2F;FxAccountClient.js:1979</code></a>
+        <a href="../files/client_FxAccountClient.js.html#l2021"><code>client&#x2F;FxAccountClient.js:2021</code></a>
         </p>
 
 
@@ -3399,7 +3473,7 @@ HAWK-authenticated with the passwordForgotToken.</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/client_FxAccountClient.js.html#l2008"><code>client&#x2F;FxAccountClient.js:2008</code></a>
+        <a href="../files/client_FxAccountClient.js.html#l2050"><code>client&#x2F;FxAccountClient.js:2050</code></a>
         </p>
 
 
@@ -3616,7 +3690,7 @@ example.</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/client_FxAccountClient.js.html#l1959"><code>client&#x2F;FxAccountClient.js:1959</code></a>
+        <a href="../files/client_FxAccountClient.js.html#l2001"><code>client&#x2F;FxAccountClient.js:2001</code></a>
         </p>
 
 
@@ -3673,7 +3747,7 @@ example.</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/client_FxAccountClient.js.html#l2037"><code>client&#x2F;FxAccountClient.js:2037</code></a>
+        <a href="../files/client_FxAccountClient.js.html#l2079"><code>client&#x2F;FxAccountClient.js:2079</code></a>
         </p>
 
 
@@ -3809,7 +3883,7 @@ example.</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/client_FxAccountClient.js.html#l1804"><code>client&#x2F;FxAccountClient.js:1804</code></a>
+        <a href="../files/client_FxAccountClient.js.html#l1846"><code>client&#x2F;FxAccountClient.js:1846</code></a>
         </p>
 
 
@@ -3884,7 +3958,7 @@ and will not be able to be used again.</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/client_FxAccountClient.js.html#l2170"><code>client&#x2F;FxAccountClient.js:2170</code></a>
+        <a href="../files/client_FxAccountClient.js.html#l2212"><code>client&#x2F;FxAccountClient.js:2212</code></a>
         </p>
 
 
@@ -3914,6 +3988,72 @@ and will not be able to be used again.</p>
             </ul>
         </div>
 
+
+
+</div>
+<div id="method_securityEvents" class="method item">
+    <h3 class="name"><code>securityEvents</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>sessionToken</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/client_FxAccountClient.js.html#l1650"><code>client&#x2F;FxAccountClient.js:1650</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Get a list of user's security events</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">sessionToken</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>sessionToken obtained from signIn</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>A promise that will be fulfilled with JSON <code>xhr.responseText</code> of the request</p>
+
+            </div>
+        </div>
 
 
 </div>
@@ -3947,7 +4087,7 @@ and will not be able to be used again.</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/client_FxAccountClient.js.html#l1834"><code>client&#x2F;FxAccountClient.js:1834</code></a>
+        <a href="../files/client_FxAccountClient.js.html#l1876"><code>client&#x2F;FxAccountClient.js:1876</code></a>
         </p>
 
 
@@ -4142,7 +4282,7 @@ and will not be able to be used again.</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/client_FxAccountClient.js.html#l1764"><code>client&#x2F;FxAccountClient.js:1764</code></a>
+        <a href="../files/client_FxAccountClient.js.html#l1806"><code>client&#x2F;FxAccountClient.js:1806</code></a>
         </p>
 
 
@@ -5345,7 +5485,7 @@ example.</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/client_FxAccountClient.js.html#l1899"><code>client&#x2F;FxAccountClient.js:1899</code></a>
+        <a href="../files/client_FxAccountClient.js.html#l1941"><code>client&#x2F;FxAccountClient.js:1941</code></a>
         </p>
 
 
@@ -5592,7 +5732,7 @@ example.</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/client_FxAccountClient.js.html#l2136"><code>client&#x2F;FxAccountClient.js:2136</code></a>
+        <a href="../files/client_FxAccountClient.js.html#l2178"><code>client&#x2F;FxAccountClient.js:2178</code></a>
         </p>
 
 
