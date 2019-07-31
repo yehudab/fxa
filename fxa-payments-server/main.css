@@ -1874,6 +1874,8 @@ body.settings #stage .settings {
           align-self: center;
   display: -webkit-flex;
   display: flex;
+  -webkit-flex-direction: column;
+          flex-direction: column;
   width: 100%; }
   @media (min-width: 521px) and (min-height: 641px) {
     #fxa-settings-header-wrapper {
@@ -2343,6 +2345,22 @@ html[dir='rtl'] .fxa-radio {
   html[dir='rtl'] .open-email-preferences {
     background-position: center left;
     padding-left: 25px; }
+
+.breadcrumbs {
+  width: 100%;
+  margin-top: 0px;
+  margin-left: 100px; }
+  .breadcrumbs li {
+    list-style: none;
+    float: left;
+    margin: 0px;
+    padding: 0px; }
+    .breadcrumbs li:before {
+      content: "\003E";
+      padding: 0px 10px; }
+    .breadcrumbs li:first-child:before {
+      content: "";
+      padding: 0px; }
 
 .totp-panel .totp-list ul {
   padding: 0; }
@@ -4046,8 +4064,11 @@ body > #root {
 #main-content::before {
   background-image: url(static/media/firefox-logo.16821f55.svg); }
 
-#fxa-settings-header-wrapper #fxa-manage-account {
-  background-image: url(static/media/firefox-logo.16821f55.svg); }
+#fxa-settings-header-wrapper {
+  -webkit-flex-direction: column;
+          flex-direction: column; }
+  #fxa-settings-header-wrapper #fxa-manage-account {
+    background-image: url(static/media/firefox-logo.16821f55.svg); }
 
 #about-mozilla {
   background-image: url(static/media/mozilla.c86df1d3.svg); }
@@ -4059,6 +4080,22 @@ body > #root {
     background-image: url(static/media/spinnerwhite.87b02829.svg); }
   .spinner.spinner-settings-fetch {
     background-image: url(static/media/spinnergrey.a9d4e679.png); }
+
+.breadcrumbs {
+  margin-left: 100px;
+  margin-top: 0;
+  width: 100%; }
+  .breadcrumbs li {
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    .breadcrumbs li::before {
+      content: '\003E';
+      padding: 0 10px; }
+    .breadcrumbs li:first-child::before {
+      content: '';
+      padding: 0; }
 
 #dialogs .modal {
   padding: 25px 27px;
