@@ -1,0 +1,1 @@
+{"version":3,"file":"main.272196d67e403c86e14f.bundle.js","sources":["webpack:///./src/lib/formats.ts"],"sourcesContent":["export function formatCurrencyInCents(amount: number) {\n  return (amount / 100.0).toFixed(2);\n}\n"],"mappings":"AAAA","sourceRoot":""}

@@ -719,7 +719,6 @@ a[data-visible-url^='http']::after {
 #static-footer {
   align-items: center;
   display: flex;
-  height: 96px;
   padding: 0 32px;
   width: 100%; }
 
@@ -833,6 +832,7 @@ a[data-visible-url^='http']::after {
     cursor: pointer;
     display: block;
     height: 48px;
+    margin: 24px 0;
     -webkit-transition: opacity 150ms;
     transition: opacity 150ms;
     width: 128px; }
@@ -1256,13 +1256,13 @@ button::-moz-focus-inner {
     left: -9px;
     top: 20px; } }
 
-@media (max-width: 960px) {
+@media (max-width: 959px) {
   :not(#fxa-settings-container) .password-row .input-help-balloon::after,
   :not(#fxa-settings-container) .password-row .input-help-balloon::before {
     left: 23px;
     top: -8px; } }
 
-@media (max-width: 960px) {
+@media (max-width: 959px) {
   :not(#fxa-settings-container) .password-row .input-help-balloon::before {
     border-width: 1px 0 0 1px; } }
 
@@ -1278,7 +1278,7 @@ button::-moz-focus-inner {
   html[dir='ltr'] :not(#fxa-settings-container) .password-row .password-strength-balloon {
     left: calc(100% + 18px); } }
 
-@media (max-width: 960px) {
+@media (max-width: 959px) {
   html[dir='rtl'] :not(#fxa-settings-container) .input-help-balloon::after,
   html[dir='rtl'] :not(#fxa-settings-container) .input-help-balloon::before {
     right: 15px; } }
@@ -1300,11 +1300,11 @@ button::-moz-focus-inner {
   :not(#fxa-settings-container) .input-help-small-only {
     display: none; } }
 
-@media (max-width: 960px) {
+@media (max-width: 959px) {
   :not(#fxa-settings-container) .input-help-big-only {
     display: none; } }
 
-@media (max-width: 960px) {
+@media (max-width: 959px) {
   :not(#fxa-settings-container) #password-strength-balloon {
     left: -3px;
     margin-top: 0;
@@ -1317,11 +1317,11 @@ button::-moz-focus-inner {
     top: -22px;
     width: 272px; } }
 
-@media (max-width: 960px) {
+@media (max-width: 959px) {
   :not(#fxa-settings-container) .big-only {
     display: none; } }
 
-@media (min-width: 1180px) {
+@media (min-width: 1181px) {
   #fxa-settings-container .password-row .input-help-balloon::after,
   #fxa-settings-container .password-row .input-help-balloon::before {
     left: -9px;
@@ -1337,15 +1337,15 @@ button::-moz-focus-inner {
   #fxa-settings-container .password-row .input-help-balloon::before {
     border-width: 1px 0 0 1px; } }
 
-@media (min-width: 1180px) {
+@media (min-width: 1181px) {
   #fxa-settings-container .password-row .input-help-balloon::before {
     border-width: 0 0 1px 1px; } }
 
-@media (min-width: 1180px) {
+@media (min-width: 1181px) {
   html[dir='ltr'] #fxa-settings-container .password-row .input-help-balloon {
     right: 100%; } }
 
-@media (min-width: 1180px) {
+@media (min-width: 1181px) {
   html[dir='ltr'] #fxa-settings-container .password-row .password-strength-balloon {
     left: calc(100% + 18px); } }
 
@@ -1354,7 +1354,7 @@ button::-moz-focus-inner {
   html[dir='rtl'] #fxa-settings-container .input-help-balloon::before {
     right: 15px; } }
 
-@media (min-width: 1180px) {
+@media (min-width: 1181px) {
   html[dir='rtl'] #fxa-settings-container .input-help-balloon::after,
   html[dir='rtl'] #fxa-settings-container .input-help-balloon::before {
     right: -8px;
@@ -1363,11 +1363,11 @@ button::-moz-focus-inner {
     -webkit-transform-origin: center center;
             transform-origin: center center; } }
 
-@media (min-width: 1180px) {
+@media (min-width: 1181px) {
   html[dir='rtl'] #fxa-settings-container .password-strength-balloon {
     right: calc(100% + 18px); } }
 
-@media (min-width: 1180px) {
+@media (min-width: 1181px) {
   #fxa-settings-container .input-help-small-only {
     display: none; } }
 
@@ -1383,7 +1383,7 @@ button::-moz-focus-inner {
     top: 43px;
     width: calc(100% + 6px); } }
 
-@media (min-width: 1180px) {
+@media (min-width: 1181px) {
   #fxa-settings-container #password-strength-balloon {
     top: -22px;
     width: 272px; } }
@@ -1697,6 +1697,12 @@ input[type='checkbox'] {
 .show-password-label {
   background-color: #fff;
   color: #737373; }
+
+.show-password:focus + .show-password-label {
+  background-color: #d9d9d9; }
+
+input[type='text'] ~ .show-password:focus + .show-password-label {
+  background-color: #bdbdbe; }
 
 .password:focus ~ .show-password-label {
   color: #0a84ff; }
