@@ -1771,7 +1771,7 @@ define([
         return hawkCredentials(sessionToken, &#x27;sessionToken&#x27;, HKDF_SIZE);
       })
       .then(creds =&gt; {
-        return request.send(&#x27;/securityEvents&#x27;, &#x27;DELETE&#x27;, creds);
+        return request.send(&#x27;/securityEvents&#x27;, &#x27;DELETE&#x27;, creds, {});
       });
   };
 
