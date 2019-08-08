@@ -2182,6 +2182,12 @@ section.modal-panel .button-row:not(.save-options) {
   .client.tablet[data-os='Android'] {
     background-image: url("/images/icon-device-tablet-android.svg"); }
 
+.client.vr {
+  background-image: url("/images/icon-device-vr.svg"); }
+
+.client.tv {
+  background-image: url("/images/icon-device-tv.svg"); }
+
 .client-device.client-current {
   background-position: left 5px; }
 
