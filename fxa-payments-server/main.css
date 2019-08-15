@@ -684,7 +684,7 @@ a[data-visible-url^='http']::after {
       padding: 32px 0 0;
       -webkit-transition: box-shadow 250ms cubic-bezier(0.07, 0.95, 0, 1);
       transition: box-shadow 250ms cubic-bezier(0.07, 0.95, 0, 1);
-      width: 100vw; } }
+      width: 100%; } }
   @media (max-width: 520px), (max-height: 640px), (orientation: landscape) and (min-width: 641px) and (max-height: 640px) {
     #fxa-settings-content {
       background: none;
@@ -692,7 +692,7 @@ a[data-visible-url^='http']::after {
       border-top: 1px solid rgba(12, 12, 13, 0.1);
       box-shadow: none;
       padding: 30px 0 10px;
-      width: 100vw; } }
+      width: 100%; } }
   #fxa-settings-content.animate-shadow {
     box-shadow: 0 4px 16px rgba(12, 12, 13, 0.1);
     -webkit-transition: box-shadow 250ms cubic-bezier(0.07, 0.95, 0, 1);
@@ -2334,20 +2334,20 @@ html[dir='rtl'] .fxa-radio {
     padding-left: 25px; }
 
 .breadcrumbs {
-  width: 100%;
-  margin-top: 0px;
-  margin-left: 100px; }
+  padding-left: 100px;
+  margin-top: 0;
+  width: 100%; }
   .breadcrumbs li {
     list-style: none;
     float: left;
-    margin: 0px;
-    padding: 0px; }
-    .breadcrumbs li:before {
+    margin: 0;
+    padding: 0; }
+    .breadcrumbs li::before {
       content: "\003E";
-      padding: 0px 10px; }
-    .breadcrumbs li:first-child:before {
+      padding: 0 10px; }
+    .breadcrumbs li:first-child::before {
       content: "";
-      padding: 0px; }
+      padding: 0; }
 
 .totp-panel .totp-list ul {
   padding: 0; }
@@ -4052,8 +4052,8 @@ body > #root {
     background-image: url(static/media/spinnergrey.a9d4e679.png); }
 
 .breadcrumbs {
-  margin-left: 100px;
   margin-top: 0;
+  padding-left: 100px;
   width: 100%; }
   .breadcrumbs li {
     float: left;
