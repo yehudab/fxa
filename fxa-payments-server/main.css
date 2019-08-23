@@ -3522,6 +3522,18 @@ button.button-link {
   border: 1px solid #5897fb;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); }
 
+html {
+  background-color: #fbfbfe;
+  height: 100%; }
+
+table,
+th,
+td {
+  border: solid 1px #000;
+  font-size: 1.2rem;
+  padding: 5px;
+  text-align: center; }
+
 .error {
   font-size: 12px;
   font-weight: 400;
