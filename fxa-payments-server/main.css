@@ -4173,6 +4173,7 @@ form.payment .input-row input::placeholder {
     margin: 10px 0; }
 
 .product-payment h3.billing-title {
+  font-weight: bold;
   padding-top: 23px; }
 
 .product-payment .profile-banner {
