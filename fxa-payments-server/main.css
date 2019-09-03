@@ -2138,8 +2138,10 @@ section.modal-panel .button-row:not(.save-options) {
     /*is also the default computed width on desktop screen*/
     min-width: 100px;
     position: absolute;
-    top: 0;
-    width: 20%; }
+    top: 0; }
+    @media (min-width: 521px) and (min-height: 641px) {
+      .client .settings-button {
+        width: 20%; } }
     html[dir='ltr'] .client .settings-button {
       right: 0; }
     html[dir='rtl'] .client .settings-button {
