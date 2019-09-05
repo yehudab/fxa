@@ -2,7 +2,7 @@
     "project": {
         "name": "fxa-js-client",
         "description": "Web client that talks to the Firefox Accounts API server",
-        "version": "1.0.19"
+        "version": "1.0.20"
     },
     "files": {
         "client/lib/credentials.js": {
@@ -2831,6 +2831,23 @@
         {
             "file": "client/FxAccountClient.js",
             "line": 2628,
+            "description": "Get the list of SubHub plans from the auth server.",
+            "params": [
+                {
+                    "name": "token",
+                    "description": "An access token from the OAuth server.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "A promise that will be fulfilled with a list of subscription plans from SubHub.",
+                "type": "Promise"
+            },
+            "class": "FxAccountClient"
+        },
+        {
+            "file": "client/FxAccountClient.js",
+            "line": 2654,
             "description": "Get a user's list of active subscriptions.",
             "params": [
                 {
@@ -2847,7 +2864,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 2655,
+            "line": 2681,
             "description": "Submit a support ticket.",
             "params": [
                 {
@@ -2891,7 +2908,7 @@
         },
         {
             "file": "client/FxAccountClient.js",
-            "line": 2688,
+            "line": 2714,
             "description": "Check for a required argument. Exposed for unit testing.",
             "params": [
                 {
@@ -2959,7 +2976,11 @@
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " client/FxAccountClient.js:2655"
+            "line": " client/FxAccountClient.js:2654"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " client/FxAccountClient.js:2681"
         },
         {
             "message": "Missing item type\nUnbundle the WrapKB",
@@ -3002,16 +3023,20 @@
             "line": " client/FxAccountClient.js:2593"
         },
         {
-            "message": "Missing item type\nGet a user's list of active subscriptions.",
+            "message": "Missing item type\nGet the list of SubHub plans from the auth server.",
             "line": " client/FxAccountClient.js:2628"
         },
         {
+            "message": "Missing item type\nGet a user's list of active subscriptions.",
+            "line": " client/FxAccountClient.js:2654"
+        },
+        {
             "message": "Missing item type\nSubmit a support ticket.",
-            "line": " client/FxAccountClient.js:2655"
+            "line": " client/FxAccountClient.js:2681"
         },
         {
             "message": "Missing item type\nCheck for a required argument. Exposed for unit testing.",
-            "line": " client/FxAccountClient.js:2688"
+            "line": " client/FxAccountClient.js:2714"
         }
     ]
 }

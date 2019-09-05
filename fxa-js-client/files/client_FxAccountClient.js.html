@@ -17,7 +17,7 @@
                 <h1><img src="../assets/css/logo.png" title="fxa-js-client" width="117" height="52"></h1>
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 1.0.19</em>
+            <em>API Docs for: 1.0.20</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -2709,6 +2709,32 @@ FxAccountClient.prototype.getOAuthScopedKeyData = function(
     .then(function(creds) {
       return request.send(&#x27;/account/scoped-key-data&#x27;, &#x27;POST&#x27;, creds, params);
     });
+};
+
+/**
+ * Get the list of SubHub plans from the auth server.
+ *
+ * @param {String} token An access token from the OAuth server.
+ * @returns {Promise} A promise that will be fulfilled with a list of subscription plans from SubHub.
+ */
+FxAccountClient.prototype.getSubscriptionPlans = function(token) {
+  var self = this;
+
+  return Promise.resolve().then(function() {
+    required(token, &#x27;token&#x27;);
+    const requestOptions = {
+      headers: {
+        Authorization: &#x60;Bearer ${token}&#x60;,
+      },
+    };
+    return self.request.send(
+      &#x27;oauth/subscriptions/plans&#x27;,
+      &#x27;GET&#x27;,
+      null,
+      null,
+      requestOptions
+    );
+  });
 };
 
 /**
