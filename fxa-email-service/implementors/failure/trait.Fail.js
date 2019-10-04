@@ -6,5 +6,4 @@ implementors["fxa_email_service"] = [{text:"impl Fail for <a class=\"struct\" hr
             } else {
                 window.pending_implementors = implementors;
             }
-        
-})()
+        })()

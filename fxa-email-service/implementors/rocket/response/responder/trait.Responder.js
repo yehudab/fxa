@@ -6,5 +6,4 @@ implementors["fxa_email_service"] = [{text:"impl&lt;'r&gt; <a class=\"trait\" hr
             } else {
                 window.pending_implementors = implementors;
             }
-        
-})()
+        })()

@@ -6,5 +6,4 @@ implementors["fxa_email_service"] = [];
             } else {
                 window.pending_implementors = implementors;
             }
-        
-})()
+        })()
