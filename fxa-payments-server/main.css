@@ -3849,13 +3849,25 @@ h3.billing-title {
   border-top: 1px solid #e0e0e6;
   height: 0;
   margin: 0 -40px; }
+  @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
+    #main-content hr {
+      margin: 0 -20px; } }
 
 #fxa-settings-content .subscription-management,
-#main-content.payments-card {
-  min-height: 200px;
-  width: 640px; }
+#main-content.payments-card,
+#main-content.card {
+  max-width: 640px;
+  width: 100%; }
+  @media (max-width: 520px) {
+    #fxa-settings-content .subscription-management,
+    #main-content.payments-card,
+    #main-content.card {
+      background-color: none;
+      border-radius: 0;
+      box-shadow: none; } }
   #fxa-settings-content .subscription-management .input-row .StripeElement,
-  #main-content.payments-card .input-row .StripeElement {
+  #main-content.payments-card .input-row .StripeElement,
+  #main-content.card .input-row .StripeElement {
     -webkit-appearance: none;
     -moz-appearance: textfield;
     background-color: #fff;
@@ -3874,49 +3886,62 @@ h3.billing-title {
     width: 100%;
     z-index: 2; }
     #fxa-settings-content .subscription-management .input-row .StripeElement:hover,
-    #main-content.payments-card .input-row .StripeElement:hover {
+    #main-content.payments-card .input-row .StripeElement:hover,
+    #main-content.card .input-row .StripeElement:hover {
       border-color: rgba(12, 12, 13, 0.5); }
     #fxa-settings-content .subscription-management .input-row .StripeElement:focus,
-    #main-content.payments-card .input-row .StripeElement:focus {
+    #main-content.payments-card .input-row .StripeElement:focus,
+    #main-content.card .input-row .StripeElement:focus {
       border-color: #0a84ff;
       box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.3); }
     #fxa-settings-content .subscription-management .input-row .StripeElement.invalid,
-    #main-content.payments-card .input-row .StripeElement.invalid {
+    #main-content.payments-card .input-row .StripeElement.invalid,
+    #main-content.card .input-row .StripeElement.invalid {
       border-color: #d70022; }
       #fxa-settings-content .subscription-management .input-row .StripeElement.invalid:focus,
-      #main-content.payments-card .input-row .StripeElement.invalid:focus {
+      #main-content.payments-card .input-row .StripeElement.invalid:focus,
+      #main-content.card .input-row .StripeElement.invalid:focus {
         box-shadow: 0 0 0 3px rgba(215, 0, 34, 0.3); }
     #fxa-settings-content .subscription-management .input-row .StripeElement:disabled,
-    #main-content.payments-card .input-row .StripeElement:disabled {
+    #main-content.payments-card .input-row .StripeElement:disabled,
+    #main-content.card .input-row .StripeElement:disabled {
       color: #737373;
       cursor: not-allowed; }
     @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
       #fxa-settings-content .subscription-management .input-row .StripeElement,
-      #main-content.payments-card .input-row .StripeElement {
+      #main-content.payments-card .input-row .StripeElement,
+      #main-content.card .input-row .StripeElement {
         height: 40px; } }
     html[dir='ltr'] #fxa-settings-content .subscription-management .input-row .StripeElement, html[dir='ltr']
-    #main-content.payments-card .input-row .StripeElement {
+    #main-content.payments-card .input-row .StripeElement, html[dir='ltr']
+    #main-content.card .input-row .StripeElement {
       padding: 0 0 0 16px; }
     html[dir='rtl'] #fxa-settings-content .subscription-management .input-row .StripeElement, html[dir='rtl']
-    #main-content.payments-card .input-row .StripeElement {
+    #main-content.payments-card .input-row .StripeElement, html[dir='rtl']
+    #main-content.card .input-row .StripeElement {
       direction: ltr;
       padding: 0 16px 0 0;
       text-align: right; }
     #fxa-settings-content .subscription-management .input-row .StripeElement:last-child,
-    #main-content.payments-card .input-row .StripeElement:last-child {
+    #main-content.payments-card .input-row .StripeElement:last-child,
+    #main-content.card .input-row .StripeElement:last-child {
       margin-bottom: 0; }
   #fxa-settings-content .subscription-management .input-row .StripeElement--focus,
-  #main-content.payments-card .input-row .StripeElement--focus {
+  #main-content.payments-card .input-row .StripeElement--focus,
+  #main-content.card .input-row .StripeElement--focus {
     border-color: #0a84ff;
     box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.3); }
   #fxa-settings-content .subscription-management .input-row .StripeElement--invalid,
-  #main-content.payments-card .input-row .StripeElement--invalid {
+  #main-content.payments-card .input-row .StripeElement--invalid,
+  #main-content.card .input-row .StripeElement--invalid {
     border-color: #d70022; }
     #fxa-settings-content .subscription-management .input-row .StripeElement--invalid.StripeElement--focus,
-    #main-content.payments-card .input-row .StripeElement--invalid.StripeElement--focus {
+    #main-content.payments-card .input-row .StripeElement--invalid.StripeElement--focus,
+    #main-content.card .input-row .StripeElement--invalid.StripeElement--focus {
       box-shadow: 0 0 0 3px rgba(215, 0, 34, 0.3); }
   #fxa-settings-content .subscription-management .input-row .label-text,
-  #main-content.payments-card .input-row .label-text {
+  #main-content.payments-card .input-row .label-text,
+  #main-content.card .input-row .label-text {
     color: #686869;
     display: block;
     font-size: 13px;
@@ -3924,7 +3949,8 @@ h3.billing-title {
     margin-bottom: 7px;
     text-align: left; }
   #fxa-settings-content .subscription-management .input-row .label-text.checkbox,
-  #main-content.payments-card .input-row .label-text.checkbox {
+  #main-content.payments-card .input-row .label-text.checkbox,
+  #main-content.card .input-row .label-text.checkbox {
     color: #0c0c0d;
     font-size: 14px;
     font-weight: 500;
@@ -3935,44 +3961,62 @@ h3.billing-title {
   #fxa-settings-content .subscription-management .input-row input[type='checkbox']:checked:focus,
   #main-content.payments-card .input-row input[type='checkbox']:focus,
   #main-content.payments-card .input-row input[type='checkbox']:not(:checked):focus,
-  #main-content.payments-card .input-row input[type='checkbox']:checked:focus {
+  #main-content.payments-card .input-row input[type='checkbox']:checked:focus,
+  #main-content.card .input-row input[type='checkbox']:focus,
+  #main-content.card .input-row input[type='checkbox']:not(:checked):focus,
+  #main-content.card .input-row input[type='checkbox']:checked:focus {
     border: 1px solid transparent; }
   #fxa-settings-content .subscription-management .input-row--checkbox label,
-  #main-content.payments-card .input-row--checkbox label {
+  #main-content.payments-card .input-row--checkbox label,
+  #main-content.card .input-row--checkbox label {
     display: flex;
     flex-direction: row; }
     #fxa-settings-content .subscription-management .input-row--checkbox label input[type='checkbox'],
-    #main-content.payments-card .input-row--checkbox label input[type='checkbox'] {
-      width: 32px; }
+    #main-content.payments-card .input-row--checkbox label input[type='checkbox'],
+    #main-content.card .input-row--checkbox label input[type='checkbox'] {
+      flex: 0 0 18px;
+      position: relative;
+      top: 2px; }
+      #fxa-settings-content .subscription-management .input-row--checkbox label input[type='checkbox']:checked,
+      #main-content.payments-card .input-row--checkbox label input[type='checkbox']:checked,
+      #main-content.card .input-row--checkbox label input[type='checkbox']:checked {
+        background-image: url(static/media/check.84cbca5d.svg); }
     #fxa-settings-content .subscription-management .input-row--checkbox label .label-text,
-    #main-content.payments-card .input-row--checkbox label .label-text {
+    #main-content.payments-card .input-row--checkbox label .label-text,
+    #main-content.card .input-row--checkbox label .label-text {
       display: block;
       margin-left: 2px; }
   #fxa-settings-content .subscription-management .input-row-group,
-  #main-content.payments-card .input-row-group {
+  #main-content.payments-card .input-row-group,
+  #main-content.card .input-row-group {
     align-items: flex-end;
     display: flex;
     flex-direction: row; }
-    @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
+    @media (max-width: 520px) {
       #fxa-settings-content .subscription-management .input-row-group,
-      #main-content.payments-card .input-row-group {
+      #main-content.payments-card .input-row-group,
+      #main-content.card .input-row-group {
         flex-wrap: wrap; } }
     #fxa-settings-content .subscription-management .input-row-group .input-row,
-    #main-content.payments-card .input-row-group .input-row {
+    #main-content.payments-card .input-row-group .input-row,
+    #main-content.card .input-row-group .input-row {
       flex: 1 0;
       padding-right: 18px;
       width: inherit; }
       #fxa-settings-content .subscription-management .input-row-group .input-row.input-row--xl,
-      #main-content.payments-card .input-row-group .input-row.input-row--xl {
+      #main-content.payments-card .input-row-group .input-row.input-row--xl,
+      #main-content.card .input-row-group .input-row.input-row--xl {
         flex: 2 0; }
-        @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
+        @media (max-width: 520px) {
           #fxa-settings-content .subscription-management .input-row-group .input-row.input-row--xl,
-          #main-content.payments-card .input-row-group .input-row.input-row--xl {
+          #main-content.payments-card .input-row-group .input-row.input-row--xl,
+          #main-content.card .input-row-group .input-row.input-row--xl {
             flex: unset;
             padding-right: 0;
             width: 100%; } }
     #fxa-settings-content .subscription-management .input-row-group .input-row:last-of-type,
-    #main-content.payments-card .input-row-group .input-row:last-of-type {
+    #main-content.payments-card .input-row-group .input-row:last-of-type,
+    #main-content.card .input-row-group .input-row:last-of-type {
       padding-right: 0; }
 
 
@@ -3982,6 +4026,7 @@ body > #root {
 #top-bar .alert {
   background: rgba(0, 0, 0, 0.1);
   font-weight: bold;
+  margin: 4px auto;
   min-height: 2em;
   padding: 0.5em;
   text-align: center; }
@@ -3991,7 +4036,7 @@ body > #root {
   color: #fff; }
 
 .alert span.checked::before {
-  background-image: url(static/media/check.ec42bb18.svg);
+  background-image: url(static/media/check.84cbca5d.svg);
   background-position: 0 3px;
   background-repeat: no-repeat;
   content: '\00a0';
@@ -4055,9 +4100,9 @@ body > #root {
 
 .breadcrumbs {
   margin-top: 0;
-  padding-left: 100px;
+  padding-left: 32px;
   width: 100%; }
-  @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
+  @media (max-width: 520px) {
     .breadcrumbs {
       margin-bottom: 0;
       margin-left: 0;
@@ -4070,7 +4115,7 @@ body > #root {
     .breadcrumbs li::before {
       content: '\003E';
       padding: 0 10px; }
-      @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
+      @media (max-width: 520px) {
         .breadcrumbs li::before {
           padding: 0 5px; } }
     .breadcrumbs li:first-child::before {
@@ -4081,12 +4126,15 @@ footer {
   display: flex;
   justify-content: space-between;
   width: 100%; }
-  @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
+  @media (max-width: 520px) {
     footer {
       justify-content: center; } }
   footer #about-moz-footer {
     align-self: flex-start;
     padding-left: 32px; }
+    @media (max-width: 520px) {
+      footer #about-moz-footer {
+        display: none; } }
   footer #legal-footer {
     align-self: flex-end; }
 
@@ -4107,6 +4155,7 @@ footer {
 
 #loading-overlay {
   align-items: center;
+  background: #fbfbfe;
   bottom: 0;
   display: flex;
   justify-content: center;
@@ -4131,62 +4180,68 @@ form.payment .legal-blurb {
   color: #686869;
   font-size: 12px;
   font-weight: 500;
+  line-height: 16px;
   text-align: center; }
+  form.payment .legal-blurb p {
+    margin-bottom: 4px;
+    margin-top: 0; }
+  form.payment .legal-blurb p:last-child {
+    margin-bottom: 0; }
 
 form.payment .input-row input {
-  font-size: 13px; }
+  font-size: 14px; }
 
 form.payment .input-row input::-webkit-input-placeholder {
-  color: rgba(12, 12, 13, 0.54) !important;
-  font-size: 13px;
-  font-weight: 500;
+  color: #767676 !important;
+  font-size: 14px;
+  font-weight: 400;
   height: 45px;
   line-height: 45px; }
 
 form.payment .input-row input::-moz-placeholder {
-  color: rgba(12, 12, 13, 0.54) !important;
-  font-size: 13px;
-  font-weight: 500;
+  color: #767676 !important;
+  font-size: 14px;
+  font-weight: 400;
   height: 45px;
   line-height: 45px; }
 
 form.payment .input-row input:-ms-input-placeholder {
-  color: rgba(12, 12, 13, 0.54) !important;
-  font-size: 13px;
-  font-weight: 500;
+  color: #767676 !important;
+  font-size: 14px;
+  font-weight: 400;
   height: 45px;
   line-height: 45px; }
 
 form.payment .input-row input::-ms-input-placeholder {
-  color: rgba(12, 12, 13, 0.54) !important;
-  font-size: 13px;
-  font-weight: 500;
+  color: #767676 !important;
+  font-size: 14px;
+  font-weight: 400;
   height: 45px;
   line-height: 45px; }
 
 form.payment .input-row input::placeholder {
-  color: rgba(12, 12, 13, 0.54) !important;
-  font-size: 13px;
-  font-weight: 500;
+  color: #767676 !important;
+  font-size: 14px;
+  font-weight: 400;
   height: 45px;
   line-height: 45px; }
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (max-width: 520px) {
   .StripeElement .InputContainer .InputElement::-webkit-input-placeholder,
   form.payment .input-row input::-webkit-input-placeholder {
-    line-height: 37px !important; }
+    line-height: 38px !important; }
   .StripeElement .InputContainer .InputElement::-moz-placeholder,
   form.payment .input-row input::-moz-placeholder {
-    line-height: 37px !important; }
+    line-height: 38px !important; }
   .StripeElement .InputContainer .InputElement:-ms-input-placeholder,
   form.payment .input-row input:-ms-input-placeholder {
-    line-height: 37px !important; }
+    line-height: 38px !important; }
   .StripeElement .InputContainer .InputElement::-ms-input-placeholder,
   form.payment .input-row input::-ms-input-placeholder {
-    line-height: 37px !important; }
+    line-height: 38px !important; }
   .StripeElement .InputContainer .InputElement::placeholder,
   form.payment .input-row input::placeholder {
-    line-height: 37px !important; }
+    line-height: 38px !important; }
   .sign-in {
     margin-top: 25px; }
   .product-payment h3.billing-title {
@@ -4197,7 +4252,7 @@ form.payment .input-row input::placeholder {
     width: 100%; }
     #main-content.payments-card .input-row input,
     #main-content.payments-card .input-row .StripeElement {
-      padding-left: 9px !important; } }
+      padding-left: 5px !important; } }
 
 .product-payment .account-activated {
   margin-bottom: 25px; }
@@ -4226,9 +4281,23 @@ form.payment .input-row input::placeholder {
   .product-payment .profile-banner img.avatar.hoisted {
     margin-top: -92px;
     z-index: 999; }
+    @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
+      .product-payment .profile-banner img.avatar.hoisted {
+        border-radius: 30px;
+        height: 60px;
+        margin-bottom: 32px;
+        position: relative;
+        top: 24px;
+        width: 60px; } }
   .product-payment .profile-banner h2.displayName {
     font-weight: 500;
     margin: 0; }
+  .product-payment .profile-banner img + h2.displayName {
+    margin-bottom: 4px;
+    padding-top: 8px; }
+    @media (max-width: 520px) {
+      .product-payment .profile-banner img + h2.displayName {
+        padding-top: 0; } }
   .product-payment .profile-banner h3.email {
     font-weight: normal;
     line-height: 14px;
@@ -4282,7 +4351,7 @@ form.payment .input-row input::placeholder {
 
 .subscription-management .subscription {
   margin: 25px 32px; }
-  @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
+  @media (max-width: 520px) {
     .subscription-management .subscription {
       margin: 25px 16px; } }
   .subscription-management .subscription header {
@@ -4301,12 +4370,15 @@ form.payment .input-row input::placeholder {
     font-weight: 500;
     margin: 13px 0;
     text-align: left; }
-  @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
-    .subscription-management .cancel-subscription input {
-      width: 30px; }
-    .subscription-management .cancel-subscription label {
-      display: flex;
-      flex-direction: row; } }
+  .subscription-management .cancel-subscription label {
+    display: flex;
+    flex-direction: row; }
+  .subscription-management .cancel-subscription input[type='checkbox'] {
+    flex: 0 0 18px;
+    position: relative;
+    top: 2px; }
+    .subscription-management .cancel-subscription input[type='checkbox']:checked {
+      background-image: url(static/media/check.84cbca5d.svg); }
 
 .subscription-management .card-details {
   display: flex; }
@@ -4341,9 +4413,9 @@ form.payment .input-row input::placeholder {
     font-weight: 500;
     line-height: 1.5; }
   .subscription-management .payment-update .payment {
-    padding: 10px 33px; }
+    padding: 12px 0; }
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (max-width: 520px) {
   #fxa-settings-content .subscription-management,
   #main-content.payments-card {
     width: 100%; }
@@ -4354,15 +4426,15 @@ form.payment .input-row input::placeholder {
     margin-bottom: 0;
     width: inherit; }
   .breadcrumbs {
-    margin-bottom: 0;
-    margin-left: 0; }
+    margin: 0;
+    padding: 0; }
   .subscription-management .payment-update .payment {
     padding: 0; }
   .subscription-management .card-details {
     flex-direction: column; }
   .input-row input,
   .input-row .StripeElement {
-    padding-left: 9px !important; } }
+    padding-left: 5px !important; } }
 
 
 /*# sourceMappingURL=main.css.map*/
