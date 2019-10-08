@@ -4304,6 +4304,11 @@ form.payment .input-row input::placeholder {
     font-weight: normal;
     line-height: 14px;
     margin: 0;
+    padding: 12px 0 0; }
+    @media (max-width: 520px) {
+      .product-payment .profile-banner h3.email {
+        padding: 0; } }
+  .product-payment .profile-banner .displayName + .email {
     padding: 0; }
 
 .product-payment .plan-details {
