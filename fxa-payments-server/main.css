@@ -2178,6 +2178,8 @@ section.modal-panel .button-row:not(.save-options) {
     background-image: url("/images/icon-service-monitor.svg"); }
   .client-oAuthApp[data-name^='Firefox Private Network'] {
     background-image: url("/images/icon-service-private-network.svg"); }
+  .client-oAuthApp[data-name^='Firefox Reality'] {
+    background-image: url("/images/icon-service-reality.svg"); }
   .client-oAuthApp[data-name='Notes'] {
     background-image: url("/images/icon-service-firefox-notes.svg"); }
   .client-oAuthApp[data-name='Pocket'] {
