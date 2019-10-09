@@ -3830,6 +3830,12 @@ div + .error {
 #root {
   display: contents; }
 
+#stage {
+  opacity: 1; }
+  #stage.fade-in-forward {
+    -webkit-animation: none;
+            animation: none; }
+
 h3.billing-title {
   color: #000;
   font-size: 16px;
