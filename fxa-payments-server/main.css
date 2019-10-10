@@ -765,7 +765,7 @@ a[data-visible-url^='http']::after {
   border-radius: 8px; }
 
 #main-content::before {
-  background-image: url("/images/trailhead/firefox-logo.svg");
+  background-image: url("/images/firefox-logo.svg");
   background-position: center center;
   background-repeat: no-repeat;
   content: '';
@@ -1842,7 +1842,7 @@ body.settings #stage .settings {
       margin-bottom: 0;
       width: inherit; } }
   #fxa-settings-header-wrapper #fxa-manage-account {
-    background-image: url("/images/trailhead/firefox-logo.svg");
+    background-image: url("/images/firefox-logo.svg");
     background-repeat: no-repeat;
     margin: 0; }
     html[dir='ltr'] #fxa-settings-header-wrapper #fxa-manage-account {
@@ -3077,36 +3077,36 @@ button.button-link {
       height: 104px; } }
 
 .graphic-checkbox {
-  background-image: url("/images/trailhead/account-verified.svg"); }
+  background-image: url("/images/account-verified.svg"); }
   @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
     .graphic-checkbox {
       height: 100px; } }
 
 .graphic-mail {
-  background-image: url("/images/trailhead/graphic_mail.svg"); }
+  background-image: url("/images/graphic_mail.svg"); }
   @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
     .graphic-mail {
       height: 100px; } }
 
 .graphic-mail-bounced {
-  background-image: url("/images/trailhead/graphic_mail_bounced.svg"); }
+  background-image: url("/images/graphic_mail_bounced.svg"); }
   @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
     .graphic-mail-bounced {
       height: 100px; } }
 
 .graphic-connect-another-device {
-  background-image: url("/images/trailhead/account-verified.svg"); }
+  background-image: url("/images/account-verified.svg"); }
   @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
     .graphic-connect-another-device {
       height: 100px; } }
 
 .graphic-connect-another-device-hearts {
-  background-image: url("/images/trailhead/account-verified-hearts.svg");
+  background-image: url("/images/account-verified-hearts.svg");
   margin: 0 auto 20px auto;
   height: 118px; }
 
 .graphic-two-factor-auth {
-  background-image: url("/images/trailhead/graphic_two_factor_auth.svg");
+  background-image: url("/images/graphic_two_factor_auth.svg");
   height: 138px;
   margin-top: 20px; }
   @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
@@ -3114,7 +3114,7 @@ button.button-link {
       height: 70px; } }
 
 .graphic-recovery-codes {
-  background-image: url("/images/trailhead/graphic_recovery_codes.svg");
+  background-image: url("/images/graphic_recovery_codes.svg");
   height: 138px;
   margin-top: 20px; }
   @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
@@ -3140,7 +3140,7 @@ button.button-link {
   width: 33%; }
 
 .graphic-choose-what-to-sync {
-  background-image: url("/images/trailhead/choose_what_to_sync_devices.svg"); }
+  background-image: url("/images/choose_what_to_sync_devices.svg"); }
   @media (min-width: 521px), (orientation: landscape) and (min-width: 641px) {
     .graphic-choose-what-to-sync {
       height: 125px; } }
@@ -3149,7 +3149,7 @@ button.button-link {
       height: 90px; } }
 
 .graphic-pair-failure {
-  background-image: url("/images/trailhead/graphic_hearts_broken.svg"); }
+  background-image: url("/images/graphic_hearts_broken.svg"); }
 
 .marketing-area {
   margin-top: 20px; }
@@ -3211,14 +3211,14 @@ button.button-link {
         text-indent: -9999px;
         width: 180px; }
         .firefox-family-services > ul > .firefox-service .logo.logo-firefox-browser {
-          background-image: url("/images/trailhead/graphic-logo-firefox.svg"); }
+          background-image: url("/images/graphic-logo-firefox.svg"); }
         .firefox-family-services > ul > .firefox-service .logo.logo-lockwise {
-          background-image: url("/images/trailhead/graphic-logo-lockwise.svg");
+          background-image: url("/images/graphic-logo-lockwise.svg");
           background-position-x: -5px; }
         .firefox-family-services > ul > .firefox-service .logo.logo-monitor {
-          background-image: url("/images/trailhead/graphic-logo-monitor.svg"); }
+          background-image: url("/images/graphic-logo-monitor.svg"); }
         .firefox-family-services > ul > .firefox-service .logo.logo-send {
-          background-image: url("/images/trailhead/graphic-logo-send.svg");
+          background-image: url("/images/graphic-logo-send.svg");
           background-position-x: -8px;
           width: 153px; }
 
