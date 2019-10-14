@@ -617,6 +617,9 @@ a[data-visible-url^='http']::after {
   @media (min-width: 521px), (orientation: landscape) and (min-width: 641px) {
     #main-content.card {
       width: 480px; } }
+  @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
+    #main-content.card {
+      width: 300px; } }
   #main-content.panel {
     max-width: 750px;
     width: 96%; }
@@ -632,9 +635,7 @@ a[data-visible-url^='http']::after {
   @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
     #main-content {
       margin: 0 auto;
-      max-width: 640px;
       min-height: 300px !important;
-      min-width: 300px;
       padding: 76px 20px 20px 20px;
       position: relative;
       width: 94%; } }
