@@ -4333,10 +4333,6 @@ form.payment .input-row input::placeholder {
   font-size: 24px;
   font-weight: 500; }
 
-.product-payment .subscription-ready .graphic-fpn {
-  background-image: url(static/media/fpn.eec755e0.svg);
-  background-size: 96px auto; }
-
 .product-payment .subscription-ready p {
   color: #0c0c0d;
   font-size: 16px;
