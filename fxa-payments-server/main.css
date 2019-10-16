@@ -4341,12 +4341,7 @@ form.payment .input-row input::placeholder {
 .product-payment .subscription-ready a {
   font-size: 16px; }
 
-.subscription-management h2.settings-unit-title {
-  font-size: 20px;
-  font-weight: bold; }
-
 .subscription-management button.settings-button {
-  font-size: 13px;
   font-weight: 600;
   padding: 0 16px; }
 
@@ -4378,10 +4373,12 @@ form.payment .input-row input::placeholder {
 .subscription-management .cancel-subscription {
   border-top: 1px solid #e0e0e6;
   padding-top: 16px; }
+  .subscription-management .cancel-subscription p {
+    color: #737373;
+    line-height: 1.5; }
   .subscription-management .cancel-subscription h3 {
-    color: #000;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     margin: 13px 0;
     text-align: left; }
   .subscription-management .cancel-subscription label {
@@ -4396,6 +4393,11 @@ form.payment .input-row input::placeholder {
 
 .subscription-management .card-details {
   display: flex; }
+  .subscription-management .card-details .last-four,
+  .subscription-management .card-details .expiry {
+    align-items: center;
+    display: flex;
+    font-weight: 700; }
   .subscription-management .card-details > div {
     padding-right: 32px; }
 
@@ -4403,7 +4405,7 @@ form.payment .input-row input::placeholder {
   display: flex;
   flex-direction: row; }
   .subscription-management .with-settings-button p {
-    margin: 0 0 1em 0; }
+    margin: 0 1em 1em 0; }
     .subscription-management .with-settings-button p:last-child {
       margin: 0; }
   .subscription-management .with-settings-button .action {
@@ -4414,7 +4416,6 @@ form.payment .input-row input::placeholder {
     justify-content: flex-end; }
     .subscription-management .with-settings-button .action button {
       display: block;
-      font-size: 13px;
       font-weight: 600;
       padding: 0 16px;
       width: 128px; }
@@ -4422,9 +4423,7 @@ form.payment .input-row input::placeholder {
 .subscription-management .payment-update {
   padding-bottom: 18px; }
   .subscription-management .payment-update .billing-description {
-    color: #000;
-    font-size: 12px;
-    font-weight: 500;
+    color: #737373;
     line-height: 1.5; }
   .subscription-management .payment-update .payment {
     padding: 12px 0; }
