@@ -2662,6 +2662,16 @@ button.button-link {
   white-space: nowrap;
   width: 36px; }
 
+#loading-template {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0; }
+
 #loading-avatar-spinner {
   -webkit-animation: 0.9s spin infinite linear;
           animation: 0.9s spin infinite linear;
@@ -2695,6 +2705,8 @@ button.button-link {
   @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
     .spinner {
       margin-top: 95px; } }
+  #loading-template .spinner {
+    margin: 0; }
   .button-row .spinner,
   .input-row .spinner {
     background-image: url("/images/spinnerwhite.svg");
@@ -3532,6 +3544,11 @@ td {
     text-decoration: underline; }
   .error.visible {
     display: block; }
+  #loading-template .error {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0; }
   .loading .error {
     margin-top: 20px; }
   .error.error-warning {
