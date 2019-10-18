@@ -2315,8 +2315,8 @@ html[dir='rtl'] .fxa-radio {
     padding-left: 25px; }
 
 .breadcrumbs {
-  padding-left: 100px;
   margin-top: 0;
+  padding-left: 32px;
   width: 100%; }
   @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
     .breadcrumbs {
@@ -3271,9 +3271,6 @@ button.button-link {
 
 .support .settings-unit:first-child {
   display: block; }
-  .support .settings-unit:first-child .settings-unit-stub .settings-unit-title {
-    font-size: 20px;
-    font-weight: bold; }
 
 .support-form {
   margin: 25px 32px; }
@@ -3283,14 +3280,13 @@ button.button-link {
   .support-form header {
     margin-bottom: 20px; }
     .support-form header h3 {
-      font-size: 16px; }
-  .support-form .support-field {
-    padding: 0 33px; }
-    @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
-      .support-form .support-field {
-        padding: 0; } }
-    .support-form .support-field:nth-child(3) {
-      margin-bottom: 30px; }
+      font-size: 16px;
+      font-weight: 400; }
+  @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
+    .support-form .support-field {
+      padding: 0; } }
+  .support-form .support-field:nth-child(3) {
+    margin-bottom: 30px; }
   .support-form textarea {
     -webkit-appearance: none;
     -moz-appearance: textfield;
@@ -3310,7 +3306,7 @@ button.button-link {
     width: 100%;
     z-index: 2;
     display: inline-block;
-    height: 101px;
+    height: 120px;
     padding: 16px; }
     .support-form textarea:hover {
       border-color: rgba(12, 12, 13, 0.5); }
@@ -3334,12 +3330,12 @@ button.button-link {
       .support-form textarea {
         height: 101px; } }
   .support-form .button-row .settings-button {
-    height: 40px; }
+    height: 48px; }
   .support-form .form-label {
     margin-bottom: 5px; }
     .support-form .form-label label {
-      font-size: 13px;
-      font-weight: 600; }
+      color: #737373;
+      font-size: 14px; }
 
 .modal h2 {
   font-size: 18px;
@@ -3350,8 +3346,11 @@ button.button-link {
   text-align: center; }
 
 .modal .message {
-  line-height: 185%;
+  font-size: 16px;
+  line-height: 1.5;
   margin-bottom: 30px; }
+  .modal .message p {
+    margin-bottom: 0; }
 
 .modal.dialog-error, .modal.dialog-success {
   display: inline-block;
@@ -3359,8 +3358,8 @@ button.button-link {
   width: 545px; }
   @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
     .modal.dialog-error, .modal.dialog-success {
-      width: 100%;
-      max-width: 420px; } }
+      max-width: 420px;
+      width: 100%; } }
   .modal.dialog-error .close-modal, .modal.dialog-success .close-modal {
     background: transparent;
     color: #0c0c0d;
@@ -3384,7 +3383,7 @@ button.button-link {
     box-sizing: border-box; }
   .chosen-container .chosen-drop {
     background: #fff;
-    border: 1px solid #aaa;
+    border: 1px solid rgba(12, 12, 13, 0.3);
     border-top: 0;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
     clip: rect(0, 0, 0, 0);
@@ -3403,9 +3402,9 @@ button.button-link {
     border-bottom-right-radius: 0; }
 
 .chosen-container-single .chosen-single {
-  border: 1px solid #aaa;
+  border: 1px solid rgba(12, 12, 13, 0.3);
   border-radius: 4px;
-  color: #20123b;
+  color: #0c0c0d;
   display: block;
   font-size: 16px;
   overflow: hidden;
@@ -3428,9 +3427,9 @@ button.button-link {
   color: #999; }
 
 .chosen-container-single .chosen-single div {
-  border-color: #686869 transparent transparent transparent;
+  border-color: #d7d7db transparent transparent transparent;
   border-style: solid;
-  border-width: 7px 8px 0 8px;
+  border-width: 8px 8px 0 8px;
   display: block;
   height: 0;
   position: absolute;
@@ -3450,8 +3449,8 @@ button.button-link {
       html[dir='rtl'] .chosen-container-single .chosen-single div {
         left: 16px; } }
   .chosen-with-drop.chosen-container-single .chosen-single div {
-    border-color: transparent transparent #686869 transparent;
-    border-width: 0 8px 7px  8px; }
+    border-color: transparent transparent #d7d7db transparent;
+    border-width: 0 8px 8px 8px; }
   .chosen-container-single .chosen-single div b {
     display: none; }
 
@@ -3466,7 +3465,7 @@ button.button-link {
   position: absolute; }
 
 .chosen-container .chosen-results {
-  color: #000;
+  color: #0c0c0d;
   font-size: 16px;
   margin: 8px 0;
   overflow-x: hidden;
@@ -3484,22 +3483,21 @@ button.button-link {
       cursor: pointer;
       display: list-item; }
     .chosen-container .chosen-results li.highlighted {
-      background-color: #d8d8d8;
-      font-weight: bold; }
+      background-color: #ededf0; }
 
 .chosen-container-active .chosen-single {
-  border: 1px solid #5897fb;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); }
+  border: 1px solid #0a84ff !important;
+  box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.3); }
 
 .chosen-container-active.chosen-with-drop .chosen-single {
+  border: 1px solid #b1b1b3;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border: 1px solid #aaa;
   box-shadow: 0 1px 0 #fff inset; }
 
 .chosen-container-active .chosen-choices {
-  border: 1px solid #5897fb;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); }
+  border: 1px solid #0a84ff !important;
+  box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.3); }
 
 html {
   background-color: #fbfbfe;
