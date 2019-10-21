@@ -4177,9 +4177,30 @@ footer {
   footer #legal-footer {
     align-self: flex-end; }
 
+/* Firefox Colors SCSS Variables v1.0.3 */
 #dialogs .modal {
-  padding: 25px 27px;
-  text-align: center; }
+  padding: 25px 27px 30px;
+  text-align: center;
+  width: 545px; }
+  @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
+    #dialogs .modal {
+      max-width: 420px;
+      width: 100%; } }
+
+#dialogs .reactivate-subscription-success {
+  font-weight: 600; }
+
+#dialogs .message {
+  margin-bottom: 0; }
+
+#dialogs .settings-button {
+  background: #0060df;
+  color: #fff;
+  margin-top: 30px; }
+  #dialogs .settings-button:hover:enabled {
+    background: #003eaa; }
+  #dialogs .settings-button:active:enabled {
+    background: #002275; }
 
 #dialogs .modal .dismiss {
   background: transparent;
@@ -4463,6 +4484,10 @@ form.payment .input-row input::placeholder {
     line-height: 1.5; }
   .subscription-management .payment-update .payment {
     padding: 12px 0; }
+
+.fpn-reactivate-subscription {
+  height: auto;
+  width: 48px; }
 
 @media (max-width: 520px) {
   #fxa-settings-content .subscription-management,
