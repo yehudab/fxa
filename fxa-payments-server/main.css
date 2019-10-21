@@ -3951,17 +3951,32 @@ h3.billing-title {
     #main-content.card .input-row .StripeElement:last-child {
       margin-bottom: 0; }
   #fxa-settings-content .subscription-management .input-row .StripeElement--focus,
+  #fxa-settings-content .subscription-management .input-row .StripeElement--focus:hover,
   #main-content.payments-card .input-row .StripeElement--focus,
-  #main-content.card .input-row .StripeElement--focus {
+  #main-content.payments-card .input-row .StripeElement--focus:hover,
+  #main-content.card .input-row .StripeElement--focus,
+  #main-content.card .input-row .StripeElement--focus:hover {
     border-color: #0a84ff;
     box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.3); }
+  #fxa-settings-content .subscription-management .input-row .tooltip + .StripeElement--empty,
   #fxa-settings-content .subscription-management .input-row .StripeElement--invalid,
+  #fxa-settings-content .subscription-management .input-row .StripeElement--invalid:hover,
+  #main-content.payments-card .input-row .tooltip + .StripeElement--empty,
   #main-content.payments-card .input-row .StripeElement--invalid,
-  #main-content.card .input-row .StripeElement--invalid {
+  #main-content.payments-card .input-row .StripeElement--invalid:hover,
+  #main-content.card .input-row .tooltip + .StripeElement--empty,
+  #main-content.card .input-row .StripeElement--invalid,
+  #main-content.card .input-row .StripeElement--invalid:hover {
     border-color: #d70022; }
+    #fxa-settings-content .subscription-management .input-row .tooltip + .StripeElement--empty.StripeElement--focus,
     #fxa-settings-content .subscription-management .input-row .StripeElement--invalid.StripeElement--focus,
+    #fxa-settings-content .subscription-management .input-row .StripeElement--invalid:hover.StripeElement--focus,
+    #main-content.payments-card .input-row .tooltip + .StripeElement--empty.StripeElement--focus,
     #main-content.payments-card .input-row .StripeElement--invalid.StripeElement--focus,
-    #main-content.card .input-row .StripeElement--invalid.StripeElement--focus {
+    #main-content.payments-card .input-row .StripeElement--invalid:hover.StripeElement--focus,
+    #main-content.card .input-row .tooltip + .StripeElement--empty.StripeElement--focus,
+    #main-content.card .input-row .StripeElement--invalid.StripeElement--focus,
+    #main-content.card .input-row .StripeElement--invalid:hover.StripeElement--focus {
       box-shadow: 0 0 0 3px rgba(215, 0, 34, 0.3); }
   #fxa-settings-content .subscription-management .input-row .label-text,
   #main-content.payments-card .input-row .label-text,
