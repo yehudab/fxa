@@ -2053,6 +2053,12 @@ section.modal-panel .button-row:not(.save-options) {
   section.modal-panel .button-row:not(.save-options) .input-row {
     text-align: right; }
 
+.delete-account p {
+  margin-bottom: 12px; }
+
+.delete-account .subscription-link {
+  margin: 0 0 24px; }
+
 .delete-account-product-container.hide {
   display: none; }
 
