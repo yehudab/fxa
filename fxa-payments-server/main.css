@@ -3379,13 +3379,16 @@ button.button-link {
       max-width: 420px;
       width: 100%; } }
   .modal.dialog-error .close-modal, .modal.dialog-success .close-modal {
-    background: transparent;
+    background-image: url("/images/close.svg");
+    background-position: center center;
     color: #0c0c0d;
     font-size: 16px;
     font-weight: 600;
-    right: 2px;
+    height: 24px;
+    right: 15px;
     text-indent: 0;
-    top: 13px; }
+    top: 13px;
+    width: 24px; }
     .modal.dialog-error .close-modal:hover, .modal.dialog-success .close-modal:hover {
       text-decoration: none; }
 
@@ -4096,15 +4099,6 @@ body > #root {
   position: relative;
   width: 80%; }
 
-.close {
-  background-image: url(static/media/close.4f2cd82a.svg);
-  cursor: pointer;
-  display: inline-block;
-  height: 16px;
-  position: absolute;
-  right: 20px;
-  width: 16px; }
-
 .portal#top-bar {
   left: 0;
   position: fixed;
@@ -4211,13 +4205,13 @@ footer {
 #dialogs .modal .dismiss {
   background: transparent;
   border: 0;
-  height: 11px;
+  height: 24px;
   margin: 0;
   padding: 0;
   position: absolute;
-  right: 19px;
-  top: 18px;
-  width: 11px; }
+  right: 15px;
+  top: 13px;
+  width: 24px; }
 
 #loading-overlay {
   align-items: center;
