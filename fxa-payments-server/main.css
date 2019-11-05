@@ -545,7 +545,7 @@ input[type='radio'] {
   @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
     input[type='radio'] {
       font-size: 16px; } }
-  input[type='radio']:active {
+  input[type='radio']:active, input[type='radio']:focus {
     box-shadow: 0 0 0 2px #55b8eb; }
   input[type='radio']:checked {
     background: #0097d0;
@@ -2214,8 +2214,11 @@ section.modal-panel .button-row:not(.save-options) {
 .client-webSession {
   background-image: url("/images/icon-web-session.svg"); }
 
-#client-disconnect .intro {
-  margin-bottom: 30px; }
+#client-disconnect .radio-header {
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 15px;
+  text-align: left; }
 
 html[dir='ltr'] .fxa-radio {
   text-align: left; }
