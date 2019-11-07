@@ -3236,8 +3236,9 @@ button.button-link {
       html[dir='rtl'] .firefox-family-services > ul > .firefox-service {
         text-align: right; }
       .firefox-family-services > ul > .firefox-service .logo {
-        background-position: -10px top;
+        background-position: 0 top;
         background-repeat: no-repeat;
+        background-size: contain;
         display: block;
         height: 40px;
         margin: 0;
@@ -3249,7 +3250,8 @@ button.button-link {
           background-image: url("/images/graphic-logo-lockwise.svg");
           background-position-x: -5px; }
         .firefox-family-services > ul > .firefox-service .logo.logo-monitor {
-          background-image: url("/images/graphic-logo-monitor.svg"); }
+          background-image: url("/images/graphic-logo-monitor.svg");
+          background-position-x: -12px; }
         .firefox-family-services > ul > .firefox-service .logo.logo-send {
           background-image: url("/images/graphic-logo-send.svg");
           background-position-x: -8px;
