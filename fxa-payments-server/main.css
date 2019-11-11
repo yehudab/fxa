@@ -3718,6 +3718,26 @@ div + .error {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg); } }
 
+@-webkit-keyframes fade-up {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px); } }
+
+@keyframes fade-up {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px); } }
+
 @-webkit-keyframes fade-up-tt {
   0% {
     opacity: 0;
@@ -4401,6 +4421,25 @@ form.payment .input-row input::placeholder {
   .product-payment .profile-banner .displayName + .email {
     padding: 0; }
 
+/* Firefox Colors SCSS Variables v1.0.3 */
+.error-message-container {
+  background-color: #d70022;
+  border-radius: 4px;
+  color: #fff;
+  padding: 10px; }
+  .error-message-container p {
+    font-weight: 500;
+    margin: 0;
+    text-align: center; }
+  .error-message-container + form {
+    margin-top: 12px; }
+  .error-message-container.animate-fade-enter {
+    -webkit-animation: fade-down-tt 150ms;
+            animation: fade-down-tt 150ms; }
+  .error-message-container.animate-fade-exit {
+    -webkit-animation: fade-up 150ms forwards;
+            animation: fade-up 150ms forwards; }
+
 .product-payment .plan-details {
   margin: 14px 0; }
   .product-payment .plan-details h2 {
@@ -4509,7 +4548,7 @@ form.payment .input-row input::placeholder {
     color: #737373;
     line-height: 1.5; }
   .subscription-management .payment-update .payment {
-    padding: 12px 0; }
+    margin: 12px 0; }
 
 .fpn-reactivate-subscription {
   height: auto;
