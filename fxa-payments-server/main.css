@@ -631,12 +631,12 @@ a[data-visible-url^='http']::after {
       border-radius: 16px;
       box-shadow: 0 12px 18px 2px rgba(34, 0, 51, 0.04), 0 6px 22px 4px rgba(7, 48, 114, 0.12), 0 6px 10px -4px rgba(14, 13, 26, 0.12);
       margin: 0 auto;
-      padding: 70px 40px 40px 40px; } }
+      padding: 70px 40px 40px; } }
   @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
     #main-content {
       margin: 0 auto;
       min-height: 300px !important;
-      padding: 82px 20px 20px 20px;
+      padding: 82px 20px 20px;
       position: relative;
       width: 94%; } }
 
@@ -4167,6 +4167,9 @@ body > #root {
 #main-content::before {
   background-image: url(static/media/firefox-logo.16821f55.svg); }
 
+#main-content.payments-card::before {
+  background-image: none; }
+
 #fxa-settings-header-wrapper {
   flex-direction: column; }
   #fxa-settings-header-wrapper #fxa-manage-account {
@@ -4366,6 +4369,7 @@ form.payment .input-row input::placeholder {
     #main-content.payments-card .input-row .StripeElement {
       padding-left: 5px !important; } }
 
+/* Firefox Colors SCSS Variables v1.0.3 */
 .product-payment .account-activated {
   margin-bottom: 25px; }
   .product-payment .account-activated h2 {
@@ -4391,13 +4395,12 @@ form.payment .input-row input::placeholder {
     height: 84px;
     width: 84px; }
   .product-payment .profile-banner img.avatar.hoisted {
-    margin-top: -92px;
-    z-index: 999; }
+    margin-top: -112px; }
     @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
       .product-payment .profile-banner img.avatar.hoisted {
         border-radius: 30px;
         height: 60px;
-        margin-bottom: 32px;
+        margin: -112px 0 32px;
         position: relative;
         top: 24px;
         width: 60px; } }
