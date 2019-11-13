@@ -4542,8 +4542,9 @@ form.payment .input-row input::placeholder {
     .subscription-management .with-settings-button .action button {
       display: block;
       font-weight: 600;
-      padding: 0 16px;
-      width: 128px; }
+      padding: 0 16px; }
+  .subscription-management .with-settings-button .subscription-cancelled-details {
+    flex: 4 1; }
 
 .subscription-management .payment-update {
   padding-bottom: 18px; }
