@@ -574,17 +574,6 @@ section p {
 .browsehappy {
   display: block; }
 
-a[href^='http'].visible-url {
-  color: #20123b;
-  cursor: default;
-  pointer-events: none;
-  text-decoration: none; }
-
-a[data-visible-url^='http']::after {
-  border-bottom: 1px solid #fff;
-  content: " (" attr(href) ") ";
-  word-break: break-all; }
-
 .clearfix::after {
   clear: both;
   content: ".";
