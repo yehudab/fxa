@@ -3330,7 +3330,8 @@ button.button-link {
     z-index: 2;
     display: inline-block;
     height: 120px;
-    padding: 16px; }
+    padding: 16px;
+    resize: vertical; }
     .support-form textarea:hover {
       border-color: rgba(12, 12, 13, 0.5); }
     .support-form textarea:focus {
