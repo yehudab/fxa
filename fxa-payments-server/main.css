@@ -3889,11 +3889,13 @@ div + .error {
 
 h3.billing-title {
   color: #000;
+  display: flex;
   font-size: 16px;
   font-weight: 500;
+  justify-content: space-between;
   margin: 13px 0;
   text-align: left; }
-  h3.billing-title span::after {
+  h3.billing-title .title::after {
     background-image: url(static/media/lock.0cb1bdb2.svg);
     background-position: 0 2px;
     background-repeat: no-repeat;
@@ -3902,6 +3904,10 @@ h3.billing-title {
     height: 18px;
     margin: 0 8px;
     width: 14px; }
+  h3.billing-title .card-details {
+    font-size: 14px; }
+    h3.billing-title .card-details .last4 {
+      margin-right: 25px; }
 
 #main-content hr {
   border: 0;
@@ -4274,6 +4280,19 @@ footer {
   white-space: nowrap;
   width: 36px; }
 
+.payment-legal-blurb {
+  clear: both;
+  color: #686869;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: center; }
+  .payment-legal-blurb p {
+    margin-bottom: 4px;
+    margin-top: 0; }
+  .payment-legal-blurb p:last-child {
+    margin-bottom: 0; }
+
 form.payment .legal-blurb {
   clear: both;
   color: #686869;
@@ -4359,6 +4378,45 @@ form.payment .input-row input::placeholder {
     #main-content.payments-card .input-row .StripeElement {
       padding-left: 5px !important; } }
 
+.product-upgrade .upgrade-details {
+  text-align: center;
+  width: 560px; }
+  .product-upgrade .upgrade-details h2 {
+    font-size: 18px; }
+  .product-upgrade .upgrade-details .upgrade-plans {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style-type: none;
+    margin: 15px 0;
+    padding: 0;
+    width: 100%; }
+    .product-upgrade .upgrade-details .upgrade-plans .upgrade-indicator {
+      background-image: url(static/media/arrow.cdfcae88.svg);
+      background-position: center center;
+      background-repeat: no-repeat;
+      height: 67px;
+      padding: 21px;
+      width: 84px; }
+
+.product-upgrade .upgrade-plan-detail {
+  text-align: center;
+  width: 150px; }
+  .product-upgrade .upgrade-plan-detail img {
+    display: block;
+    height: 49px;
+    margin: 9px auto;
+    width: 49px; }
+  .product-upgrade .upgrade-plan-detail .product-name {
+    display: block; }
+  .product-upgrade .upgrade-plan-detail .plan-price {
+    display: block; }
+
+.product-upgrade form.upgrade {
+  margin: 0 25px; }
+  .product-upgrade form.upgrade > p {
+    text-align: left; }
+
 /* Firefox Colors SCSS Variables v1.0.3 */
 .product-payment .account-activated {
   margin-bottom: 25px; }
@@ -4414,6 +4472,19 @@ form.payment .input-row input::placeholder {
   .product-payment .profile-banner .displayName + .email {
     padding: 0; }
 
+.product-payment .subscription-ready h2 {
+  color: #20123b;
+  font-size: 24px;
+  font-weight: 500; }
+
+.product-payment .subscription-ready p {
+  color: #0c0c0d;
+  font-size: 16px;
+  margin: 20px 100px; }
+
+.product-payment .subscription-ready a {
+  font-size: 16px; }
+
 /* Firefox Colors SCSS Variables v1.0.3 */
 .error-message-container {
   background-color: #d70022;
@@ -4442,19 +4513,6 @@ form.payment .input-row input::placeholder {
     font-size: 16px;
     margin: 0;
     margin-top: 8px; }
-
-.product-payment .subscription-ready h2 {
-  color: #20123b;
-  font-size: 24px;
-  font-weight: 500; }
-
-.product-payment .subscription-ready p {
-  color: #0c0c0d;
-  font-size: 16px;
-  margin: 20px 100px; }
-
-.product-payment .subscription-ready a {
-  font-size: 16px; }
 
 .subscription-management button.settings-button {
   font-weight: 600;
@@ -4538,6 +4596,7 @@ form.payment .input-row input::placeholder {
 
 .subscription-management .payment-update {
   padding-bottom: 18px; }
+  .subscription-management .payment-update .upgrade-cta,
   .subscription-management .payment-update .billing-description {
     color: #737373;
     line-height: 1.5; }
