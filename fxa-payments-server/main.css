@@ -374,8 +374,7 @@ th {
   font-family: 'fontello';
   font-style: normal;
   /* For safety - reset parent styles, that can break glyph codes*/
-  -webkit-font-feature-settings: normal;
-          font-feature-settings: normal;
+  font-feature-settings: normal;
   font-variant: normal;
   font-weight: normal;
   /* fix buttons height, for twitter bootstrap */
@@ -2928,7 +2927,6 @@ button.button-link {
           animation: 2s linear infinite spin, 200ms linear 1 200ms both fadein;
   background-color: #fff;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#d7d7db), to(#d7d7db));
-  background-image: -webkit-linear-gradient(#d7d7db, #d7d7db);
   background-image: linear-gradient(#d7d7db, #d7d7db);
   background-position: left;
   background-repeat: no-repeat;
@@ -2948,7 +2946,6 @@ button.button-link {
     opacity: 0.999; }
   .avatar-spinner::before {
     background-image: -webkit-gradient(linear, left top, left bottom, from(#d7d7db), to(#d7d7db));
-    background-image: -webkit-linear-gradient(#d7d7db, #d7d7db);
     background-image: linear-gradient(#d7d7db, #d7d7db);
     background-position: left;
     background-repeat: no-repeat;
@@ -4351,17 +4348,13 @@ form.payment .input-row input::placeholder {
   line-height: 45px; }
 
 @media (max-width: 520px) {
-  .StripeElement .InputContainer .InputElement::-webkit-input-placeholder,
-  form.payment .input-row input::-webkit-input-placeholder {
+  .StripeElement .InputContainer .InputElement::-webkit-input-placeholder, form.payment .input-row input::-webkit-input-placeholder {
     line-height: 38px !important; }
-  .StripeElement .InputContainer .InputElement::-moz-placeholder,
-  form.payment .input-row input::-moz-placeholder {
+  .StripeElement .InputContainer .InputElement::-moz-placeholder, form.payment .input-row input::-moz-placeholder {
     line-height: 38px !important; }
-  .StripeElement .InputContainer .InputElement:-ms-input-placeholder,
-  form.payment .input-row input:-ms-input-placeholder {
+  .StripeElement .InputContainer .InputElement:-ms-input-placeholder, form.payment .input-row input:-ms-input-placeholder {
     line-height: 38px !important; }
-  .StripeElement .InputContainer .InputElement::-ms-input-placeholder,
-  form.payment .input-row input::-ms-input-placeholder {
+  .StripeElement .InputContainer .InputElement::-ms-input-placeholder, form.payment .input-row input::-ms-input-placeholder {
     line-height: 38px !important; }
   .StripeElement .InputContainer .InputElement::placeholder,
   form.payment .input-row input::placeholder {
