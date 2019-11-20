@@ -4558,7 +4558,8 @@ form.payment .input-row input::placeholder {
       background-image: url(static/media/check.84cbca5d.svg); }
 
 .subscription-management .card-details {
-  display: flex; }
+  display: flex;
+  flex: 4 1; }
   .subscription-management .card-details .last-four,
   .subscription-management .card-details .expiry {
     align-items: center;
@@ -4577,7 +4578,7 @@ form.payment .input-row input::placeholder {
   .subscription-management .with-settings-button .action {
     align-self: flex-end;
     display: flex;
-    flex: 1 1;
+    flex: 0 1 128px;
     flex-direction: row;
     justify-content: flex-end; }
     .subscription-management .with-settings-button .action button {
