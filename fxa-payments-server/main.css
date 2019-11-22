@@ -973,7 +973,8 @@ html[dir='rtl'] .tooltip.tooltip-below::before,
       margin-bottom: 12px; } }
   .input-row input {
     -webkit-transition: border-color 150ms, box-shadow 150ms;
-    transition: border-color 150ms, box-shadow 150ms; }
+    transition: border-color 150ms, box-shadow 150ms;
+    padding: 0 16px; }
     .input-row input::-webkit-input-placeholder {
       color: rgba(12, 12, 13, 0.4) !important;
       font-size: 17px;
@@ -1042,10 +1043,10 @@ html[dir='rtl'] .tooltip.tooltip-below::before,
         .input-row input[type='email'], .input-row input[type='number'], .input-row input[type='password'], .input-row input[type='tel'], .input-row input[type='text'] {
           height: 40px; } }
     html[dir='ltr'] .input-row input {
-      padding: 0 0 0 16px; }
+      padding: 0 11px 0 16px; }
     html[dir='rtl'] .input-row input {
       direction: ltr;
-      padding: 0 16px 0 0;
+      padding: 0 16px 0 11px;
       text-align: right; }
     .input-row input[type='checkbox']:hover, .input-row input[type='checkbox']:focus {
       border: 1px solid #0a84ff; }
