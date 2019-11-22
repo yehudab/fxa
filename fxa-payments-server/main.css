@@ -4158,11 +4158,8 @@ body > #root {
   top: 0;
   z-index: 9999; }
 
-#main-content::before {
+#main-content:not(.hide-logo)::before {
   background-image: url(static/media/firefox-logo.16821f55.svg); }
-
-#main-content.payments-card::before {
-  background-image: none; }
 
 #fxa-settings-header-wrapper {
   flex-direction: column; }
