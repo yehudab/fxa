@@ -2147,54 +2147,47 @@ section.modal-panel .button-row:not(.save-options) {
     background-image: url("/images/icon-device-laptop-mac.svg"); }
   .client[data-os='Linux'] {
     background-image: url("/images/icon-device-laptop-linux.svg"); }
-
-.client.mobile {
-  background-image: url("/images/icon-device-phone.svg"); }
-  .client.mobile[data-os='iOS'] {
-    background-image: url("/images/icon-device-phone-iphone.svg"); }
-  .client.mobile[data-os='Android'] {
-    background-image: url("/images/icon-device-phone-android.svg"); }
-  .client.mobile[data-os='Windows'] {
-    background-image: url("/images/icon-device-phone-windows.svg"); }
-
-.client.tablet {
-  background-image: url("/images/icon-device-tablet.svg"); }
-  .client.tablet[data-os='iOS'] {
-    background-image: url("/images/icon-device-tablet-ipad.svg"); }
-  .client.tablet[data-os='Android'] {
-    background-image: url("/images/icon-device-tablet-android.svg"); }
-
-.client.vr {
-  background-image: url("/images/icon-device-vr.svg"); }
-
-.client.tv {
-  background-image: url("/images/icon-device-tv.svg"); }
-
-.client-device.client-current {
-  background-position: left 5px; }
+  .client.mobile {
+    background-image: url("/images/icon-device-phone.svg"); }
+    .client.mobile[data-os='iOS'] {
+      background-image: url("/images/icon-device-phone-iphone.svg"); }
+    .client.mobile[data-os='Android'], .client.mobile[data-name^='Firefox Preview'] {
+      background-image: url("/images/icon-device-phone-android.svg"); }
+    .client.mobile[data-os='Windows'] {
+      background-image: url("/images/icon-device-phone-windows.svg"); }
+  .client.tablet {
+    background-image: url("/images/icon-device-tablet.svg"); }
+    .client.tablet[data-os='iOS'] {
+      background-image: url("/images/icon-device-tablet-ipad.svg"); }
+    .client.tablet[data-os='Android'] {
+      background-image: url("/images/icon-device-tablet-android.svg"); }
+  .client.vr {
+    background-image: url("/images/icon-device-vr.svg"); }
+  .client.tv {
+    background-image: url("/images/icon-device-tv.svg"); }
+  .client[data-name='Add-ons'], .client[data-name='Firefox Add-ons'] {
+    background-image: url("/images/icon-service-addon.svg"); }
+  .client[data-name='Lockbox'], .client[data-name='Lockbox iOS'] {
+    background-image: url("/images/icon-service-lockbox.svg"); }
+  .client[data-name^='Firefox Lockwise'] {
+    background-image: url("/images/icon-service-lockwise.svg"); }
+  .client[data-name^='Firefox Monitor'] {
+    background-image: url("/images/icon-service-monitor.svg"); }
+  .client[data-name^='Firefox Private Network'] {
+    background-image: url("/images/icon-service-private-network.svg"); }
+  .client[data-name^='Firefox Reality'] {
+    background-image: url("/images/icon-service-reality.svg"); }
+  .client[data-name='Notes'] {
+    background-image: url("/images/icon-service-firefox-notes.svg"); }
+  .client[data-name='Pocket'] {
+    background-image: url("/images/icon-service-pocket.svg"); }
+  .client[data-name='Pontoon'] {
+    background-image: url("/images/icon-service-pontoon.svg"); }
+  .client[data-name='Screenshots'] {
+    background-image: url("/images/icon-service-screenshots.svg"); }
 
 .client-oAuthApp {
   background-image: url("/images/icon-client-default.svg"); }
-  .client-oAuthApp[data-name='Add-ons'], .client-oAuthApp[data-name='Firefox Add-ons'] {
-    background-image: url("/images/icon-service-addon.svg"); }
-  .client-oAuthApp[data-name='Lockbox'], .client-oAuthApp[data-name='Lockbox iOS'] {
-    background-image: url("/images/icon-service-lockbox.svg"); }
-  .client-oAuthApp[data-name^='Firefox Lockwise'] {
-    background-image: url("/images/icon-service-lockwise.svg"); }
-  .client-oAuthApp[data-name^='Firefox Monitor'] {
-    background-image: url("/images/icon-service-monitor.svg"); }
-  .client-oAuthApp[data-name^='Firefox Private Network'] {
-    background-image: url("/images/icon-service-private-network.svg"); }
-  .client-oAuthApp[data-name^='Firefox Reality'] {
-    background-image: url("/images/icon-service-reality.svg"); }
-  .client-oAuthApp[data-name='Notes'] {
-    background-image: url("/images/icon-service-firefox-notes.svg"); }
-  .client-oAuthApp[data-name='Pocket'] {
-    background-image: url("/images/icon-service-pocket.svg"); }
-  .client-oAuthApp[data-name='Pontoon'] {
-    background-image: url("/images/icon-service-pontoon.svg"); }
-  .client-oAuthApp[data-name='Screenshots'] {
-    background-image: url("/images/icon-service-screenshots.svg"); }
   .client-oAuthApp[data-name='Fenix'], .client-oAuthApp[data-name='Android Components Reference Browser'], .client-oAuthApp[data-name='Firefox Sync'] {
     background-image: url("/images/icon-device-phone-android.svg"); }
   .client-oAuthApp[data-name^='Firefox Send'] {
@@ -2202,6 +2195,9 @@ section.modal-panel .button-row:not(.save-options) {
 
 .client-webSession {
   background-image: url("/images/icon-web-session.svg"); }
+
+.client-device.client-current {
+  background-position: left 5px; }
 
 #client-disconnect .radio-header {
   font-size: 14px;
