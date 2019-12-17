@@ -4459,18 +4459,31 @@ form.payment .input-row input::placeholder {
   .product-payment .profile-banner .displayName + .email {
     padding: 0; }
 
-.product-payment .subscription-ready h2 {
-  color: #20123b;
-  font-size: 24px;
-  font-weight: 500; }
+.product-payment .subscription-ready {
+  display: grid;
+  grid-template-rows: repeat(6, auto); }
+  .product-payment .subscription-ready .subscription-message {
+    margin: -16px 0 5px;
+    padding-bottom: 20px; }
+  .product-payment .subscription-ready h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0 0 8px; }
+  .product-payment .subscription-ready p {
+    font-size: 16px;
+    margin: 20px 100px; }
+  .product-payment .subscription-ready a {
+    font-size: 16px; }
+  .product-payment .subscription-ready .exp-message {
+    font-size: 16px; }
+  .product-payment .subscription-ready .subscription-ready h2 {
+    margin: 0 0 8px; }
 
-.product-payment .subscription-ready p {
-  color: #0c0c0d;
-  font-size: 16px;
-  margin: 20px 100px; }
-
-.product-payment .subscription-ready a {
-  font-size: 16px; }
+.survey-frame iframe {
+  border: 0;
+  height: 520px;
+  overflow: hidden;
+  width: 550px; }
 
 /* Firefox Colors SCSS Variables v1.0.3 */
 .error-message-container {
