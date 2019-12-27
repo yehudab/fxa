@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "http://127.0.0.1:3031/main.css",
-    "main.js": "http://127.0.0.1:3031/main.be13d99ab3edab666900.bundle.js",
+    "main.js": "http://127.0.0.1:3031/main.930032b6d465cb3c9656.bundle.js",
     "main.css.map": "http://127.0.0.1:3031/main.css.map",
-    "main.js.map": "http://127.0.0.1:3031/main.be13d99ab3edab666900.bundle.js.map",
-    "runtime~main.js": "http://127.0.0.1:3031/runtime~main.be13d99ab3edab666900.bundle.js",
-    "runtime~main.js.map": "http://127.0.0.1:3031/runtime~main.be13d99ab3edab666900.bundle.js.map",
-    "vendors~main.js": "http://127.0.0.1:3031/vendors~main.be13d99ab3edab666900.bundle.js",
-    "vendors~main.js.map": "http://127.0.0.1:3031/vendors~main.be13d99ab3edab666900.bundle.js.map",
-    "3.be13d99ab3edab666900.bundle.js": "http://127.0.0.1:3031/3.be13d99ab3edab666900.bundle.js",
-    "3.be13d99ab3edab666900.bundle.js.map": "http://127.0.0.1:3031/3.be13d99ab3edab666900.bundle.js.map",
-    "4.be13d99ab3edab666900.bundle.js": "http://127.0.0.1:3031/4.be13d99ab3edab666900.bundle.js",
-    "4.be13d99ab3edab666900.bundle.js.map": "http://127.0.0.1:3031/4.be13d99ab3edab666900.bundle.js.map",
+    "main.js.map": "http://127.0.0.1:3031/main.930032b6d465cb3c9656.bundle.js.map",
+    "runtime~main.js": "http://127.0.0.1:3031/runtime~main.930032b6d465cb3c9656.bundle.js",
+    "runtime~main.js.map": "http://127.0.0.1:3031/runtime~main.930032b6d465cb3c9656.bundle.js.map",
+    "vendors~main.js": "http://127.0.0.1:3031/vendors~main.930032b6d465cb3c9656.bundle.js",
+    "vendors~main.js.map": "http://127.0.0.1:3031/vendors~main.930032b6d465cb3c9656.bundle.js.map",
+    "3.930032b6d465cb3c9656.bundle.js": "http://127.0.0.1:3031/3.930032b6d465cb3c9656.bundle.js",
+    "3.930032b6d465cb3c9656.bundle.js.map": "http://127.0.0.1:3031/3.930032b6d465cb3c9656.bundle.js.map",
+    "4.930032b6d465cb3c9656.bundle.js": "http://127.0.0.1:3031/4.930032b6d465cb3c9656.bundle.js",
+    "4.930032b6d465cb3c9656.bundle.js.map": "http://127.0.0.1:3031/4.930032b6d465cb3c9656.bundle.js.map",
     "iframe.html": "http://127.0.0.1:3031/iframe.html",
-    "precache-manifest.00dcb3927766410a75d863c7d0a31193.js": "http://127.0.0.1:3031/precache-manifest.00dcb3927766410a75d863c7d0a31193.js",
+    "precache-manifest.f70fb26344eaf9fdd6cfd8d8f8c69199.js": "http://127.0.0.1:3031/precache-manifest.f70fb26344eaf9fdd6cfd8d8f8c69199.js",
     "service-worker.js": "http://127.0.0.1:3031/service-worker.js",
     "static/media/index.scss": "http://127.0.0.1:3031/static/media/spinnerwhite.87b02829.svg",
     "static/media/close.3db9eaf5.svg": "http://127.0.0.1:3031/static/media/close.3db9eaf5.svg"
   },
   "entrypoints": [
-    "runtime~main.be13d99ab3edab666900.bundle.js",
-    "vendors~main.be13d99ab3edab666900.bundle.js",
+    "runtime~main.930032b6d465cb3c9656.bundle.js",
+    "vendors~main.930032b6d465cb3c9656.bundle.js",
     "main.css",
-    "main.be13d99ab3edab666900.bundle.js"
+    "main.930032b6d465cb3c9656.bundle.js"
   ]
 }

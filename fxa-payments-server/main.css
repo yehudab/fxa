@@ -2447,10 +2447,24 @@ html[dir='rtl'] .fxa-radio {
 
 .save-options {
   display: flex;
-  margin-top: 25px; }
+  margin: 15px 0 10px; }
 
 .save-option {
+  background-color: transparent;
+  color: #0060df;
+  display: inline-block;
+  font-weight: 400;
+  height: auto;
+  height: initial;
+  padding: 10px 0;
   width: 33%; }
+  .save-option:hover {
+    background-color: transparent;
+    -webkit-filter: hue-rotate(3deg) saturate(1.1) brightness(0.85);
+            filter: hue-rotate(3deg) saturate(1.1) brightness(0.85); }
+  .save-option:active {
+    -webkit-filter: hue-rotate(3deg) saturate(1.1) brightness(0.75);
+            filter: hue-rotate(3deg) saturate(1.1) brightness(0.75); }
   .save-option .name {
     font-size: 14px;
     text-align: center; }
@@ -2874,37 +2888,59 @@ button.button-link {
 .avatar-change nav {
   margin: 0 -40px -20px -40px;
   padding: 25px 20px 20px; }
+  .avatar-change nav button,
   .avatar-change nav a {
+    background-color: transparent;
     background-repeat: no-repeat;
     background-size: 48%;
+    color: #0060df;
     display: inline-block;
+    font-weight: 400;
+    font-size: 14px;
     line-height: 1.1;
     padding-top: 11%;
-    text-decoration: none; }
+    text-decoration: none;
+    width: auto;
+    width: initial; }
     @media (min-width: 521px), (orientation: landscape) and (min-width: 641px) {
+      .avatar-change nav button,
       .avatar-change nav a {
         height: 80px;
-        margin: 5px;
+        margin: 5px 5px 10px;
         min-width: 80px;
         padding-top: 52px; } }
     @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
+      .avatar-change nav button,
       .avatar-change nav a {
         height: 65px;
         margin: 0 0 10px 0;
         min-width: 75px;
         padding-top: 42px; } }
-    .avatar-change nav a#camera, .avatar-change nav a#file, .avatar-change nav a.remove {
+    .avatar-change nav button#camera, .avatar-change nav button#file, .avatar-change nav button.remove,
+    .avatar-change nav a#camera,
+    .avatar-change nav a#file,
+    .avatar-change nav a.remove {
       background-position: 50% 0.7vw; }
-      .avatar-change nav a#camera:hover, .avatar-change nav a#file:hover, .avatar-change nav a.remove:hover {
+      .avatar-change nav button#camera:hover, .avatar-change nav button#file:hover, .avatar-change nav button.remove:hover,
+      .avatar-change nav a#camera:hover,
+      .avatar-change nav a#file:hover,
+      .avatar-change nav a.remove:hover {
         -webkit-filter: hue-rotate(3deg) saturate(1.1) brightness(0.85);
                 filter: hue-rotate(3deg) saturate(1.1) brightness(0.85); }
-      .avatar-change nav a#camera:active, .avatar-change nav a#file:active, .avatar-change nav a.remove:active {
+      .avatar-change nav button#camera:active, .avatar-change nav button#file:active, .avatar-change nav button.remove:active,
+      .avatar-change nav a#camera:active,
+      .avatar-change nav a#file:active,
+      .avatar-change nav a.remove:active {
         -webkit-filter: hue-rotate(3deg) saturate(1.1) brightness(0.75);
                 filter: hue-rotate(3deg) saturate(1.1) brightness(0.75); }
+    .avatar-change nav button#camera,
     .avatar-change nav a#camera {
-      background-image: url("/images/glyph-camera-32.svg"); }
+      background-image: url("/images/glyph-camera-32.svg");
+      background-position-y: 0.45vw; }
+    .avatar-change nav button#file,
     .avatar-change nav a#file {
       background-image: url("/images/glyph-upload-16.svg"); }
+    .avatar-change nav button.remove,
     .avatar-change nav a.remove {
       background-image: url("/images/glyph-clear-16.svg"); }
 
