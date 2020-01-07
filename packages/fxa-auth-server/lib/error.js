@@ -1214,6 +1214,14 @@ AppError.subscriptionAlreadyChanged = () => {
   });
 };
 
+AppError.subscriptionAlreadyExists = () => {
+  return new AppError({
+    code: 409,
+    error: 'Already subscribed',
+    message: 'User already subscribed.',
+  });
+};
+
 AppError.insufficientACRValues = foundValue => {
   return new AppError(
     {

@@ -139,7 +139,7 @@ describe('StripeHelper', () => {
     });
   });
 
-  it('thrwos an error if the product is not upgradeable', async () => {
+  it('throws an error if the product is not upgradeable', async () => {
     sandbox
       .stub(stripeHelper.stripe.subscriptions, 'retrieve')
       .returns(subscription1);
@@ -154,4 +154,6 @@ describe('StripeHelper', () => {
     }
     assert.equal(thrown.errno, error.ERRNO.INVALID_PLAN_UPGRADE);
   });
+
+  describe('', () => {});
 });
