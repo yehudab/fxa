@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "http://127.0.0.1:3031/main.css",
-    "main.js": "http://127.0.0.1:3031/main.64e779d19430aa9a0e8f.bundle.js",
+    "main.js": "http://127.0.0.1:3031/main.a70ab752e52376a69210.bundle.js",
     "main.css.map": "http://127.0.0.1:3031/main.css.map",
-    "main.js.map": "http://127.0.0.1:3031/main.64e779d19430aa9a0e8f.bundle.js.map",
-    "runtime~main.js": "http://127.0.0.1:3031/runtime~main.64e779d19430aa9a0e8f.bundle.js",
-    "runtime~main.js.map": "http://127.0.0.1:3031/runtime~main.64e779d19430aa9a0e8f.bundle.js.map",
-    "vendors~main.js": "http://127.0.0.1:3031/vendors~main.64e779d19430aa9a0e8f.bundle.js",
-    "vendors~main.js.map": "http://127.0.0.1:3031/vendors~main.64e779d19430aa9a0e8f.bundle.js.map",
-    "3.64e779d19430aa9a0e8f.bundle.js": "http://127.0.0.1:3031/3.64e779d19430aa9a0e8f.bundle.js",
-    "3.64e779d19430aa9a0e8f.bundle.js.map": "http://127.0.0.1:3031/3.64e779d19430aa9a0e8f.bundle.js.map",
-    "4.64e779d19430aa9a0e8f.bundle.js": "http://127.0.0.1:3031/4.64e779d19430aa9a0e8f.bundle.js",
-    "4.64e779d19430aa9a0e8f.bundle.js.map": "http://127.0.0.1:3031/4.64e779d19430aa9a0e8f.bundle.js.map",
+    "main.js.map": "http://127.0.0.1:3031/main.a70ab752e52376a69210.bundle.js.map",
+    "runtime~main.js": "http://127.0.0.1:3031/runtime~main.a70ab752e52376a69210.bundle.js",
+    "runtime~main.js.map": "http://127.0.0.1:3031/runtime~main.a70ab752e52376a69210.bundle.js.map",
+    "vendors~main.js": "http://127.0.0.1:3031/vendors~main.a70ab752e52376a69210.bundle.js",
+    "vendors~main.js.map": "http://127.0.0.1:3031/vendors~main.a70ab752e52376a69210.bundle.js.map",
+    "3.a70ab752e52376a69210.bundle.js": "http://127.0.0.1:3031/3.a70ab752e52376a69210.bundle.js",
+    "3.a70ab752e52376a69210.bundle.js.map": "http://127.0.0.1:3031/3.a70ab752e52376a69210.bundle.js.map",
+    "4.a70ab752e52376a69210.bundle.js": "http://127.0.0.1:3031/4.a70ab752e52376a69210.bundle.js",
+    "4.a70ab752e52376a69210.bundle.js.map": "http://127.0.0.1:3031/4.a70ab752e52376a69210.bundle.js.map",
     "iframe.html": "http://127.0.0.1:3031/iframe.html",
-    "precache-manifest.17d611db6646696ceccb1d4b72c93a25.js": "http://127.0.0.1:3031/precache-manifest.17d611db6646696ceccb1d4b72c93a25.js",
+    "precache-manifest.ae77db661e12d5c5f972cba5329af9ba.js": "http://127.0.0.1:3031/precache-manifest.ae77db661e12d5c5f972cba5329af9ba.js",
     "service-worker.js": "http://127.0.0.1:3031/service-worker.js",
     "static/media/index.scss": "http://127.0.0.1:3031/static/media/spinnerwhite.87b02829.svg",
     "static/media/close.3db9eaf5.svg": "http://127.0.0.1:3031/static/media/close.3db9eaf5.svg"
   },
   "entrypoints": [
-    "runtime~main.64e779d19430aa9a0e8f.bundle.js",
-    "vendors~main.64e779d19430aa9a0e8f.bundle.js",
+    "runtime~main.a70ab752e52376a69210.bundle.js",
+    "vendors~main.a70ab752e52376a69210.bundle.js",
     "main.css",
-    "main.64e779d19430aa9a0e8f.bundle.js"
+    "main.a70ab752e52376a69210.bundle.js"
   ]
 }

@@ -2183,7 +2183,7 @@ section.modal-panel .button-row:not(.save-options) {
 
 .client-oAuthApp {
   background-image: url("/images/icon-client-default.svg"); }
-  .client-oAuthApp[data-name='Fenix'], .client-oAuthApp[data-name='Android Components Reference Browser'], .client-oAuthApp[data-name='Firefox Sync'] {
+  .client-oAuthApp[data-name='Fenix'], .client-oAuthApp[data-name='Android Components Reference Browser'], .client-oAuthApp[data-name='Firefox Preview'] {
     background-image: url("/images/icon-device-phone-android.svg"); }
   .client-oAuthApp[data-name^='Firefox Send'] {
     background-image: url("/images/icon-service-send.svg"); }
@@ -2392,16 +2392,19 @@ html[dir='rtl'] .fxa-radio {
   margin-top: 25px; }
 
 #recovery-codes .description {
-  font-size: 14px;
-  text-align: left; }
+  color: #737373;
+  font-size: 12px;
+  text-align: center; }
 
 #recovery-codes #recovery-code-container {
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  background-color: #fbfbfb;
+  border-color: #e6e6e6;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 2px;
+  padding-top: 8px; }
   #recovery-codes #recovery-code-container .recovery-code {
-    background-color: #fbfbfb;
-    border-color: #e6e6e6;
-    border-style: dotted;
-    border-width: 2px;
     color: #666;
     display: inline-block;
     font-family: monospace;
@@ -2418,8 +2421,19 @@ html[dir='rtl'] .fxa-radio {
   float: none;
   width: 100%; }
 
+#recovery-codes .button-row {
+  text-align: center; }
+
 #recovery-codes .link-options {
   text-align: left; }
+
+#recovery-codes .nav {
+  display: flex;
+  justify-content: space-between; }
+
+#recovery-codes .code {
+  font-family: monospace;
+  font-weight: 600; }
 
 .replace-codes-link,
 .replace-codes-link:hover {
@@ -2443,7 +2457,8 @@ html[dir='rtl'] .fxa-radio {
   display: none; }
 
 .note {
-  color: #d70022; }
+  color: #d70022;
+  font-size: 12px; }
 
 .save-options {
   display: flex;
@@ -3198,16 +3213,19 @@ button.button-link {
 .graphic-pair-failure {
   background-image: url("/images/graphic_hearts_broken.svg"); }
 
-.marketing-area {
+.marketing-area:not(:empty) {
   margin-top: 20px; }
-  .marketing-area .links {
-    overflow: inherit; }
-  .marketing-area + .links {
-    margin: 20px 0 0 0; }
-  .marketing-area .marketing-link {
-    display: inline-block;
-    height: 45px;
-    width: 152px; }
+
+.marketing-area .links {
+  overflow: inherit; }
+
+.marketing-area + .links {
+  margin: 20px 0 0 0; }
+
+.marketing-area .marketing-link {
+  display: inline-block;
+  height: 45px;
+  width: 152px; }
 
 .firefox-family-services {
   border-radius: 0 0 16px 16px;
@@ -4123,7 +4141,6 @@ h3.billing-title {
     #main-content.payments-card .input-row-group .input-row:last-of-type,
     #main-content.card .input-row-group .input-row:last-of-type {
       padding-right: 0; }
-
 
 body > #root {
   display: contents; }
