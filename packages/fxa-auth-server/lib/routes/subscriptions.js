@@ -265,7 +265,7 @@ class DirectStripeRoutes {
   async updateSubscription(request) {
     this.log.begin('subscriptions.updateSubscription', request);
 
-    const { uid, email } = await handleAuth(request.auth, true);
+    const { uid, email } = await handleAuth(this.db, request.auth, true);
 
     await this.customs.check(request, email, 'updateSubscription');
 
@@ -600,7 +600,7 @@ const createRoutes = (
       },
       handler: async function(request) {
         log.begin('subscriptions.listPlans', request);
-        await handleAuth(request.auth);
+        await handleAuth(db, request.auth);
         const plans = await subhub.listPlans();
 
         // Delete any metadata keys prefixed by `capabilities:` before
@@ -798,12 +798,20 @@ const createRoutes = (
       handler: async function(request) {
         log.begin('subscriptions.updateSubscription', request);
 
-        const { uid, email } = await handleAuth(request.auth, true);
+        const { uid, email } = await handleAuth(db, request.auth, true);
 
         await customs.check(request, email, 'updateSubscription');
 
         const { subscriptionId } = request.params;
         const { planId } = request.payload;
+
+        try {
+          await db.getAccountSubscription(uid, subscriptionId);
+        } catch (err) {
+          if (err.statusCode === 404 && err.errno === 116) {
+            throw error.unknownSubscription();
+          }
+        }
 
         // Find the selected plan and get its product ID
         const plans = await subhub.listPlans();
@@ -811,7 +819,6 @@ const createRoutes = (
         if (!selectedPlan) {
           throw error.unknownSubscriptionPlan(planId);
         }
-
         const newProductId = selectedPlan.product_id;
         try {
           await subhub.updateSubscription(uid, subscriptionId, planId);
@@ -871,7 +878,7 @@ const createRoutes = (
       handler: async function(request) {
         log.begin('subscriptions.deleteSubscription', request);
 
-        const { uid, email } = await handleAuth(request.auth, true);
+        const { uid, email } = await handleAuth(db, request.auth, true);
 
         await customs.check(request, email, 'deleteSubscription');
 
@@ -927,6 +934,37 @@ const createRoutes = (
       },
       handler: async function(request) {
         log.begin('subscriptions.reactivateSubscription', request);
+
+        const { uid, email } = await handleAuth(db, request.auth, true);
+
+        await customs.check(request, email, 'reactivateSubscription');
+
+        const { subscriptionId } = request.payload;
+
+        try {
+          await db.getAccountSubscription(uid, subscriptionId);
+        } catch (err) {
+          if (err.statusCode === 404 && err.errno === 116) {
+            throw error.unknownSubscription();
+          }
+        }
+
+        await subhub.reactivateSubscription(uid, subscriptionId);
+        await db.reactivateAccountSubscription(uid, subscriptionId);
+
+        await push.notifyProfileUpdated(uid, await request.app.devices);
+        log.notifyAttachedServices('profileDataChanged', request, {
+          uid,
+          email,
+        });
+        await profile.deleteCache(uid);
+
+        log.info('subscriptions.reactivateSubscription.success', {
+          uid,
+          subscriptionId,
+        });
+
+        return {};
       },
     },
   ];
