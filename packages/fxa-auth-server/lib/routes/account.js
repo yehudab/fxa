@@ -35,7 +35,7 @@ const MS_ONE_MONTH = MS_ONE_DAY * 30;
  * @returns {void|stripe}
  */
 function createPayments(log, config) {
-  if (config.subscriptions.stripeApiKey) {
+  if (config.subscriptions && config.subscriptions.stripeApiKey) {
     return new stripe(log, config);
   }
 }
