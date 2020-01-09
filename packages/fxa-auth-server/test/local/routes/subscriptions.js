@@ -93,7 +93,7 @@ const MOCK_CLIENT_ID = '3c49430b43dfba77';
 const MOCK_TTL = 3600;
 const MOCK_SCOPES = ['profile:email', SUBSCRIPTIONS_MANAGEMENT_SCOPE];
 
-function runTest(routePath, requestOptions) {
+function runTest(routePath, requestOptions, payments = null) {
   routes = require('../../../lib/routes/subscriptions')(
     log,
     db,
@@ -102,7 +102,8 @@ function runTest(routePath, requestOptions) {
     push,
     mailer,
     subhub,
-    profile
+    profile,
+    payments
   );
   route = getRoute(routes, routePath, requestOptions.method || 'GET');
   request = mocks.mockRequest(requestOptions);
@@ -534,43 +535,46 @@ describe('subscriptions', () => {
     });
 
     describe('with direct Stripe', () => {
-      beforeEach(() => {
-        subhub.stripeHelper = sinon.stub({});
-      });
+      let payments;
 
-      afterEach(() => {
-        delete subhub.stripeHelper;
+      beforeEach(() => {
+        payments = sinon.stub({});
       });
 
       it('should allow updating of subscription plan', async () => {
-        subhub.stripeHelper.verifyPlanUpgradeForSubscription = sinon.fake();
-        subhub.stripeHelper.changeSubscriptionPlan = sinon.fake.returns(
-          subscription2
+        payments.verifyPlanUpgradeForSubscription = sinon.fake();
+        payments.changeSubscriptionPlan = sinon.fake.returns(subscription2);
+        await runTest(
+          '/oauth/subscriptions/active/{subscriptionId}',
+          {
+            ...requestOptions,
+            method: 'PUT',
+            payload: { planId: PLAN_ID_1 },
+            params: { subscriptionId: SUBSCRIPTION_ID_1 },
+          },
+          payments
         );
-        await runTest('/oauth/subscriptions/active/{subscriptionId}', {
-          ...requestOptions,
-          method: 'PUT',
-          payload: { planId: PLAN_ID_1 },
-          params: { subscriptionId: SUBSCRIPTION_ID_1 },
-        });
         assert.equal(customs.check.callCount, 1, 'calls customs.check');
-        assert.deepEqual(
-          subhub.stripeHelper.verifyPlanUpgradeForSubscription.args,
-          [[PLANS[0].product_id, PLAN_ID_1]]
-        );
+        assert.deepEqual(payments.verifyPlanUpgradeForSubscription.args, [
+          [PLANS[0].product_id, PLAN_ID_1],
+        ]);
       });
 
       it('should correctly handle an error from stripeHelper', async () => {
-        subhub.stripeHelper.verifyPlanUpgradeForSubscription = sinon.fake.throws(
+        payments.verifyPlanUpgradeForSubscription = sinon.fake.throws(
           error.unknownSubscriptionPlan()
         );
         try {
-          await runTest('/oauth/subscriptions/active/{subscriptionId}', {
-            ...requestOptions,
-            method: 'PUT',
-            payload: { planId: PAYMENT_TOKEN_NEW },
-            params: { subscriptionId: SUBSCRIPTION_ID_1 },
-          });
+          await runTest(
+            '/oauth/subscriptions/active/{subscriptionId}',
+            {
+              ...requestOptions,
+              method: 'PUT',
+              payload: { planId: PAYMENT_TOKEN_NEW },
+              params: { subscriptionId: SUBSCRIPTION_ID_1 },
+            },
+            payments
+          );
           assert.fail();
         } catch (err) {
           assert.deepEqual(err.errno, error.ERRNO.UNKNOWN_SUBSCRIPTION_PLAN);
