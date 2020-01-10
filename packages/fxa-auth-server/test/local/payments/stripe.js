@@ -155,5 +155,15 @@ describe('StripeHelper', () => {
     assert.equal(thrown.errno, error.ERRNO.INVALID_PLAN_UPGRADE);
   });
 
-  describe('', () => {});
+  describe('fetchCustomer', () => {
+    it('fetches an existing customer', async () => {});
+
+    it('throws if the customer record has a fxa id mismatch', async () => {});
+  });
+
+  describe('findPlayById', () => {
+    it('finds a valid plan', async () => {});
+
+    it('throws on invalid plan id', async () => {});
+  });
 });

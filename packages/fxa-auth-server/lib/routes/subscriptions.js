@@ -971,3 +971,4 @@ const createRoutes = (
 };
 
 module.exports = createRoutes;
+module.exports.DirectStripeRoutes = DirectStripeRoutes;
