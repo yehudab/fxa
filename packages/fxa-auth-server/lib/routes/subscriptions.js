@@ -603,7 +603,8 @@ const createRoutes = (
   push,
   mailer,
   subhub,
-  profile
+  profile,
+  stripeHelper
 ) => {
   // Skip routes if the subscriptions feature is not configured & enabled
   if (!config.subscriptions || !config.subscriptions.enabled) {
@@ -612,6 +613,11 @@ const createRoutes = (
 
   if (config.subscriptions.stripeApiKey) {
     return directRoutes(log, db, config, customs, push, mailer, profile);
+  }
+
+  // For testing with Stripe, we attach the stripehelper to the subhub object
+  if (subhub.stripeHelper) {
+    stripeHelper = subhub.stripeHelper;
   }
 
   const CLIENT_CAPABILITIES = Object.entries(
