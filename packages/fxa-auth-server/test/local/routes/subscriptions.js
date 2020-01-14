@@ -808,7 +808,7 @@ describe('subscriptions', () => {
 /**
  * Direct Stripe integration tests
  */
-describe('subscriptions (using direct stripe access)', () => {
+describe.skip('subscriptions (using direct stripe access)', () => {
   beforeEach(() => {
     config = {
       subscriptions: {

@@ -615,11 +615,6 @@ const createRoutes = (
     return directRoutes(log, db, config, customs, push, mailer, profile);
   }
 
-  // For testing with Stripe, we attach the stripehelper to the subhub object
-  if (subhub.stripeHelper) {
-    stripeHelper = subhub.stripeHelper;
-  }
-
   const CLIENT_CAPABILITIES = Object.entries(
     config.subscriptions.clientCapabilities
   ).map(([clientId, capabilities]) => ({ clientId, capabilities }));
@@ -866,28 +861,48 @@ const createRoutes = (
         const { subscriptionId } = request.params;
         const { planId } = request.payload;
 
+        let accountSub;
+
         try {
-          await db.getAccountSubscription(uid, subscriptionId);
+          accountSub = await db.getAccountSubscription(uid, subscriptionId);
         } catch (err) {
           if (err.statusCode === 404 && err.errno === 116) {
             throw error.unknownSubscription();
           }
         }
 
-        // Find the selected plan and get its product ID
-        const plans = await subhub.listPlans();
-        const selectedPlan = plans.filter(p => p.plan_id === planId)[0];
-        if (!selectedPlan) {
-          throw error.unknownSubscriptionPlan(planId);
-        }
-        const newProductId = selectedPlan.product_id;
-        try {
-          await subhub.updateSubscription(uid, subscriptionId, planId);
-        } catch (err) {
-          if (err.errno !== 1003) {
-            // Only allow already subscribed, as this call is being possibly repeated
-            // to ensure the accountSubscriptions database is updated.
-            throw err;
+        const oldProductId = accountSub.productId;
+        let newProductId;
+
+        if (stripeHelper) {
+          // Verify the plan is a valid upgrade for this subscription.
+          await stripeHelper.verifyPlanUpgradeForSubscription(
+            oldProductId,
+            planId
+          );
+
+          // Upgrade the plan
+          const changeResponse = await stripeHelper.changeSubscriptionPlan(
+            subscriptionId,
+            planId
+          );
+          newProductId = changeResponse.plan.product;
+        } else {
+          // Find the selected plan and get its product ID
+          const plans = await subhub.listPlans();
+          const selectedPlan = plans.filter(p => p.plan_id === planId)[0];
+          if (!selectedPlan) {
+            throw error.unknownSubscriptionPlan(planId);
+          }
+          newProductId = selectedPlan.product_id;
+          try {
+            await subhub.updateSubscription(uid, subscriptionId, planId);
+          } catch (err) {
+            if (err.errno !== 1003) {
+              // Only allow already subscribed, as this call is being possibly repeated
+              // to ensure the accountSubscriptions database is updated.
+              throw err;
+            }
           }
         }
 
