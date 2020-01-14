@@ -4532,6 +4532,10 @@ form.payment .input-row input::placeholder {
   height: 520px;
   overflow: hidden;
   width: 550px; }
+  @media (max-width: 520px) {
+    .survey-frame iframe {
+      height: 580px;
+      width: 100%; } }
 
 /* Firefox Colors SCSS Variables v1.0.3 */
 .error-message-container {
