@@ -15,6 +15,9 @@ const stripe = require('../payments/stripe');
 const SUBSCRIPTIONS_MANAGEMENT_SCOPE =
   'https://identity.mozilla.com/account/subscriptions';
 
+/** @typedef {import('stripe').Stripe.Invoice} Invoice */
+/** @typedef {import('stripe').Stripe.PaymentIntent} PaymentIntent */
+
 async function handleAuth(db, auth, fetchEmail = false) {
   const scope = ScopeSet.fromArray(auth.credentials.scope);
   if (!scope.contains(SUBSCRIPTIONS_MANAGEMENT_SCOPE)) {
@@ -107,15 +110,11 @@ class DirectStripeRoutes {
     //   2) Paid subscription, stop and return as they already have the sub
     //   3) Old subscription will have no open invoices, ignore it
     if (subscription && subscription.latest_invoice) {
-      let invoice = subscription.latest_invoice;
-      if (typeof invoice === 'string') {
-        throw error.backendServiceFailure('stripe', 'invoice fetch');
-      }
+      let invoice = /** @type {Invoice} */ (subscription.latest_invoice);
       if (invoice.status === 'open') {
-        if (typeof invoice.payment_intent === 'string') {
-          throw error.backendServiceFailure('stripe', 'PI fetch');
-        }
-        if (invoice.payment_intent.status === 'requires_payment_method') {
+        const payment_intent =
+          /** @type {PaymentIntent} */ (invoice.payment_intent);
+        if (payment_intent.status === 'requires_payment_method') {
           // Re-run the payment
           invoice = await this.payments.stripe.invoices.pay(invoice.id, {
             expand: ['payment_intent'],
@@ -127,7 +126,7 @@ class DirectStripeRoutes {
           throw error.backendServiceFailure('stripe', 'invoice status', {
             invoiceId: invoice.id,
             invoiceStatus: invoice.status,
-            paymentStatus: invoice.payment_intent.status,
+            paymentStatus: payment_intent.status,
           });
         }
       } else if (invoice.status === 'paid') {
@@ -144,10 +143,12 @@ class DirectStripeRoutes {
         items: [{ plan: selectedPlan.plan_id }],
         expand: ['latest_invoice.payment_intent'],
       });
-      if (typeof subscription.latest_invoice === 'string') {
-        throw error.backendServiceFailure('stripe', 'invoice fetch');
-      }
-      if (!this.paidInvoice(subscription.latest_invoice)) {
+
+      if (
+        !this.paidInvoice(
+          /** @type {import('stripe').Stripe.Invoice} */ (subscription.latest_invoice)
+        )
+      ) {
         throw error.paymentFailed();
       }
     }
@@ -182,9 +183,12 @@ class DirectStripeRoutes {
   }
 
   /**
-   * Verify that the invoice was paid successfully
+   * Verify that the invoice was paid successfully.
    *
-   * @param {import('stripe').Stripe.Invoice} invoice
+   * Note that the invoice *must have the `payment_intent` expanded*
+   * or this function will fail.
+   *
+   * @param {Invoice} invoice
    * @returns {boolean}
    */
   paidInvoice(invoice) {
@@ -193,7 +197,9 @@ class DirectStripeRoutes {
     }
 
     return (
-      invoice.status === 'paid' && invoice.payment_intent.status === 'succeeded'
+      invoice.status === 'paid' &&
+      /** @type {PaymentIntent} */ (invoice.payment_intent).status ===
+        'succeeded'
     );
   }
 
