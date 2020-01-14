@@ -97,6 +97,7 @@ const ERRNO = {
   INVALID_EXPIRED_OTP_CODE: 183,
   SUBSCRIPTION_ALREADY_CHANGED: 184,
   INVALID_PLAN_UPGRADE: 185,
+  PAYMENT_FAILED: 186,
 
   SERVER_BUSY: 201,
   FEATURE_NOT_ENABLED: 202,
@@ -1202,6 +1203,15 @@ AppError.invalidPlanUpgrade = () => {
     error: 'Bad Request',
     errno: ERRNO.INVALID_PLAN_UPGRADE,
     message: 'Subscription plan is not a valid upgrade',
+  });
+};
+
+AppError.paymentFailed = () => {
+  return new AppError({
+    code: 400,
+    error: 'Bad Request',
+    errno: ERRNO.PAYMENT_FAILED,
+    message: 'Payment method failed',
   });
 };
 

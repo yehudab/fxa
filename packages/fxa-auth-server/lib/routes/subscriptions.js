@@ -76,7 +76,9 @@ class DirectStripeRoutes {
     const selectedPlan = await this.payments.findPlanById(planId);
     const productId = selectedPlan.product_id;
 
-    let customer = await this.payments.fetchCustomer(uid, email);
+    let customer = await this.payments.fetchCustomer(uid, email, [
+      'data.subscriptions.data.latest_invoice',
+    ]);
     if (!customer) {
       customer = await this.payments.stripe.customers.create({
         source: paymentToken,
@@ -97,19 +99,58 @@ class DirectStripeRoutes {
 
     // Check if the customer already has subscribed to this plan.
     // FIXME: Plan only exists for subscriptions with 1 plan.
-    if (
-      customer.subscriptions.data.find(
-        sub => sub.plan.id === selectedPlan.plan_id
-      )
-    ) {
-      throw error.subscriptionAlreadyExists();
+    let subscription = customer.subscriptions.data.find(
+      sub => sub.plan.id === selectedPlan.plan_id
+    );
+    // If we have a prior subscription, we have 3 options:
+    //   1) Open subscription that needs a payment method, try to pay it
+    //   2) Paid subscription, stop and return as they already have the sub
+    //   3) Old subscription will have no open invoices, ignore it
+    if (subscription && subscription.latest_invoice) {
+      let invoice = subscription.latest_invoice;
+      if (typeof invoice === 'string') {
+        throw error.backendServiceFailure('stripe', 'invoice fetch');
+      }
+      if (invoice.status === 'open') {
+        if (typeof invoice.payment_intent === 'string') {
+          throw error.backendServiceFailure('stripe', 'PI fetch');
+        }
+        if (invoice.payment_intent.status === 'requires_payment_method') {
+          // Re-run the payment
+          invoice = await this.payments.stripe.invoices.pay(invoice.id, {
+            expand: ['payment_intent'],
+          });
+          if (!this.paidInvoice(invoice)) {
+            throw error.paymentFailed();
+          }
+        } else {
+          throw error.backendServiceFailure('stripe', 'invoice status', {
+            invoiceId: invoice.id,
+            invoiceStatus: invoice.status,
+            paymentStatus: invoice.payment_intent.status,
+          });
+        }
+      } else if (invoice.status === 'paid') {
+        throw error.subscriptionAlreadyExists();
+      } else {
+        subscription = undefined;
+      }
     }
 
-    // Create the subscription
-    const subscription = await this.payments.stripe.subscriptions.create({
-      customer: customer.id,
-      items: [{ plan: selectedPlan.plan_id }],
-    });
+    if (!subscription) {
+      // Create the subscription
+      subscription = await this.payments.stripe.subscriptions.create({
+        customer: customer.id,
+        items: [{ plan: selectedPlan.plan_id }],
+        expand: ['latest_invoice.payment_intent'],
+      });
+      if (typeof subscription.latest_invoice === 'string') {
+        throw error.backendServiceFailure('stripe', 'invoice fetch');
+      }
+      if (!this.paidInvoice(subscription.latest_invoice)) {
+        throw error.paymentFailed();
+      }
+    }
 
     // Store the record in our local database
     await this.db.createAccountSubscription({
@@ -119,7 +160,6 @@ class DirectStripeRoutes {
       // Stripe create is in seconds, we use milliseconds
       createdAt: subscription.created * 1000,
     });
-
     const devices = await request.app.devices;
     await this.push.notifyProfileUpdated(uid, devices);
     this.log.notifyAttachedServices('profileDataChanged', request, {
@@ -127,19 +167,34 @@ class DirectStripeRoutes {
       email,
     });
     await this.profile.deleteCache(uid);
-
     const account = await this.db.account(uid);
     await this.mailer.sendDownloadSubscriptionEmail(account.emails, account, {
       acceptLanguage: account.locale,
       productId,
     });
-
     this.log.info('subscriptions.createSubscription.success', {
       uid,
       subscriptionId: subscription.id,
     });
+    return {
+      subscriptionId: subscription.id,
+    };
+  }
 
-    return { subscriptionId: subscription.id };
+  /**
+   * Verify that the invoice was paid successfully
+   *
+   * @param {import('stripe').Stripe.Invoice} invoice
+   * @returns {boolean}
+   */
+  paidInvoice(invoice) {
+    if (typeof invoice.payment_intent === 'string') {
+      throw error.backendServiceFailure('stripe', 'PI fetch');
+    }
+
+    return (
+      invoice.status === 'paid' && invoice.payment_intent.status === 'succeeded'
+    );
   }
 
   async deleteSubscription(request) {

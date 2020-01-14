@@ -5,13 +5,13 @@
 const error = require('../error');
 const subhub = require('../subhub/client');
 
-const stripe = require('stripe');
+const stripe = require('stripe').Stripe;
 
-/** @typedef {import('stripe').customers.ICustomer} Customer */
-/** @typedef {import('stripe').products.IProduct} Product */
-/** @typedef {import('stripe').plans.IPlan} Plan */
-/** @typedef {import('stripe').subscriptions.ISubscription} Subscription */
-/** @typedef {import('stripe').customers.ICustomerSubscriptions} Subscriptions */
+/** @typedef {import('stripe').Stripe.Customer} Customer */
+/** @typedef {import('stripe').Stripe.Product} Product */
+/** @typedef {import('stripe').Stripe.Plan} Plan */
+/** @typedef {import('stripe').Stripe.Subscription} Subscription */
+/** @typedef {import('stripe').Stripe.ApiList<Subscription>} Subscriptions */
 
 /**
  * @typedef AbbrevProduct
@@ -95,7 +95,9 @@ class StripeHelper {
     this.plansCacheIsEnabled = this.cacheTtlSeconds && redis;
 
     this.stripe = new stripe(config.subscriptions.stripeApiKey, {
+      apiVersion: '2019-12-03',
       maxNetworkRetries: 3,
+      typescript: undefined,
     });
     this.redis = redis;
   }
