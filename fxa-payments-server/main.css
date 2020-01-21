@@ -2716,20 +2716,6 @@ button.button-link {
   right: 0;
   top: 0; }
 
-#loading-avatar-spinner {
-  -webkit-animation: 0.9s spin infinite linear;
-          animation: 0.9s spin infinite linear;
-  background-image: url("/images/spinnerlight.svg");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  display: inline-block;
-  height: 240px;
-  margin: 0 0 5px;
-  overflow: hidden;
-  position: relative;
-  white-space: nowrap;
-  width: 240px; }
-
 .spinner {
   background-image: url("/images/spinnerlight.png");
   background-size: 36px 36px;
@@ -2838,8 +2824,7 @@ button.button-link {
       bottom: 0;
       position: absolute; }
   .avatar-wrapper.avatar-settings-view {
-    border: 2px solid rgba(32, 18, 59, 0.2);
-    box-shadow: 0 0 0 1px rgba(32, 18, 58, 0.04), 0 1px 2px 0 rgba(34, 0, 51, 0.04), 0 2px 1px -1px rgba(7, 48, 114, 0.12), 0 1px 6px 0 rgba(14, 13, 26, 0.12);
+    border: 2px solid transparent;
     display: block;
     flex-shrink: 0;
     margin: 0; }
@@ -2847,6 +2832,11 @@ button.button-link {
       box-shadow: 0 0 0 1px #0a84ff; }
     .avatar-wrapper.avatar-settings-view:not(.nohover):active {
       box-shadow: 0 0 0 1px #ff9400; }
+    .avatar-wrapper.avatar-settings-view.spinner-completed {
+      border: 2px solid rgba(32, 18, 59, 0.2);
+      box-shadow: 0 0 0 1px rgba(32, 18, 58, 0.04), 0 1px 2px 0 rgba(34, 0, 51, 0.04), 0 2px 1px -1px rgba(7, 48, 114, 0.12), 0 1px 6px 0 rgba(14, 13, 26, 0.12); }
+    .avatar-wrapper.avatar-settings-view .change-avatar:focus {
+      box-shadow: none; }
     @media (min-width: 521px), (orientation: landscape) and (min-width: 641px) {
       .avatar-wrapper.avatar-settings-view {
         height: 64px;
@@ -2981,8 +2971,8 @@ button.button-link {
   display: none; }
 
 .avatar-spinner {
-  -webkit-animation: 2s linear infinite spin, 200ms linear 1 200ms both fadein;
-          animation: 2s linear infinite spin, 200ms linear 1 200ms both fadein;
+  -webkit-animation: 2s linear infinite spin, 200ms linear 1 0ms both fadein;
+          animation: 2s linear infinite spin, 200ms linear 1 0ms both fadein;
   background-color: #fff;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#d7d7db), to(#d7d7db));
   background-image: linear-gradient(#d7d7db, #d7d7db);
@@ -3045,7 +3035,7 @@ button.button-link {
     -webkit-transform: scale(1.001);
             transform: scale(1.001); }
 
-.avatar-spinner, .avatar-spinner::before, .avatar-spinner::after, .with-spinner .profile-image {
+.avatar-spinner, .avatar-spinner::before, .avatar-spinner::after {
   border-radius: 50%;
   display: inline-block;
   height: 100%;
@@ -3053,8 +3043,7 @@ button.button-link {
 
 .with-spinner .profile-image {
   -webkit-animation: 150ms ease-in-out 1 both fadein;
-          animation: 150ms ease-in-out 1 both fadein;
-  position: relative; }
+          animation: 150ms ease-in-out 1 both fadein; }
 
 .cropper .wrapper {
   background-color: #0c0c0d;
