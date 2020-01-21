@@ -1558,7 +1558,8 @@ input[type='text'] ~ .show-password-label:hover {
 .verification-email-message,
 .signed-in-email-message,
 .verification-recovery-code-message,
-.verification-totp-message {
+.verification-totp-message,
+.verification-message {
   color: #20123b;
   font-size: 15px;
   line-height: 1.5;
@@ -1566,7 +1567,8 @@ input[type='text'] ~ .show-password-label:hover {
   .verification-email-message .email,
   .signed-in-email-message .email,
   .verification-recovery-code-message .email,
-  .verification-totp-message .email {
+  .verification-totp-message .email,
+  .verification-message .email {
     display: inline;
     font-weight: normal; }
 
@@ -2535,21 +2537,24 @@ html[dir='rtl'] .fxa-radio {
 #account-recovery-confirm-revoke .note,
 .account-recovery-create-password .note,
 #account-recovery-section .note,
-#account-recovery-key .note {
+#account-recovery-key .note,
+.save-recovery-key .note {
   font-weight: bold; }
 
 #account-recovery-confirm-password .options .buttons,
 #account-recovery-confirm-revoke .options .buttons,
 .account-recovery-create-password .options .buttons,
 #account-recovery-section .options .buttons,
-#account-recovery-key .options .buttons {
+#account-recovery-key .options .buttons,
+.save-recovery-key .options .buttons {
   display: flex;
   justify-content: center; }
   #account-recovery-confirm-password .options .buttons button,
   #account-recovery-confirm-revoke .options .buttons button,
   .account-recovery-create-password .options .buttons button,
   #account-recovery-section .options .buttons button,
-  #account-recovery-key .options .buttons button {
+  #account-recovery-key .options .buttons button,
+  .save-recovery-key .options .buttons button {
     font-size: 12px;
     font-weight: bold;
     margin-bottom: 15px;
@@ -2558,33 +2563,38 @@ html[dir='rtl'] .fxa-radio {
     #account-recovery-confirm-revoke .options .buttons button .recovery-icon-option,
     .account-recovery-create-password .options .buttons button .recovery-icon-option,
     #account-recovery-section .options .buttons button .recovery-icon-option,
-    #account-recovery-key .options .buttons button .recovery-icon-option {
+    #account-recovery-key .options .buttons button .recovery-icon-option,
+    .save-recovery-key .options .buttons button .recovery-icon-option {
       height: 16px;
       padding-right: 25px; }
     #account-recovery-confirm-password .options .buttons button img.download-image,
     #account-recovery-confirm-revoke .options .buttons button img.download-image,
     .account-recovery-create-password .options .buttons button img.download-image,
     #account-recovery-section .options .buttons button img.download-image,
-    #account-recovery-key .options .buttons button img.download-image {
+    #account-recovery-key .options .buttons button img.download-image,
+    .save-recovery-key .options .buttons button img.download-image {
       background: url("/images/recovery_key_download.svg") no-repeat; }
     #account-recovery-confirm-password .options .buttons button img.print-image,
     #account-recovery-confirm-revoke .options .buttons button img.print-image,
     .account-recovery-create-password .options .buttons button img.print-image,
     #account-recovery-section .options .buttons button img.print-image,
-    #account-recovery-key .options .buttons button img.print-image {
+    #account-recovery-key .options .buttons button img.print-image,
+    .save-recovery-key .options .buttons button img.print-image {
       background: url("/images/recovery_key_print.svg") no-repeat; }
   #account-recovery-confirm-password .options .buttons button:not(:first-child),
   #account-recovery-confirm-revoke .options .buttons button:not(:first-child),
   .account-recovery-create-password .options .buttons button:not(:first-child),
   #account-recovery-section .options .buttons button:not(:first-child),
-  #account-recovery-key .options .buttons button:not(:first-child) {
+  #account-recovery-key .options .buttons button:not(:first-child),
+  .save-recovery-key .options .buttons button:not(:first-child) {
     margin-left: 10px; }
 
 #account-recovery-confirm-password .recovery-key-container,
 #account-recovery-confirm-revoke .recovery-key-container,
 .account-recovery-create-password .recovery-key-container,
 #account-recovery-section .recovery-key-container,
-#account-recovery-key .recovery-key-container {
+#account-recovery-key .recovery-key-container,
+.save-recovery-key .recovery-key-container {
   background-color: #fbfbfb;
   border-color: #e6e6e6;
   border-style: dotted;
@@ -2594,7 +2604,8 @@ html[dir='rtl'] .fxa-radio {
   #account-recovery-confirm-revoke .recovery-key-container .recovery-key,
   .account-recovery-create-password .recovery-key-container .recovery-key,
   #account-recovery-section .recovery-key-container .recovery-key,
-  #account-recovery-key .recovery-key-container .recovery-key {
+  #account-recovery-key .recovery-key-container .recovery-key,
+  .save-recovery-key .recovery-key-container .recovery-key {
     color: #4b4955;
     font-family: monospace;
     font-size: 1em;
@@ -2604,14 +2615,16 @@ html[dir='rtl'] .fxa-radio {
       #account-recovery-confirm-revoke .recovery-key-container .recovery-key,
       .account-recovery-create-password .recovery-key-container .recovery-key,
       #account-recovery-section .recovery-key-container .recovery-key,
-      #account-recovery-key .recovery-key-container .recovery-key {
+      #account-recovery-key .recovery-key-container .recovery-key,
+      .save-recovery-key .recovery-key-container .recovery-key {
         font-size: 0.9em; } }
 
 #account-recovery-confirm-password .email,
 #account-recovery-confirm-revoke .email,
 .account-recovery-create-password .email,
 #account-recovery-section .email,
-#account-recovery-key .email {
+#account-recovery-key .email,
+.save-recovery-key .email {
   font-size: 1.3em;
   font-weight: bold;
   overflow: hidden;
@@ -2622,14 +2635,16 @@ html[dir='rtl'] .fxa-radio {
 #account-recovery-confirm-revoke .revoke-description,
 .account-recovery-create-password .revoke-description,
 #account-recovery-section .revoke-description,
-#account-recovery-key .revoke-description {
+#account-recovery-key .revoke-description,
+.save-recovery-key .revoke-description {
   margin: 0 auto 75px 0; }
 
 #account-recovery-confirm-password .description,
 #account-recovery-confirm-revoke .description,
 .account-recovery-create-password .description,
 #account-recovery-section .description,
-#account-recovery-key .description {
+#account-recovery-key .description,
+.save-recovery-key .description {
   font-size: 14px; }
 
 button.button-link {
