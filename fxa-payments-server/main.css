@@ -1178,7 +1178,7 @@ button {
   .settings-button.disabled,
   button:disabled,
   button.disabled {
-    cursor: auto;
+    cursor: not-allowed;
     opacity: 0.4; }
 
 .button-row {
