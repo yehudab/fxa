@@ -2649,7 +2649,7 @@ html[dir='rtl'] .fxa-radio {
   font-size: 14px; }
 
 button.button-link {
-  background: #fff;
+  background: transparent;
   color: #0a84ff; }
 
 #legal-header h2 {
