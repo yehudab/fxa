@@ -1405,17 +1405,21 @@ button::-moz-focus-inner {
     width: 1px; }
   .password-row .show-password-label {
     background-color: #fff;
-    background-image: url("/images/icon-show-password.svg");
-    background-position: center;
-    background-repeat: no-repeat;
     border: 0;
     cursor: pointer;
     height: 46px;
     position: absolute;
-    text-indent: -9999px;
     top: 1px;
     width: 55px;
     z-index: 3; }
+    .password-row .show-password-label img {
+      height: 100%;
+      padding: 5px;
+      pointer-events: none;
+      width: 100%; }
+      @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
+        .password-row .show-password-label img {
+          padding: 0; } }
     @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
       .password-row .show-password-label {
         height: 38px; } }
