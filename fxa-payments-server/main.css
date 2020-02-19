@@ -1165,14 +1165,22 @@ button {
     background: #d70022;
     border: 0;
     color: #fff; }
-    .button.warning-button:hover:enabled,
-    .settings-button.warning-button:hover:enabled,
-    button.warning-button:hover:enabled {
+    .button.warning-button:disabled, .button.warning-button:enabled,
+    .settings-button.warning-button:disabled,
+    .settings-button.warning-button:enabled,
+    button.warning-button:disabled,
+    button.warning-button:enabled {
+      background: #d70022; }
+    .button.warning-button[type="submit"]:active:enabled, .button.warning-button[type="submit"]:active:enabled:hover,
+    .settings-button.warning-button[type="submit"]:active:enabled,
+    .settings-button.warning-button[type="submit"]:active:enabled:hover,
+    button.warning-button[type="submit"]:active:enabled,
+    button.warning-button[type="submit"]:active:enabled:hover {
+      background: #a4001a; }
+    .button.warning-button[type="submit"]:hover:enabled,
+    .settings-button.warning-button[type="submit"]:hover:enabled,
+    button.warning-button[type="submit"]:hover:enabled {
       background: #be001e; }
-      .button.warning-button:hover:enabled:active,
-      .settings-button.warning-button:hover:enabled:active,
-      button.warning-button:hover:enabled:active {
-        background: #a4001a; }
   .button:disabled, .button.disabled,
   .settings-button:disabled,
   .settings-button.disabled,
@@ -2650,7 +2658,8 @@ html[dir='rtl'] .fxa-radio {
 #account-recovery-section .description,
 #account-recovery-key .description,
 .save-recovery-key .description {
-  font-size: 14px; }
+  font-size: 14px;
+  line-height: 1.5; }
 
 button.button-link {
   background: transparent;
