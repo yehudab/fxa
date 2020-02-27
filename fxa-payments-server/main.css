@@ -1966,12 +1966,12 @@ body.settings #stage .settings {
   #fxa-settings-profile-header .card-subheader {
     overflow: hidden;
     text-overflow: ellipsis;
-    text-wrap: nowrap;
     white-space: nowrap; }
   #fxa-settings-profile-header .card-header {
     font-size: 20px;
     line-height: 24px;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    padding-bottom: 1px; }
     @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
       #fxa-settings-profile-header .card-header {
         font-size: 14px; } }
