@@ -1040,9 +1040,10 @@ html[dir='rtl'] .tooltip.tooltip-below::before,
     html[dir='ltr'] .input-row input {
       padding: 0 11px 0 16px; }
     html[dir='rtl'] .input-row input {
-      direction: ltr;
       padding: 0 16px 0 11px;
       text-align: right; }
+      html[dir='rtl'] .input-row input:not([type='number']) {
+        direction: ltr; }
     .input-row input[type='checkbox']:hover, .input-row input[type='checkbox']:focus {
       border: 1px solid #0a84ff; }
     .input-row input.unblock-code {
@@ -3256,15 +3257,13 @@ button.button-link {
   .firefox-family-services > h2 {
     font-size: 18px;
     margin-top: 0; }
-    @media (min-width: 521px), (orientation: landscape) and (min-width: 641px) {
-      html[dir='rtl'] .firefox-family-services > h2 {
-        padding-right: 10px; } }
     @media (max-width: 520px), (orientation: landscape) and (max-width: 640px) {
       .firefox-family-services > h2 {
         font-size: 16px; }
         html[dir='ltr'] .firefox-family-services > h2 {
           text-align: left; }
         html[dir='rtl'] .firefox-family-services > h2 {
+          padding-right: 10px;
           text-align: right; } }
   .firefox-family-services > ul {
     list-style: none;
@@ -3280,7 +3279,9 @@ button.button-link {
       padding: 0 10px 10px 0; }
       @media (min-width: 521px), (orientation: landscape) and (min-width: 641px) {
         .firefox-family-services > ul > .firefox-service {
-          padding: 0 10px 20px 0; } }
+          padding: 0 10px 20px 0; }
+          html[dir='rtl'] .firefox-family-services > ul > .firefox-service {
+            padding: 0 0 20px 10px; } }
       html[dir='ltr'] .firefox-family-services > ul > .firefox-service {
         text-align: left; }
       html[dir='rtl'] .firefox-family-services > ul > .firefox-service {
@@ -3299,13 +3300,19 @@ button.button-link {
         .firefox-family-services > ul > .firefox-service .logo.logo-lockwise {
           background-image: url("/images/graphic-logo-lockwise.svg");
           background-position-x: -5px; }
+          html[dir='rtl'] .firefox-family-services > ul > .firefox-service .logo.logo-lockwise {
+            background-position-x: 5px; }
         .firefox-family-services > ul > .firefox-service .logo.logo-monitor {
           background-image: url("/images/graphic-logo-monitor.svg");
           background-position-x: -12px; }
+          html[dir='rtl'] .firefox-family-services > ul > .firefox-service .logo.logo-monitor {
+            background-position-x: 12px; }
         .firefox-family-services > ul > .firefox-service .logo.logo-send {
           background-image: url("/images/graphic-logo-send.svg");
           background-position-x: -8px;
           width: 153px; }
+          html[dir='rtl'] .firefox-family-services > ul > .firefox-service .logo.logo-send {
+            background-position-x: 8px; }
 
 .sign-up {
   display: flex; }
@@ -3317,6 +3324,8 @@ button.button-link {
     @media screen and (max-width: 720px) {
       .sign-up > .firefox-family-services {
         display: none; } }
+    html[dir='rtl'] .sign-up > .firefox-family-services {
+      margin: 90px 36px 0 0; }
     @media (min-width: 521px), (orientation: landscape) and (min-width: 641px) {
       .sign-up > .firefox-family-services > ul {
         display: block; } }
