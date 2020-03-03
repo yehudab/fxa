@@ -2215,6 +2215,8 @@ section.modal-panel .button-row:not(.save-options) {
   font-weight: normal;
   margin-bottom: 15px;
   text-align: left; }
+  html[dir='rtl'] #client-disconnect .radio-header {
+    text-align: right; }
 
 html[dir='ltr'] .fxa-radio {
   text-align: left; }
