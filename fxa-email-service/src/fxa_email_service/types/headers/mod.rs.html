@@ -91,6 +91,11 @@
 <span id="91">91</span>
 <span id="92">92</span>
 <span id="93">93</span>
+<span id="94">94</span>
+<span id="95">95</span>
+<span id="96">96</span>
+<span id="97">97</span>
+<span id="98">98</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// This Source Code Form is subject to the terms of the Mozilla Public</span>
 <span class="comment">// License, v. 2.0. If a copy of the MPL was not distributed with this</span>
@@ -122,6 +127,10 @@
     <span class="ident">header</span>::{<span class="ident">parsing</span>::<span class="ident">from_one_raw_str</span>, <span class="ident">Formatter</span>, <span class="ident">Raw</span> <span class="kw">as</span> <span class="ident">RawHeader</span>},
 };
 
+<span class="comment">// No header&#39;s total length should be greater than 998 characters</span>
+<span class="comment">// See: https://tools.ietf.org/html/rfc5322#section-2.1.1</span>
+<span class="kw">const</span> <span class="ident">HEADER_MAX_LENGTH</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">998</span>;
+
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">custom_header</span> {
     (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">struct_name</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">header_name</span>:<span class="ident">expr</span>) <span class="op">=</span><span class="op">&gt;</span> {
         <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Debug</span>)]</span>
@@ -130,7 +139,8 @@
         }
 
         <span class="kw">impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">struct_name</span> {
-            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">value</span>: <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="kw-2">mut</span> <span class="ident">value</span>: <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+                <span class="ident">value</span>.<span class="ident">truncate</span>(<span class="ident">HEADER_MAX_LENGTH</span> <span class="op">-</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">header_name</span>.<span class="ident">len</span>());
                 <span class="self">Self</span> { <span class="ident">value</span> }
             }
         }
