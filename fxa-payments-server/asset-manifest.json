@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "http://127.0.0.1:3031/static/css/main.f48ba7bb.chunk.css",
-    "main.js": "http://127.0.0.1:3031/main.3033e7845813d0fee42b.bundle.js",
-    "main.css.map": "http://127.0.0.1:3031/static/css/main.f48ba7bb.chunk.css.map",
-    "main.js.map": "http://127.0.0.1:3031/main.3033e7845813d0fee42b.bundle.js.map",
-    "runtime~main.js": "http://127.0.0.1:3031/runtime~main.3033e7845813d0fee42b.bundle.js",
-    "runtime~main.js.map": "http://127.0.0.1:3031/runtime~main.3033e7845813d0fee42b.bundle.js.map",
-    "vendors~main.js": "http://127.0.0.1:3031/vendors~main.3033e7845813d0fee42b.bundle.js",
-    "vendors~main.js.map": "http://127.0.0.1:3031/vendors~main.3033e7845813d0fee42b.bundle.js.map",
-    "3.3033e7845813d0fee42b.bundle.js": "http://127.0.0.1:3031/3.3033e7845813d0fee42b.bundle.js",
-    "3.3033e7845813d0fee42b.bundle.js.map": "http://127.0.0.1:3031/3.3033e7845813d0fee42b.bundle.js.map",
-    "4.3033e7845813d0fee42b.bundle.js": "http://127.0.0.1:3031/4.3033e7845813d0fee42b.bundle.js",
-    "4.3033e7845813d0fee42b.bundle.js.map": "http://127.0.0.1:3031/4.3033e7845813d0fee42b.bundle.js.map",
+    "main.css": "http://127.0.0.1:3031/static/css/main.16d24e90.chunk.css",
+    "main.js": "http://127.0.0.1:3031/main.5cdc5aa873c427f64282.bundle.js",
+    "main.css.map": "http://127.0.0.1:3031/static/css/main.16d24e90.chunk.css.map",
+    "main.js.map": "http://127.0.0.1:3031/main.5cdc5aa873c427f64282.bundle.js.map",
+    "runtime~main.js": "http://127.0.0.1:3031/runtime~main.5cdc5aa873c427f64282.bundle.js",
+    "runtime~main.js.map": "http://127.0.0.1:3031/runtime~main.5cdc5aa873c427f64282.bundle.js.map",
+    "vendors~main.js": "http://127.0.0.1:3031/vendors~main.5cdc5aa873c427f64282.bundle.js",
+    "vendors~main.js.map": "http://127.0.0.1:3031/vendors~main.5cdc5aa873c427f64282.bundle.js.map",
+    "3.5cdc5aa873c427f64282.bundle.js": "http://127.0.0.1:3031/3.5cdc5aa873c427f64282.bundle.js",
+    "3.5cdc5aa873c427f64282.bundle.js.map": "http://127.0.0.1:3031/3.5cdc5aa873c427f64282.bundle.js.map",
+    "4.5cdc5aa873c427f64282.bundle.js": "http://127.0.0.1:3031/4.5cdc5aa873c427f64282.bundle.js",
+    "4.5cdc5aa873c427f64282.bundle.js.map": "http://127.0.0.1:3031/4.5cdc5aa873c427f64282.bundle.js.map",
     "iframe.html": "http://127.0.0.1:3031/iframe.html",
-    "precache-manifest.3ade5d1113c8bd270d64f6d6df31564e.js": "http://127.0.0.1:3031/precache-manifest.3ade5d1113c8bd270d64f6d6df31564e.js",
+    "precache-manifest.6192772d902504cf807be8d9f0047ed9.js": "http://127.0.0.1:3031/precache-manifest.6192772d902504cf807be8d9f0047ed9.js",
     "service-worker.js": "http://127.0.0.1:3031/service-worker.js",
     "static/media/index.scss": "http://127.0.0.1:3031/static/media/spinnerwhite.87b02829.svg",
     "static/media/close.3db9eaf5.svg": "http://127.0.0.1:3031/static/media/close.3db9eaf5.svg",
-    "vendors~main.3033e7845813d0fee42b.bundle.js.LICENSE.txt": "http://127.0.0.1:3031/vendors~main.3033e7845813d0fee42b.bundle.js.LICENSE.txt"
+    "vendors~main.5cdc5aa873c427f64282.bundle.js.LICENSE.txt": "http://127.0.0.1:3031/vendors~main.5cdc5aa873c427f64282.bundle.js.LICENSE.txt"
   },
   "entrypoints": [
-    "runtime~main.3033e7845813d0fee42b.bundle.js",
-    "vendors~main.3033e7845813d0fee42b.bundle.js",
-    "static/css/main.f48ba7bb.chunk.css",
-    "main.3033e7845813d0fee42b.bundle.js"
+    "runtime~main.5cdc5aa873c427f64282.bundle.js",
+    "vendors~main.5cdc5aa873c427f64282.bundle.js",
+    "static/css/main.16d24e90.chunk.css",
+    "main.5cdc5aa873c427f64282.bundle.js"
   ]
 }
