@@ -75,7 +75,7 @@ set -o xtrace # echo the following commands
 
 (cd ../fxa-shared; npm ci)
 (cd ../fxa-geodb; npm ci)
-npm ci
+npm i
 
 FXA_TEST_CONFIG=${FXA_TEST_CONFIG:-tests/intern_server}
 
