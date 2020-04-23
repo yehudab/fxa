@@ -88,7 +88,8 @@ set -o xtrace # echo the following commands
 (cd ../fxa-js-client; npm ci)
 # workaround for https://github.com/mozilla/fxa/issues/5086
 /bin/rm ./package-lock.json
-npm ci
+npm i
+#npm ci
 
 # output the Firefox version number
 $FXA_FIREFOX_BINARY --version 2>/dev/null # squelch annoying 'GLib-CRITICAL **' message
