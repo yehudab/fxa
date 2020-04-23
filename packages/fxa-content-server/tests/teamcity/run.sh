@@ -86,6 +86,8 @@ set -o xtrace # echo the following commands
 (cd ../fxa-shared; npm ci)
 (cd ../fxa-geodb; npm ci)
 (cd ../fxa-js-client; npm ci)
+# workaround for https://github.com/mozilla/fxa/issues/5086
+/bin/rm ./package-lock.json
 npm ci
 
 # output the Firefox version number
