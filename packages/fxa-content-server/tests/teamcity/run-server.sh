@@ -73,9 +73,11 @@ export npm_config_tmp=~/fxatemp
 
 set -o xtrace # echo the following commands
 
-(cd ../fxa-shared; npm ci)
-(cd ../fxa-geodb; npm ci)
-npm ci
+# workaround for https://github.com/mozilla/fxa/issues/5086
+(cd ../fxa-shared; /bin/rm ./package-lock.json; npm i)
+(cd ../fxa-geodb; /bin/rm ./package-lock.json; npm i)
+/bin/rm ./package-lock.json
+npm i
 
 FXA_TEST_CONFIG=${FXA_TEST_CONFIG:-tests/intern_server}
 
