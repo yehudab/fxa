@@ -83,13 +83,12 @@ export SKIP_MOCHA=true
 
 set -o xtrace # echo the following commands
 
-(cd ../fxa-shared; npm ci)
-(cd ../fxa-geodb; npm ci)
-(cd ../fxa-js-client; npm ci)
 # workaround for https://github.com/mozilla/fxa/issues/5086
+(cd ../fxa-shared; /bin/rm ./package-lock.json; npm i)
+(cd ../fxa-geodb; /bin/rm ./package-lock.json; npm i)
+(cd ../fxa-js-client; /bin/rm ./package-lock.json; npm i)
 /bin/rm ./package-lock.json
 npm i
-#npm ci
 
 # output the Firefox version number
 $FXA_FIREFOX_BINARY --version 2>/dev/null # squelch annoying 'GLib-CRITICAL **' message
