@@ -9,6 +9,7 @@ const firefoxProfile = require('./tools/firefox_profile');
 
 // Tests
 const testsMain = require('./functional');
+const testsToFix = require('./functional_to_fix');
 const testsCircleCi = require('./functional_circle')(
   testsMain,
   args.groupsCount,
@@ -102,6 +103,9 @@ if (args.suites) {
     case 'all':
       config.functionalSuites = testsMain;
       break;
+    case 'tofix':
+      config.functionalSuites = testsToFix;
+      break;
     case 'circle':
       config.functionalSuites = testsCircleCi;
       console.log('Running tests:', config.functionalSuites);
@@ -147,7 +151,7 @@ if (args.firefoxBinary) {
 
 const failed = [];
 
-intern.on('testEnd', test => {
+intern.on('testEnd', (test) => {
   if (test.error) {
     failed.push(test);
   }
@@ -155,12 +159,12 @@ intern.on('testEnd', test => {
 
 intern.on('afterRun', () => {
   if (failed.length) {
-    fs.writeFileSync('rerun.txt', failed.map(f => f.name).join('|'));
+    fs.writeFileSync('rerun.txt', failed.map((f) => f.name).join('|'));
   }
 });
 
 intern.configure(config);
-intern.run().catch(e => {
+intern.run().catch((e) => {
   // This might not throw, BUG filed: https://github.com/theintern/intern/issues/868
   console.log(e);
   process.exit(1);
