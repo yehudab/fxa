@@ -9,6 +9,7 @@ const firefoxProfile = require('./tools/firefox_profile');
 
 // Tests
 const testsMain = require('./functional');
+const testsToFix = require('./functional_to_fix');
 const testsCircleCi = require('./functional_circle')(
   testsMain,
   args.groupsCount,
@@ -101,6 +102,9 @@ if (args.suites) {
       break;
     case 'all':
       config.functionalSuites = testsMain;
+      break;
+    case 'tofix':
+      config.functionalSuites = testsToFix;
       break;
     case 'circle':
       config.functionalSuites = testsCircleCi;
