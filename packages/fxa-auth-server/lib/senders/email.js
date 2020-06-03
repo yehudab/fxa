@@ -1119,7 +1119,7 @@ module.exports = function (log, config, oauthdb) {
 
   Mailer.prototype.passwordResetRequiredEmail = function (message) {
     const templateName = 'passwordResetRequired';
-    const subject = gettext('Suspicious activity detected');
+    const subject = gettext('Firefox Account password reset required');
     const links = this._generateLinks(
       this.initiatePasswordResetUrl,
       message,
@@ -1140,6 +1140,7 @@ module.exports = function (log, config, oauthdb) {
         passwordManagerInfoUrl: links.passwordManagerInfoUrl,
         privacyUrl: links.privacyUrl,
         resetLink: links.resetLink,
+        resetLinkAttributes: links.resetLinkAttributes,
         subject,
       },
     });
