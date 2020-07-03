@@ -2,6 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+const fs = require('fs');
 const Joi = require('@hapi/joi');
 
 const logger = require('../../logging')('routes.ecosystem_anon_id.post');
@@ -21,6 +22,7 @@ module.exports = {
     const uid = req.auth.credentials.user;
     logger.info('activityEvent', { event: 'ecosystemAnonId.post', uid: uid });
 
+    fs.writeFileSync(`/tmp/profile.${uid}.txt`, JSON.stringify(req.payload));
     await req.server.methods.profileCache.drop(uid);
 
     // When DB is ready, insert/update req.payload.ecosystemAnonId.

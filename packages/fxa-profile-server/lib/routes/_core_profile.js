@@ -2,6 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+const fs = require('fs');
 const Joi = require('@hapi/joi');
 
 const AppError = require('../error');
@@ -112,9 +113,19 @@ module.exports = {
             if (typeof body.profileChangedAt !== 'undefined') {
               result.profileChangedAt = body.profileChangedAt;
             }
-            if (typeof body.ecosystemAnonId !== 'undefined') {
-              result.ecosystemAnonId = body.ecosystemAnonId;
-            }
+            //if (&& typeof body.ecosystemAnonId !== 'undefined') {
+            //  result.ecosystemAnonId = body.ecosystemAnonId;
+            //}
+            const uid = req.auth.credentials.user;
+            try {
+              const hackedIn = JSON.parse(
+                fs.readFileSync(`/tmp/profile.${uid}.txt`, 'utf8')
+              );
+              console.log('HACKED IN', hackedIn);
+              if (typeof hackedIn.ecosystemAnonId !== 'undefined') {
+                result.ecosystemAnonId = hackedIn.ecosystemAnonId;
+              }
+            } catch (_) {}
             return resolve(result);
           }
         );
