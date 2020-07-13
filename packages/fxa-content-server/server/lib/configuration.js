@@ -748,6 +748,18 @@ const conf = (module.exports = convict({
     env: 'SYNC_TOKENSERVER_URL',
     format: 'url',
   },
+  ecosystem_anon_id: {
+    keys_file: {
+      default: '',
+      doc: 'Path to an array of Account Ecosystem Telemetry pipeline JWK public key objects for encrypting the ecosystem user ID to the ecosystem anon ID',
+      env: 'ECOSYSTEM_ANON_ID_KEYS_FILE',
+      format: String,
+    },
+    keys: {
+      doc: 'Array of Account Ecosystem Telemetry pipeline JWK public key objects for encrypting the ecosystem user ID to the ecosystem anon ID',
+      default: [],
+    }
+  },
   template_path: {
     default: path.resolve(__dirname, '..', 'templates'),
     doc: 'The location of server-rendered templates',
@@ -866,6 +878,24 @@ if (missingLangs.length) {
 
 const areDistResources = conf.get('static_directory') === 'dist';
 conf.set('are_dist_resources', areDistResources);
+
+if (conf.get('ecosystem_anon_id.keys_file')) {
+  const keysFile = path.resolve(
+    __dirname,
+    '..',
+    'config',
+    conf.get('ecosystem_anon_id.keys_file')
+  );
+  // If the file doesn't exist, don't alter `ecosystem_anon_id.key` default.
+  if (fs.existsSync(keysFile)) {
+    const keys = JSON.parse(fs.readFileSync(keysFile));
+    if (keys && Object.keys(keys).length > 0) {
+      conf.set('ecosystem_anon_id.keys', keys);
+    }
+  } else {
+    throw new Error('ecosystem_anon_id keys file must be present in staging and production');
+  }
+}
 
 // TODO: convict 6+ doesn't like the schema definition we've got
 // for `scopedKeys.validation`. It doesn't cause runtime problems
