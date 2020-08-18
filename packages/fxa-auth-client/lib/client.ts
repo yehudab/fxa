@@ -4,6 +4,7 @@
 
 import * as crypto from './crypto';
 import * as hawk from './hawk';
+import { RecoveryKey } from './recoveryKey';
 
 enum ERRORS {
   INVALID_TIMESTAMP = 111,
@@ -573,7 +574,15 @@ export default class AuthClient {
       verificationMethod?: string;
       metricsContext?: MetricsContext;
     } = {}
-  ): Promise<any> {
+  ): Promise<{
+    uid: string;
+    keyFetchToken?: string;
+    unwrapBKey?: string;
+    verificationMethod?: string;
+    verificationReason?: string;
+    verified: boolean;
+    authAt: number;
+  }> {
     const credentials = await crypto.getCredentials(email, password);
     const payloadOptions = ({ keys, ...rest }: any) => rest;
     const payload = {
@@ -964,6 +973,25 @@ export default class AuthClient {
     });
   }
 
+  async createRecoveryKeyBundle(
+    sessionToken: string,
+    email: string,
+    password: string,
+    enabled: boolean
+  ) {
+    const { uid, keyFetchToken, unwrapBKey } = await this.sessionReauth(
+      sessionToken,
+      email,
+      password,
+      {
+        keys: true,
+        reason: 'recovery_key',
+      }
+    );
+    const keys = await this.accountKeys(keyFetchToken!, unwrapBKey!);
+    const recoveryKey = new RecoveryKey(uid);
+  }
+
   async createRecoveryKey(
     sessionToken: string,
     recoveryKeyId: string,
@@ -1162,24 +1190,23 @@ export default class AuthClient {
     return this.request('POST', '/oauth/id-token-verify', payload);
   }
 
-  /** Update a user's ecosystem anon ID */
+  /**
+   * Update a user's ecosystem anon ID
+   *
+   * @param sessionToken
+   * @param ecosystemAnonId - The new Ecosystem Anonymous ID
+   * @param options
+   * @param options.ifNoneMatch - Sets the If-None-Match header to the specified value.
+   *                              Use '*' to only update ID if one is not already set.
+   * @param options.ifMatch - Sets the If-Match header to the specified value.
+   *                          Use the first part of an existing ID to only update
+   *                          the ID if the values do not fuzzy match.
+   */
   async updateEcosystemAnonId(
-    /** Session token obtained from signIn */
     sessionToken: string,
-    /** The new Ecosystem Anonymous ID */
     ecosystemAnonId: string,
-    /** Additional options to be passed to the method */
     options: {
-      /**
-       * Sets the If-None-Match header to the specified value.
-       * Use '*' to only update ID if one is not already set.
-       */
       ifNoneMatch?: string;
-      /**
-       * Sets the If-Match header to the specified value.
-       * Use the first part of an existing ID to only update
-       * the ID if the values do not fuzzy match.
-       */
       ifMatch?: string;
     } = {}
   ) {

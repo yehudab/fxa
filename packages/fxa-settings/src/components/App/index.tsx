@@ -12,6 +12,7 @@ import * as Metrics from '../../lib/metrics';
 import { Account } from '../../models';
 import { Router } from '@reach/router';
 import FlowContainer from '../FlowContainer';
+import { ConfirmPasswordStep, RecoveryKeyStep } from '../AccountRecoveryFlow';
 
 export const GET_INITIAL_STATE = gql`
   query GetInitialState {
@@ -76,6 +77,10 @@ export const App = ({ flowQueryParams }: AppProps) => {
         <FlowContainer path="/avatar/change" title="Profile picture" />
         <FlowContainer path="/display_name" title="Display name" />
         <FlowContainer path="/change_password" title="Change password" />
+        <FlowContainer path="/account_recovery" title="Recovery key">
+          <ConfirmPasswordStep path="confirm_password" />
+          <RecoveryKeyStep path="recovery_key" />
+        </FlowContainer>
       </Router>
     </AppLayout>
   );
