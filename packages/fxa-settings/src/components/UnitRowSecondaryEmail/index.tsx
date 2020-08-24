@@ -2,19 +2,39 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useState, useEffect } from 'react';
 import { useBooleanState } from 'fxa-react/lib/hooks';
-import { gql, useMutation } from '@apollo/client';
-import { useFocusOnTriggeringElementOnClose } from '../../lib/hooks';
+import { gql } from '@apollo/client';
+import {
+  useFocusOnTriggeringElementOnClose,
+  useHandledMutation,
+} from '../../lib/hooks';
 import UnitRow from '../UnitRow';
 import Modal from '../Modal';
 import AlertBar from '../AlertBar';
-import { useAccount, Email } from '../../models';
-import sentryMetrics from 'fxa-shared/lib/sentry';
+import ModalVerifySession from '../ModalVerifySession';
+import { useAccount, useSession, Email, Account } from '../../models';
+import { ReactComponent as TrashIcon } from './trash-icon.svg';
 
-export const RESEND_SECONDARY_EMAIL_CODE_MUTATION = gql`
+export const RESEND_EMAIL_CODE_MUTATION = gql`
   mutation resendSecondaryEmailCode($input: EmailInput!) {
     resendSecondaryEmailCode(input: $input) {
+      clientMutationId
+    }
+  }
+`;
+
+export const MAKE_EMAIL_PRIMARY_MUTATION = gql`
+  mutation updatePrimaryEmail($input: EmailInput!) {
+    updatePrimaryEmail(input: $input) {
+      clientMutationId
+    }
+  }
+`;
+
+export const DELETE_EMAIL_MUTATION = gql`
+  mutation deleteSecondaryEmail($input: EmailInput!) {
+    deleteSecondaryEmail(input: $input) {
       clientMutationId
     }
   }
@@ -27,6 +47,7 @@ type UnitRowSecondaryEmailContentAndActionsProps = {
 
 export const UnitRowSecondaryEmail = () => {
   const account = useAccount();
+  const session = useSession();
   const primaryEmail = account.primaryEmail.email;
   const primaryEmailIsVerified = account.primaryEmail.verified;
   const secondaryEmails = account.emails.filter((email) => !email.isPrimary);
@@ -36,20 +57,105 @@ export const UnitRowSecondaryEmail = () => {
     .lastIndexOf(true);
 
   const [alertBarRevealed, revealAlertBar, hideAlertBar] = useBooleanState();
+  const [queuedAction, setQueuedAction] = useState<(() => void) | null>(null);
+  const [actionableEmail, setActionableEmail] = useState<string | null>(null);
+  const [alertMessage, setAlertMessage] = useState<
+    [string, 'success' | 'error' | 'info'] | null
+  >(null);
 
-  // TODO: DRY this up and don't import `sentryMetrics` into every component
-  // needing a mutation - we must have an `onError` option in mutations
-  // to allow tests to pass but providing one prevents an error from actually
-  // throwing so we need to manually report it to Sentry.
-  // See https://github.com/apollographql/react-apollo/issues/2614
-  const [resendSecondaryEmailCode, { data, error }] = useMutation(
-    RESEND_SECONDARY_EMAIL_CODE_MUTATION,
-    {
-      onError: (error) => {
-        sentryMetrics.captureException(error);
-      },
-    }
+  const showSuccess = useCallback(
+    (message: string) => {
+      setAlertMessage([message, 'success']);
+      revealAlertBar();
+    },
+    [setAlertMessage, revealAlertBar]
   );
+
+  const showError = useCallback(
+    (message: string) => {
+      setAlertMessage([message, 'error']);
+      revealAlertBar();
+    },
+    [setAlertMessage, revealAlertBar]
+  );
+
+  const [resendEmailCode] = useHandledMutation(RESEND_EMAIL_CODE_MUTATION, {
+    onCompleted() {
+      showSuccess(
+        `Check the inbox for ${actionableEmail} to verify your secondary email.`
+      );
+    },
+    onError(error) {
+      showError(`Sorry, there was a problem re-sending the verification code.`);
+      throw error;
+    },
+  });
+
+  const [makeEmailPrimary] = useHandledMutation(MAKE_EMAIL_PRIMARY_MUTATION, {
+    onCompleted() {
+      showSuccess(`${actionableEmail} is now your primary email.`);
+    },
+    onError(error) {
+      showError(`Sorry, there was a problem changing your primary email.`);
+      throw error;
+    },
+    update: (cache) => {
+      cache.modify({
+        fields: {
+          account: (existing: Account) => {
+            const emails = existing.emails.map((m) => {
+              if (m.email === actionableEmail) {
+                return { ...m, isPrimary: true };
+              }
+
+              if (m.isPrimary && m.email !== actionableEmail) {
+                return { ...m, isPrimary: false };
+              }
+
+              return { ...m };
+            });
+
+            return { ...existing, emails };
+          },
+        },
+      });
+    },
+  });
+
+  const [deleteEmail] = useHandledMutation(DELETE_EMAIL_MUTATION, {
+    onCompleted() {
+      showSuccess(`${actionableEmail} email successfully deleted.`);
+    },
+    onError(error) {
+      showError(`Sorry, there was a problem deleting this email.`);
+      throw error;
+    },
+    update: (cache) => {
+      cache.modify({
+        fields: {
+          account: (existing: Account) => {
+            const emails = existing.emails
+              .map((m) => {
+                if (m.email === actionableEmail) {
+                  return null;
+                }
+
+                return { ...m };
+              })
+              .filter((m) => !!m);
+
+            return { ...existing, emails };
+          },
+        },
+      });
+    },
+  });
+
+  useEffect(() => {
+    if (queuedAction && session.verified) {
+      queuedAction();
+    }
+  }, [queuedAction, session]);
 
   const UnitRowSecondaryEmailNotSet = () => {
     const [modalRevealed, revealModal, hideModal] = useBooleanState();
@@ -127,34 +233,52 @@ export const UnitRowSecondaryEmail = () => {
     const secondaryEmail = secondaryEmailObj.email;
     const secondaryEmailIsVerified = secondaryEmailObj.verified;
 
-    const resendSecondaryEmailCodeHandler = () => {
-      resendSecondaryEmailCode({
-        variables: { input: { email: secondaryEmail } },
+    const queueEmailAction = (action: (...args: any[]) => void) => {
+      setActionableEmail(secondaryEmail);
+      setQueuedAction(() => {
+        return () => {
+          setQueuedAction(null);
+          action.call(null, {
+            variables: { input: { email: secondaryEmail } },
+          });
+        };
       });
-      revealAlertBar();
     };
 
     return (
       <>
-        {alertBarRevealed && (data || error) && (
-          <AlertBar onDismiss={hideAlertBar}>
-            {data && (
-              <p data-testid="resend-secondary-email-code-success">
-                Check the inbox for {primaryEmail} to verify your secondary
-                email.
-              </p>
-            )}
-            {error && (
-              <p data-testid="resend-secondary-email-code-error">
-                Error text TBD. {error.message}
-              </p>
-            )}
+        {queuedAction && !session.verified && (
+          <ModalVerifySession
+            onDismiss={() => {
+              showError(
+                `Sorry, you'll need to verify your current session to perform this action.`
+              );
+            }}
+            onError={(error) => {
+              showError(error.message);
+            }}
+            onCompleted={queuedAction}
+          />
+        )}
+        {alertBarRevealed && alertMessage && (
+          <AlertBar onDismiss={hideAlertBar} type={alertMessage[1]}>
+            <p data-testid={`alert-bar-message-${alertMessage[1]}`}>
+              {alertMessage[0]}
+            </p>
           </AlertBar>
         )}
         <div className="mobileLandscape:flex unit-row-multi-row">
           <div className="unit-row-content" data-testid="unit-row-content">
             <p className="font-bold" data-testid="unit-row-header-value">
-              {secondaryEmail}
+              <span className="flex justify-between items-center">
+                {secondaryEmail}
+                <DeleteEmailButton
+                  classNames="mobileLandscape:hidden"
+                  onClick={() => {
+                    queueEmailAction(deleteEmail);
+                  }}
+                />
+              </span>
               {!secondaryEmailIsVerified && (
                 <span
                   data-testid="unverified-text"
@@ -173,7 +297,9 @@ export const UnitRowSecondaryEmail = () => {
                 <button
                   className="link-blue mx-1"
                   data-testid="resend-secondary-email-code-button"
-                  onClick={resendSecondaryEmailCodeHandler}
+                  onClick={() => {
+                    queueEmailAction(resendEmailCode);
+                  }}
                 >
                   Resend verification email
                 </button>
@@ -182,19 +308,26 @@ export const UnitRowSecondaryEmail = () => {
             )}
           </div>
           <div className="unit-row-actions" data-testid="unit-row-actions">
-            {secondaryEmailIsVerified && (
-              <div>
+            <div className="flex items-center -mt-1">
+              {secondaryEmailIsVerified && (
                 <button
-                  className="cta-neutral transition-standard"
+                  className="cta-neutral cta-base transition-standard"
                   onClick={() => {
-                    // Make secondaryEmail the primary email!
+                    queueEmailAction(makeEmailPrimary);
                   }}
                   data-testid="secondary-email-make-primary"
                 >
                   Make primary
                 </button>
-              </div>
-            )}
+              )}
+              <DeleteEmailButton
+                classNames="hidden mobileLandscape:inline-block"
+                testId="secondary-email-delete"
+                onClick={() => {
+                  queueEmailAction(deleteEmail);
+                }}
+              />
+            </div>
           </div>
         </div>
       </>
@@ -245,6 +378,29 @@ const SecondaryEmailDefaultContent = () => (
       for that.
     </p>
   </div>
+);
+
+const DeleteEmailButton = ({
+  classNames,
+  onClick,
+  testId,
+}: {
+  classNames: string;
+  onClick: () => void;
+  testId?: string;
+}) => (
+  <button
+    className={`relative w-8 h-8 ml-2 text-red-500 active:text-red-800 focus:text-red-800 ${classNames}`}
+    title="Remove email"
+    data-testid={testId}
+    {...{ onClick }}
+  >
+    <TrashIcon
+      width="11"
+      height="14"
+      className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 fill-current"
+    />
+  </button>
 );
 
 export default UnitRowSecondaryEmail;

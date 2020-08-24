@@ -3,9 +3,9 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import React from 'react';
-import { render, screen, fireEvent, act } from '@testing-library/react';
+import { render, screen, fireEvent, act, wait } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { InMemoryCache } from '@apollo/client';
+import { InMemoryCache, DocumentNode } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
 import { AlertBarRootAndContextProvider } from '../../lib/AlertBarContext';
 import {
@@ -15,29 +15,52 @@ import {
   mockEmail,
 } from '../../models/_mocks';
 import { GET_INITIAL_STATE } from '../App';
-import { UnitRowSecondaryEmail, RESEND_SECONDARY_EMAIL_CODE_MUTATION } from '.';
+import {
+  UnitRowSecondaryEmail,
+  RESEND_EMAIL_CODE_MUTATION,
+  MAKE_EMAIL_PRIMARY_MUTATION,
+  DELETE_EMAIL_MUTATION,
+} from '.';
 
-const mockGqlSuccess = (email: string) => ({
-  request: {
-    query: RESEND_SECONDARY_EMAIL_CODE_MUTATION,
-    variables: { input: { email } },
-  },
-  result: {
-    data: {
-      resendSecondaryEmailCode: {
-        clientMutationId: null,
+function mockEmailMutations(mutationName: string, query: DocumentNode) {
+  return {
+    success: (email: string) => ({
+      request: {
+        query,
+        variables: { input: { email } },
       },
-    },
-  },
-});
+      result: {
+        data: {
+          [mutationName]: {
+            clientMutationId: null,
+          },
+        },
+      },
+    }),
+    error: (email: string) => ({
+      request: {
+        query,
+        variables: { input: { email } },
+      },
+      error: new Error('Gossamer Thin'),
+    }),
+  };
+}
 
-const mockGqlError = (email: string) => ({
-  request: {
-    query: RESEND_SECONDARY_EMAIL_CODE_MUTATION,
-    variables: { input: { email } },
-  },
-  error: new Error('Aw shucks'),
-});
+const mock = {
+  resendEmailCode: mockEmailMutations(
+    'resendSecondaryEmailCode',
+    RESEND_EMAIL_CODE_MUTATION
+  ),
+  makeEmailPrimary: mockEmailMutations(
+    'updatePrimaryEmail',
+    MAKE_EMAIL_PRIMARY_MUTATION
+  ),
+  deleteEmail: mockEmailMutations(
+    'deleteSecondaryEmail',
+    DELETE_EMAIL_MUTATION
+  ),
+};
 
 describe('UnitRowSecondaryEmail', () => {
   describe('no secondary email set', () => {
@@ -104,7 +127,7 @@ describe('UnitRowSecondaryEmail', () => {
         screen.getByTestId('resend-secondary-email-code-button')
       ).toBeInTheDocument();
       expect(screen.getByTestId('unverified-text')).toBeInTheDocument();
-      expect(screen.getByTestId('unit-row-actions')).toBeEmptyDOMElement();
+      expect(screen.getByTestId('secondary-email-delete')).toBeInTheDocument();
     });
 
     it('renders as expected when verified', () => {
@@ -128,6 +151,7 @@ describe('UnitRowSecondaryEmail', () => {
       expect(
         screen.getByTestId('secondary-email-make-primary')
       ).toBeInTheDocument();
+      expect(screen.getByTestId('secondary-email-delete')).toBeInTheDocument();
     });
   });
 
@@ -190,6 +214,7 @@ describe('UnitRowSecondaryEmail', () => {
         screen.getAllByTestId('resend-secondary-email-code-button')
       ).toHaveLength(2);
       expect(screen.getAllByTestId('unverified-text')).toHaveLength(2);
+      expect(screen.getAllByTestId('secondary-email-delete')).toHaveLength(3);
     });
   });
 
@@ -209,7 +234,7 @@ describe('UnitRowSecondaryEmail', () => {
           session: { verified: true },
         },
       });
-      const mocks = [mockGqlSuccess('johndope2@example.com')];
+      const mocks = [mock.resendEmailCode.success('johndope2@example.com')];
 
       const { rerender } = render(<AlertBarRootAndContextProvider />);
       rerender(
@@ -226,11 +251,11 @@ describe('UnitRowSecondaryEmail', () => {
         );
       });
       expect(
-        screen.queryByTestId('resend-secondary-email-code-error')
+        screen.queryByTestId('alert-bar-message-error')
       ).not.toBeInTheDocument();
       expect(
-        screen.getByTestId('resend-secondary-email-code-success').textContent
-      ).toContain('somethingdifferent@example.com');
+        screen.getByTestId('alert-bar-message-success').textContent
+      ).toContain('johndope2@example.com');
     });
 
     it('displays an error message in the AlertBar', async () => {
@@ -246,7 +271,7 @@ describe('UnitRowSecondaryEmail', () => {
           session: { verified: true },
         },
       });
-      const mocks = [mockGqlError('johndope2@example.com')];
+      const mocks = [mock.resendEmailCode.error('johndope2@example.com')];
 
       const { rerender } = render(<AlertBarRootAndContextProvider />);
       rerender(
@@ -263,12 +288,160 @@ describe('UnitRowSecondaryEmail', () => {
         );
       });
       expect(
-        screen.queryByTestId('resend-secondary-email-code-success')
+        screen.queryByTestId('alert-bar-message-success')
       ).not.toBeInTheDocument();
-
       expect(
-        screen.getByTestId('resend-secondary-email-code-error').textContent
-      ).toContain('Aw shucks');
+        screen.getByTestId('alert-bar-message-error').textContent
+      ).toContain('Sorry');
+    });
+  });
+
+  describe('updatePrimaryEmail', () => {
+    it('displays a success message in the AlertBar', async () => {
+      const primaryEmail = mockEmail('somethingdifferent@example.com');
+
+      const emails = [
+        { ...primaryEmail },
+        mockEmail('johndope2@example.com', false, true),
+      ];
+      const cache = new InMemoryCache();
+      cache.writeQuery({
+        query: GET_INITIAL_STATE,
+        data: {
+          account: { ...MOCK_ACCOUNT, emails, primaryEmail },
+          session: { verified: true },
+        },
+      });
+      const mocks = [mock.makeEmailPrimary.success('johndope2@example.com')];
+
+      const { rerender } = render(<AlertBarRootAndContextProvider />);
+      rerender(
+        <MockedProvider {...{ mocks, cache }}>
+          <AlertBarRootAndContextProvider>
+            <UnitRowSecondaryEmail />
+          </AlertBarRootAndContextProvider>
+        </MockedProvider>
+      );
+
+      await act(async () => {
+        fireEvent.click(screen.getByTestId('secondary-email-make-primary'));
+      });
+      expect(
+        screen.queryByTestId('alert-bar-message-error')
+      ).not.toBeInTheDocument();
+      expect(
+        screen.getByTestId('alert-bar-message-success').textContent
+      ).toContain('johndope2@example.com');
+    });
+
+    it('displays an error message in the AlertBar', async () => {
+      const emails = [
+        mockEmail('johndope@example.com'),
+        mockEmail('johndope2@example.com', false, true),
+      ];
+      const cache = new InMemoryCache();
+      cache.writeQuery({
+        query: GET_INITIAL_STATE,
+        data: {
+          account: { ...MOCK_ACCOUNT, emails },
+          session: { verified: true },
+        },
+      });
+      const mocks = [mock.makeEmailPrimary.error('johndope2@example.com')];
+
+      const { rerender } = render(<AlertBarRootAndContextProvider />);
+      rerender(
+        <MockedProvider {...{ mocks, cache }}>
+          <AlertBarRootAndContextProvider>
+            <UnitRowSecondaryEmail />
+          </AlertBarRootAndContextProvider>
+        </MockedProvider>
+      );
+
+      await act(async () => {
+        fireEvent.click(screen.getByTestId('secondary-email-make-primary'));
+      });
+      expect(
+        screen.queryByTestId('alert-bar-message-success')
+      ).not.toBeInTheDocument();
+      expect(
+        screen.getByTestId('alert-bar-message-error').textContent
+      ).toContain('Sorry');
+    });
+  });
+
+  describe('deleteSecondaryEmail', () => {
+    fit('displays a success message in the AlertBar', async () => {
+      const primaryEmail = mockEmail('somethingdifferent@example.com');
+
+      const emails = [
+        { ...primaryEmail },
+        mockEmail('johndope2@example.com', false, false),
+      ];
+      const cache = new InMemoryCache();
+      cache.writeQuery({
+        query: GET_INITIAL_STATE,
+        data: {
+          account: { ...MOCK_ACCOUNT, emails, primaryEmail },
+          session: { verified: true },
+        },
+      });
+      const mocks = [mock.deleteEmail.success('johndope2@example.com')];
+
+      const { rerender } = render(<AlertBarRootAndContextProvider />);
+      rerender(
+        <MockedProvider {...{ mocks, cache }}>
+          <AlertBarRootAndContextProvider>
+            <UnitRowSecondaryEmail />
+          </AlertBarRootAndContextProvider>
+        </MockedProvider>
+      );
+
+      await act(async () => {
+        fireEvent.click(screen.getByTestId('secondary-email-delete'));
+      });
+      await wait();
+      expect(
+        screen.queryByTestId('alert-bar-message-error')
+      ).not.toBeInTheDocument();
+      expect(
+        screen.getByTestId('alert-bar-message-success').textContent
+      ).toContain('johndope2@example.com');
+    });
+
+    it('displays an error message in the AlertBar', async () => {
+      const emails = [
+        mockEmail('johndope@example.com'),
+        mockEmail('johndope2@example.com', false, false),
+      ];
+      const cache = new InMemoryCache();
+      cache.writeQuery({
+        query: GET_INITIAL_STATE,
+        data: {
+          account: { ...MOCK_ACCOUNT, emails },
+          session: { verified: true },
+        },
+      });
+      const mocks = [mock.deleteEmail.error('johndope2@example.com')];
+
+      const { rerender } = render(<AlertBarRootAndContextProvider />);
+      rerender(
+        <MockedProvider {...{ mocks, cache }}>
+          <AlertBarRootAndContextProvider>
+            <UnitRowSecondaryEmail />
+          </AlertBarRootAndContextProvider>
+        </MockedProvider>
+      );
+
+      await act(async () => {
+        fireEvent.click(screen.getByTestId('secondary-email-delete'));
+      });
+      expect(
+        screen.queryByTestId('alert-bar-message-success')
+      ).not.toBeInTheDocument();
+      expect(
+        screen.getByTestId('alert-bar-message-error').textContent
+      ).toContain('Sorry');
     });
   });
 });

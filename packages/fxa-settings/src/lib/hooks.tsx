@@ -72,24 +72,19 @@ export function useHandledMutation(
   mutation: DocumentNode,
   options: MutationHookOptions<any, Record<string, any>> | undefined = {}
 ) {
-  return useMutation(
-    mutation,
-    Object.assign(options, {
-      // Pass in options.onError to handle an error and
-      // optionally re-throw so it gets logged to Sentry
-      // By default logs to Sentry
-      onError: (error: ApolloError) => {
-        if (options.onError) {
-          try {
-            options.onError(error);
-          } catch (error) {
-            sentryMetrics.captureException(error);
-          }
-        } else {
-          console.error(error);
-          sentryMetrics.captureException(error);
-        }
-      },
-    })
-  );
+  const customOnError = options.onError;
+  options.onError = (error) => {
+    if (customOnError) {
+      try {
+        customOnError(error);
+      } catch (error) {
+        sentryMetrics.captureException(error);
+      }
+    } else {
+      console.error(error);
+      sentryMetrics.captureException(error);
+    }
+  };
+
+  return useMutation(mutation, options);
 }
