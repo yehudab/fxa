@@ -2,7 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import React, { useCallback, useRef, useState, useEffect } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { useBooleanState } from 'fxa-react/lib/hooks';
 import { gql } from '@apollo/client';
 import {
@@ -13,7 +13,7 @@ import UnitRow from '../UnitRow';
 import Modal from '../Modal';
 import AlertBar from '../AlertBar';
 import ModalVerifySession from '../ModalVerifySession';
-import { useAccount, useSession, Email, Account } from '../../models';
+import { useAccount, Email, Account } from '../../models';
 import { ReactComponent as TrashIcon } from './trash-icon.svg';
 
 export const RESEND_EMAIL_CODE_MUTATION = gql`
@@ -47,7 +47,6 @@ type UnitRowSecondaryEmailContentAndActionsProps = {
 
 export const UnitRowSecondaryEmail = () => {
   const account = useAccount();
-  const session = useSession();
   const primaryEmail = account.primaryEmail.email;
   const primaryEmailIsVerified = account.primaryEmail.verified;
   const secondaryEmails = account.emails.filter((email) => !email.isPrimary);
@@ -151,12 +150,6 @@ export const UnitRowSecondaryEmail = () => {
     },
   });
 
-  useEffect(() => {
-    if (queuedAction && session.verified) {
-      queuedAction();
-    }
-  }, [queuedAction, session]);
-
   const UnitRowSecondaryEmailNotSet = () => {
     const [modalRevealed, revealModal, hideModal] = useBooleanState();
     const modalHeaderId = 'modal-header-verify-email';
@@ -247,14 +240,16 @@ export const UnitRowSecondaryEmail = () => {
 
     return (
       <>
-        {queuedAction && !session.verified && (
+        {queuedAction && (
           <ModalVerifySession
             onDismiss={() => {
+              setQueuedAction(null);
               showError(
                 `Sorry, you'll need to verify your current session to perform this action.`
               );
             }}
             onError={(error) => {
+              setQueuedAction(null);
               showError(error.message);
             }}
             onCompleted={queuedAction}
