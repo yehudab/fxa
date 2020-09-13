@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { copy } from '../../lib/clipboard';
+import ButtonIcon from '../ButtonIcon';
 import { ReactComponent as CopyIcon } from './copy.svg';
 import { ReactComponent as DownloadIcon } from './download.svg';
 import { ReactComponent as PrintIcon } from './print.svg';
@@ -16,52 +17,41 @@ export type GetDataTrioProps = {
 export const GetDataTrio = ({ value, url }: GetDataTrioProps) => {
   return (
     <div className="flex justify-between max-w-48">
-      <a
+      {/**
+       * TODO: Implement mechanism to
+       * download the data supplied
+       **/}
+      <ButtonIcon
+        size="medium"
         title="Download"
-        href={url}
-        download
-        data-testid="databutton-download"
-        className="w-12 h-12 relative inline-block text-grey-500 rounded active:text-blue-500"
-      >
-        <DownloadIcon
-          height="24"
-          width="18"
-          className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 fill-current"
-        />
-      </a>
+        testId="databutton-download"
+        classNames="text-grey-500 active:text-blue-500"
+        icon={[DownloadIcon, 18, 24]}
+      />
 
-      <button
+      <ButtonIcon
+        size="medium"
         title="Copy"
+        testId="databutton-copy"
+        classNames="text-grey-500 active:text-blue-500"
+        icon={[CopyIcon, 21, 24]}
         onClick={async () => {
           const copyValue = Array.isArray(value) ? value.join(', ') : value;
           await copy(copyValue);
         }}
-        data-testid="databutton-copy"
-        className="w-12 h-12 relative inline-block text-grey-500 rounded active:text-blue-500"
-      >
-        <CopyIcon
-          width="21"
-          height="24"
-          className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 fill-current"
-        />
-      </button>
+      />
 
-      {/** This only opens the page that is responsible
-       *   for triggering the print screen.
+      {/**
+       * TODO: Open separate page with data
+       * and trigger print dialogue
        **/}
-      <a
+      <ButtonIcon
+        size="medium"
         title="Print"
-        data-testid="databutton-print"
-        href={url}
-        target="_blank"
-        className="w-12 h-12 relative inline-block text-grey-500 rounded active:text-blue-500"
-      >
-        <PrintIcon
-          height="24"
-          width="24"
-          className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 fill-current"
-        />
-      </a>
+        testId="databutton-print"
+        classNames="text-grey-500 active:text-blue-500"
+        icon={[PrintIcon, 24, 24]}
+      />
     </div>
   );
 };

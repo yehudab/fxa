@@ -13,6 +13,12 @@ type ButtonIconProps = {
   disabled?: boolean;
   onClick?: () => void;
   testId?: string;
+  size?: 'small' | 'medium';
+};
+
+const sizeClasses = {
+  small: 'w-8 h-8',
+  medium: 'w-12 h-12',
 };
 
 const ButtonIcon = ({
@@ -22,12 +28,13 @@ const ButtonIcon = ({
   disabled,
   onClick,
   testId,
+  size = 'small',
 }: ButtonIconProps) => {
   const Icon = icon[0];
 
   return (
     <button
-      className={`relative w-8 h-8 disabled:text-grey-300 disabled:cursor-wait ${classNames}`}
+      className={`relative disabled:text-grey-300 disabled:cursor-wait ${sizeClasses[size]} ${classNames}`}
       data-testid={testId}
       {...{ title, onClick, disabled }}
     >
