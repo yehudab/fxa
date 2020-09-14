@@ -15,6 +15,7 @@ import PageSettings from '../PageSettings';
 import PageChangePassword from '../PageChangePassword';
 import PageSecondaryEmailAdd from '../PageSecondaryEmailAdd';
 import PageSecondaryEmailVerify from '../PageSecondaryEmailVerify';
+import PageChangeAvatar from '../PageChangeAvatar';
 
 export const GET_INITIAL_STATE = gql`
   query GetInitialState {
@@ -89,7 +90,7 @@ export const App = ({ flowQueryParams }: AppProps) => {
     <AppLayout>
       <Router basepath="/beta/settings">
         <PageSettings path="/" />
-        <FlowContainer path="/avatar/change" title="Profile picture" />
+        <PageChangeAvatar path="/avatar" />
         <FlowContainer path="/display_name" title="Display name" />
         <PageChangePassword path="/change_password" />
         <PageSecondaryEmailAdd path="/emails" />

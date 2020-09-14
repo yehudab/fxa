@@ -24,7 +24,7 @@ export const UnitRowWithAvatar = () => {
           <Link
             className="cta-neutral cta-base"
             data-testid="unit-row-with-avatar-route"
-            to={`/beta/settings/avatar/change${location.search}`}
+            to={`/beta/settings/avatar${location.search}`}
           >
             {ctaText}
           </Link>
