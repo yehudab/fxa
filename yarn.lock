@@ -22589,6 +22589,7 @@ fsevents@^1.2.7:
     yargs: ^15.3.1
   bin:
     jest: bin/jest.js
+  checksum: 1dc23b584d386f78a8b6d649a4c007ea2f32b4e49162c16e78b1291ea1916380c2a419988f0e9759a502a452992183abf81f6998f175ea3cb58cee6a3ed402c9
   languageName: node
   linkType: hard
 
@@ -22639,6 +22640,7 @@ fsevents@^1.2.7:
     jest-validate: ^26.4.2
     micromatch: ^4.0.2
     pretty-format: ^26.4.2
+  checksum: c7de35ec42698e3343eb002f7a960fde207280856ee5bf299d8f6fa58f4c61a8c682d719ce8aec0a7017f769309aa761a2a24101af2f7f5e8d9a96a40aea385c
   languageName: node
   linkType: hard
 
@@ -22674,6 +22676,7 @@ fsevents@^1.2.7:
     diff-sequences: ^26.3.0
     jest-get-type: ^26.3.0
     pretty-format: ^26.4.2
+  checksum: c7ece95bb1782556cce2d14b36614e115b755793db7faaf29a581f78ff117a2d6d9b6b5d48408465879f864b0b508add0ef62197730f7c73ebc0271564c3f88c
   languageName: node
   linkType: hard
 
@@ -22717,6 +22720,7 @@ fsevents@^1.2.7:
     jest-get-type: ^26.3.0
     jest-util: ^26.3.0
     pretty-format: ^26.4.2
+  checksum: 6eeb23caa17480998e2036bafffd3910a50336291d50eb881c2f90890c705ded686752ce98abfbdd0d5b6be295db4647ea7957b9c8db652b70a3c83861d79705
   languageName: node
   linkType: hard
 
@@ -22905,6 +22909,7 @@ fsevents@^1.2.7:
     jest-util: ^26.3.0
     pretty-format: ^26.4.2
     throat: ^5.0.0
+  checksum: db5cf7b79af65094c29106701fd40346e84c791c6618948ccd3e6982d8f17c48a9b47f7bfd0e372954b1877b7e6b5b6b694f3f22948e81819087525d02cdfaa6
   languageName: node
   linkType: hard
 
@@ -22924,6 +22929,7 @@ fsevents@^1.2.7:
   dependencies:
     jest-get-type: ^26.3.0
     pretty-format: ^26.4.2
+  checksum: fff504ff8e34bb1e5844325d6dac10f34e0f608c374941d0b3088a8f1ec6eaa94139afb2b6981e3d84d5ead7142bdd0f60bfd5c83bf7a0bced8330dfabd88b29
   languageName: node
   linkType: hard
 
@@ -22959,6 +22965,7 @@ fsevents@^1.2.7:
     jest-diff: ^26.4.2
     jest-get-type: ^26.3.0
     pretty-format: ^26.4.2
+  checksum: e368b46a0292088856f2e0b1ce45c2aa9f5ca7eed41a8daf94fb2c5f926bc992903245aa13b2647f87c66f3dd7a97dce9ef299e11e9e70c795e43a42f3466e64
   languageName: node
   linkType: hard
 
@@ -23069,6 +23076,7 @@ fsevents@^1.2.7:
     "@jest/types": ^26.3.0
     jest-regex-util: ^26.0.0
     jest-snapshot: ^26.4.2
+  checksum: 35a62ae01a61f1ef4c27e7df0b7f4a3f9c26331c2208d9998d1209949aeb013e05d71f980f86698ec8b2918826257e5d137c3326de53d59ee8351f4837095d7e
   languageName: node
   linkType: hard
 
@@ -23152,6 +23160,7 @@ fsevents@^1.2.7:
     jest-worker: ^26.3.0
     source-map-support: ^0.5.6
     throat: ^5.0.0
+  checksum: 3c354ab53283755e90da86d79a955783ee29a52cc7adb3586e3dee51d5f96e44398a1dcc85a950862bdc6d72dfa9fbd8c51a27feb96bf914cdb3fe070b9ad3b6
   languageName: node
   linkType: hard
 
@@ -23220,6 +23229,7 @@ fsevents@^1.2.7:
     yargs: ^15.3.1
   bin:
     jest-runtime: bin/jest-runtime.js
+  checksum: 2dd0b6887203c67757d48b8b9e97773a61e98026323d06634161f5cedfd37866413cd68eb92186edf27a9d096e14ec0c525a59b0403e9bc1439e6d33737a57bd
   languageName: node
   linkType: hard
 
@@ -23280,6 +23290,7 @@ fsevents@^1.2.7:
     natural-compare: ^1.4.0
     pretty-format: ^26.4.2
     semver: ^7.3.2
+  checksum: d87dbdfd3278358be48be71897aada0f97c3f222c1808c2c87a672a1774d51c1a0bee523873bfb8eb8f9db9b71c30faab2bbb2c33960a77d166d82ef563e94e3
   languageName: node
   linkType: hard
 
@@ -23341,6 +23352,7 @@ fsevents@^1.2.7:
     jest-get-type: ^26.3.0
     leven: ^3.1.0
     pretty-format: ^26.4.2
+  checksum: 36d76e2c80124621eda0b4422111c850eb5f54323d23cacb073f6663e016fcdf902353714337033afc1f3d66ab06c1a7ffcf1c1bac24192c140a93b42765b6dc
   languageName: node
   linkType: hard
 
@@ -23441,6 +23453,7 @@ fsevents@^1.2.7:
     jest-cli: ^26.4.2
   bin:
     jest: bin/jest.js
+  checksum: e577e4863188a5cba6454c9f3208774d7b38562c276aefae4b2abd8ff1006406026c33390bcea33f29a4d83115b3fafdbb113bfcc6124da6b4136797600855ad
   languageName: node
   linkType: hard
 

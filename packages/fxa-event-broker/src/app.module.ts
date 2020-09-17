@@ -2,6 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 import { Module } from '@nestjs/common';
+import { APP_FILTER } from '@nestjs/core';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ScheduleModule } from '@nestjs/schedule';
 import { HealthModule } from 'fxa-shared/nestjs/health/health.module';
@@ -18,6 +19,12 @@ import { FirestoreModule } from './firestore/firestore.module';
 import { JwtsetModule } from './jwtset/jwtset.module';
 import { PubsubProxyModule } from './pubsub-proxy/pubsub-proxy.module';
 import { QueueworkerModule } from './queueworker/queueworker.module';
+
+// This one works
+import { AllExceptionsFilter } from './exc-filter';
+
+// This one does not work
+// import { AllExceptionsFilter } from 'fxa-shared/nestjs/sentry/exc-filter';
 
 const version = getVersionInfo(__dirname);
 
@@ -48,6 +55,9 @@ const version = getVersionInfo(__dirname);
     PubsubProxyModule,
   ],
   controllers: [],
-  providers: [MetricsFactory],
+  providers: [
+    MetricsFactory,
+    { provide: APP_FILTER, useClass: AllExceptionsFilter },
+  ],
 })
 export class AppModule {}
