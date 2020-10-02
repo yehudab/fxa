@@ -84,7 +84,7 @@ describe('UnitRowSecondaryEmail', () => {
       ).toBeInTheDocument();
       expect(screen.getByTestId('link-recovery-key')).toHaveAttribute(
         'href',
-        '#recovery-key'
+        '#security'
       );
     });
   });

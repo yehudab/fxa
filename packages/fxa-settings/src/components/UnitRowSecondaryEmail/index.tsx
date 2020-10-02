@@ -324,11 +324,7 @@ const SecondaryEmailDefaultContent = () => (
     </p>
     <p className="text-grey-400 text-xs mt-2">
       Note: a secondary email won't restore your information—you'll need a{' '}
-      <a
-        className="link-blue"
-        href="#recovery-key"
-        data-testid="link-recovery-key"
-      >
+      <a className="link-blue" href="#security" data-testid="link-recovery-key">
         recovery key
       </a>{' '}
       for that.
